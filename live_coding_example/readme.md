@@ -17,8 +17,10 @@ Likely the steps below are too much stuff to cover, I should start implementing 
   - nbText
   - nbCode
   - nbSave
+  - here I use --nbShow
 3. now use printSvg, save to a svg file and show it as an image in nimib. We show now how to use:
   - nbImage
+  - here I use nimiboost
 4. instead of showing the image from a file we can actually embed it as a svg in the page with nbRawHtml. And the same command can be used to embed a tweet (https://twitter.com/DanHollick/status/1570040185500626947?s=20&t=tqLmT5uvA45fEBqvOW1FmA)
   - nbRawHtml
 5. how does qrgen printSvg works? I know it must have options for (at least) error correcting level. Show how I can use nbHelp (a new command, yet to be implemented) to show api of a library (base nbHelp on this https://stackoverflow.com/questions/61221599/nim-equivalent-to-pythons-help/61230721#61230721)
