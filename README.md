@@ -8,7 +8,7 @@ Title: Nimib goes interactive
 
 ## prep
 
-- [ ] release 0.3.1 nimib
+- [x] release 0.3.1 nimib
 - [ ] stuff in https://github.com/pietroppeter/nimib/discussions/112
 
 ## summary
