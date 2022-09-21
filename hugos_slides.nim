@@ -202,6 +202,10 @@ Create interactive elements in Nimib using Nim!
               counter += 1
 
   slide:
+    nbText: "postRender"
+
+
+  slide:
     nbText: "Capture variables"
     nbText: "Some example where we have a variable in C-land that we want to access in JS-land"
 

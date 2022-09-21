@@ -30,7 +30,7 @@ b = 2
 print("Result:", add(a, b))
 """
 
-nbRawHtml: hlHtml"""
+nbRawHtml: """
 <p id="text-id">You haven't clicked the button yet!</p>
 <button id="btn-id">Click me!</button>
 """
