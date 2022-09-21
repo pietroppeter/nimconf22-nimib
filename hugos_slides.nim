@@ -103,21 +103,23 @@ slide:
       tdiv(id = "svg-container", style = toCss("max-height: 50%; max-width: 50%; margin: 0 auto"))
       textarea(id = "data-field", placeholder = "https://github.com/aruZeta/QRgen"):
         proc onChange() =
-          currentData = $(getVNodeById("data-field").getInputText)
+          currentData = $(getElementById("data-field").value)
           updateQR(currentData, ar, mr)
       br()
       label:
         text "Radius1"
-      input(`type` = "range", min = "0", max = "3.5", value = "0", step = "0.1", id = "ar-slider"):
+      input(`type` = "range", min = "0", max = "100", value = "0", step = "1", id = "ar-slider"):
         proc oninput() =
-          ar = ($getVNodeById("ar-slider").getInputText).parseFloat
+          echo getVNodeById("ar-slider").isNil
+          ar = ($getElementById("ar-slider").value).parseFloat
           updateQR(currentData, ar, mr)
       br()
       label:
         text "Radius2"
-      input(`type` = "range", min = "0", max = "0.4", value = "0", step = "0.01", id = "mr-slider"):
+      input(`type` = "range", min = "0", max = "100", value = "0", step = "1", id = "mr-slider"):
         proc oninput() =
-          mr = ($getVNodeById("mr-slider").getInputText).parseFloat
+          echo getVNodeById("mr-slider").isNil
+          mr = ($getElementById("mr-slider").value).parseFloat
           updateQR(currentData, ar, mr)
       br()
       button:
@@ -187,6 +189,10 @@ Create interactive elements in Nimib using Nim!
         )
 
   slide:
+    nbText: "Capture variables"
+    nbText: "Some example where we have a variable in C-land that we want to access in JS-land"
+
+  slide:
     nbText: "nbJsFromCode + Karax"
     nbText: "Show boilerplate-y nbJsFromCode + Karax here?"
 
@@ -206,10 +212,6 @@ Create interactive elements in Nimib using Nim!
   slide:
     nbText: "postRender"
 
-
-  slide:
-    nbText: "Capture variables"
-    nbText: "Some example where we have a variable in C-land that we want to access in JS-land"
 
 slide:
   slide:
