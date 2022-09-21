@@ -6,9 +6,10 @@ import nimiSlides
 nbInit(theme = revealTheme)
 setSlidesTheme(Moon)
 
-import nimpy/py_lib
-pyInitLibPath("/usr/lib/x86_64-linux-gnu/libpython3.10.so.1.0")
-nbInitPython()
+when not defined(skipPython):
+  import nimpy/py_lib
+  pyInitLibPath("/usr/lib/x86_64-linux-gnu/libpython3.10.so.1.0")
+  nbInitPython()
 
 template nbCodeDontRun*(body: untyped) =
   newNbCodeBlock("nbCodeDontRun", body):
@@ -128,11 +129,12 @@ slide:
 
 
 
-slide:
-  nbText: hlMd"""
+when not defined(skipPython):
+  slide:
+    nbText: hlMd"""
 ## nbPython
 """
-  nbPython: hlPy"""
+    nbPython: hlPy"""
 print("Hello world")
 """
 
