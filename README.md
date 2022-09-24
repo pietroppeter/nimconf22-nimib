@@ -16,20 +16,23 @@ Title: Nimib goes interactive
 - together
   - [ ] title slide
     - [ ] add a small QR code with link to slides
+  - [x] presentation content slide
 - Pietro:
-  - [ ] who am I (reuse from last time)
+  - [x] who am I (reuse from last time)
   - [ ] livecoding
     - [x] code example
     - [ ] record livecoding
-    - [ ] add nbVideo to nimib (for Pietro's live coding)
-    - [ ] add a small QR code with link to video
+    - [x] livecode slide
+      - [ ] add nbVideo to nimib (for Pietro's live coding)
+      - [ ] add a small QR code with link to video
   - [ ] 0.3.x changes
+    - [x] intro slide for release
     - [ ] codeAsInSource
     - [ ] custom block theory
-    - [ ] custom block examples
-  - [ ] nimib changes
-    - [ ] stdout flush fix
-    - [ ] pre line-height fix
+      - [ ] custom block examples
+  - [x] nimib changes
+    - [x] stdout flush fix
+    - [x] pre line-height fix
 - Hugo:
   - [x] nbPython example
   - [ ] nbJstuff
