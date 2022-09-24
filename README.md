@@ -27,7 +27,7 @@ Title: Nimib goes interactive
       - [ ] add a small QR code with link to video
   - [ ] 0.3.x changes
     - [x] intro slide for release
-    - [ ] codeAsInSource
+    - [x] codeAsInSource
     - [ ] custom block theory
       - [ ] custom block examples
   - [x] nimib changes
