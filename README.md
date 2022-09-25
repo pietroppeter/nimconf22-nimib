@@ -28,6 +28,7 @@ Title: Nimib goes interactive
   - [ ] 0.3.x changes
     - [x] intro slide for release
     - [x] codeAsInSource
+      - [ ] fix animation of code lines and mention CodeFromAst macro
     - [ ] custom block theory
       - [ ] custom block examples: nbCode, nbText, nbImage
   - [x] nimib changes
@@ -56,9 +57,30 @@ Title: Nimib goes interactive
   - [ ] roadmap
   - [ ] hi, thanks, goodbye
 
+## recording
+
+### first session (October 8-9)
+
+homework:
+  Pietro:
+    - [ ] livecoding recording
+    - [ ] complete release slides + record
+    - [ ] work on later slides 
+  Hugo:
+    - [ ] nimiboost recording
+    - [ ] record part 2 of slides (+ details)
+
+during session:
+  - [ ] record intro together
+
+nice to have:
+  - [ ] qr code links around
+  - [ ] whale in the qr code
+
 ## summary
 
-- intro (title, who we are, what is nimib) - together
+- intro (title, who we are, previous presentation, content of presentation) - together
+- nimib livecoding
 - nimib 0.3 changes
   - nimibCodeAsInSource is default
   - refactoring: custom blocks - explain how it works with live coding example
@@ -68,6 +90,7 @@ Title: Nimib goes interactive
   - nbJSstuff...
   - nimiboost
 - nimibook changes (back to Pietro)
+- nimib gallery
 - contributing (back together)
 - roadmap
 

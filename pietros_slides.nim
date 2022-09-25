@@ -30,37 +30,12 @@ template nbCodeBeforeImpl*(body: untyped) = # use to show how CodeFromAst would 
 
 newAnimateCodeBlock(nbCodeBeforeAnimate, nbCodeBeforeImpl)
 
-slideText: hlMd"""### 👨‍👩‍👧 ME AND NIM
-- Pietro Peterlongo, [Milan, Italy 🇮🇹](https://goo.gl/maps/ceG6UsLEGqmx5Kpa7)
-- Python Data Scientist working on a [Supply Chain Planning Software](https://www.toolsgroup.com)
-- talked previously about nimib at [NimConf2021](https://pietroppeter.github.io/nimconf2021/revealjs/index.html)
-- helped organize [Nim Devroom at FOSDEM 2022](https://archive.fosdem.org/2022/schedule/track/nim_programming_language/)
-- let's organize again the Nim Devroom and meet at [FOSDEM 2023](https://fosdem.org/2023/)!
-"""
-
-slide:
-  nbText: "### Previously at NimConf 2021"
-  nbRawHtml: """<iframe width="560" height="315" src="https://www.youtube.com/embed/sWA58Wtk6L8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>"""
-
 let
   title_block = "make your own `NbBlock`👷"
   title_js = "🤯 `nbJsFromCode`, `nbKaraxCode`"
   title_source = "🪞`CodeAsInSource`"
   title_python = "🐍`nbPython`"
 
-slideText: hlMdF"""## Content of presentation
-- A livecoding👨‍💻 intro to Nimib🐳
-- ✨Release of Nimib 0.3 - BlockMaker🧱
-  - {title_block}
-  - {title_js}
-- Nimiboost🚀 and Nimibook📚 0.3
-- Nimib Gallery
-- Contributing🤲 and Roadmap🗺️
-"""
-
-slide:
-  nbText: "## A livecoding👨‍💻 intro to Nimib🐳"
-  speakerNote: "here I need to add the video" 
 
 slide:
   slideAutoAnimate:
