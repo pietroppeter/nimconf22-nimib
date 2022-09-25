@@ -9,7 +9,7 @@
   <body>
   <div class="reveal">
     <div class="slides">
-      <section>
+      <section >
       <h3>👨‍👩‍👧 ME AND NIM</h3>
 <ul>
 <li>Pietro Peterlongo, <a href="https://goo.gl/maps/ceG6UsLEGqmx5Kpa7">Milan, Italy 🇮🇹</a></li>
@@ -19,7 +19,11 @@
 <li>let's organize again the Nim Devroom and meet at <a href="https://fosdem.org/2023/">FOSDEM 2023</a>!</li>
 </ul>
       </section>
-      <section>
+      <section >
+      <h3>Previously at NimConf 2021</h3>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/sWA58Wtk6L8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </section>
+      <section >
       <h2>Content of presentation</h2>
 <ul>
 <li>A livecoding👨‍💻 intro to Nimib🐳</li>
@@ -30,42 +34,196 @@
 </ul>
 </li>
 <li>Nimiboost🚀 and Nimibook📚 0.3</li>
+<li>Nimib Gallery</li>
 <li>Contributing🤲 and Roadmap🗺️</li>
 </ul>
       </section>
-      <section>
+      <section >
       <h2>A livecoding👨‍💻 intro to Nimib🐳</h2>
       <aside class="notes">
-  here I need to add the video
+  <p>here I need to add the video</p>
+
 </aside>
       </section>
-      <section>
-      <section data-auto-animate>
+      <section >
+      <section data-auto-animate >
       <h2>✨Nimib 0.3 - BlockMaker🧱</h2>
 <ul>
 <li>make your own <code>NbBlock</code>👷</li>
 <li>🤯 <code>nbJsFromCode</code>, <code>nbKaraxCode</code></li>
 </ul>
       </section>
-      <section data-auto-animate>
+      <section data-auto-animate >
       <h2>✨Nimib 0.3 - BlockMaker🧱</h2>
 <ul>
-<li>🪞<code>CodeAsInSource</code> now default</li>
+<li>🪞<code>CodeAsInSource</code></li>
 <li>make your own <code>NbBlock</code>👷</li>
 <li>🐍<code>nbPython</code></li>
 <li>🤯 <code>nbJsFromCode</code>, <code>nbKaraxCode</code></li>
 </ul>
       </section>
-      <section data-auto-animate>
+      <section data-auto-animate >
       <h2>✨Nimib 0.3 - BlockMaker🧱</h2>
 <ul>
-<li>🪞<code>CodeAsInSource</code> now default</li>
+<li>🪞<code>CodeAsInSource</code></li>
 <li>make your own <code>NbBlock</code>👷</li>
 <li>🐍<code>nbPython</code></li>
 <li>🤯 <code>nbJsFromCode</code>, <code>nbKaraxCode</code></li>
 </ul>
 <p>more stuff and details in <a href="https://github.com/pietroppeter/nimib/releases/tag/v0.3.0">0.3.0</a>
 and <a href="https://github.com/pietroppeter/nimib/releases/tag/v0.3.1">0.3.1</a> release notes</p>
+      </section>
+      </section>
+      <section >
+      <section >
+      <h3>🪞<code>CodeAsInSource</code></h3>
+      </section>
+      <section >
+      <h4>Before (<code>CodeFromAst</code>)</h4>
+      <div style="display: grid; grid-auto-flow: column;">
+      <div>
+      <p>Code in source file:</p>
+      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">import</span> math, strformat
+<span class="hljs-keyword">let</span>
+  n = <span class="hljs-number">1</span>
+<span class="hljs-keyword">echo</span> n + <span class="hljs-number">1</span> <span class="hljs-comment"># 2</span>
+<span class="hljs-comment">## documentation comment</span>
+struct(http):
+  s: _ = <span class="hljs-string">&quot;HTTP/&quot;</span>
+  *header: {headers}</code></pre>
+      </div>
+      <div>
+      
+      </div>
+      <div class="fragment fade-in" data-fragment-index="0" data-fragment-index-nimib="0"> 
+  
+      <div>
+      <p>Code as shown in html:</p>
+      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers="|1-2,|3-4,|5-5,|6-6,|8-9,|10-10"><span class="hljs-keyword">import</span>
+  math, strformat
+
+<span class="hljs-keyword">let</span> n = <span class="hljs-number">1</span>
+<span class="hljs-keyword">echo</span> n + <span class="hljs-number">1</span>
+<span class="hljs-comment">## documentation comment</span>
+struct(http):
+  s:
+    _ = <span class="hljs-string">&quot;HTTP/&quot;</span>
+  *header</code></pre>
+
+      </div>
+      </div>
+  
+      </div>
+      <div class="fragment fade-in" data-fragment-index="1" data-fragment-index-nimib="1"> 
+  
+      <p>Still available with <code>-d:nimibCodeFromAst</code></p>
+      </div>
+  
+      <aside class="notes">
+  <ul>
+<li>It was very nice, since it was very easy to implement with a simple <code>macro toStr(body) = body.toStrLit</code></li>
+<li>it inherited bugs from Nim, see:
+<ul>
+<li>https://github.com/pietroppeter/nimib/issues/20</li>
+<li>https://github.com/nim-lang/Nim/issues/17292</li>
+</ul>
+</li>
+</ul>
+
+</aside>
+      </section>
+      <section >
+      <h4>Now (<code>CodeAsInSource</code>)</h4>
+      <div style="display: grid; grid-auto-flow: column;">
+      <div>
+      <p>Code in source file:</p>
+      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">import</span> math, strformat
+<span class="hljs-keyword">let</span>
+  n = <span class="hljs-number">1</span>
+<span class="hljs-keyword">echo</span> n + <span class="hljs-number">1</span> <span class="hljs-comment"># 2</span>
+<span class="hljs-comment">## documentation comment</span>
+struct(http):
+  s: _ = <span class="hljs-string">&quot;HTTP/&quot;</span>
+  *header: {headers}</code></pre>
+      </div>
+      <div>
+      
+      </div>
+      <div class="fragment fade-in" data-fragment-index="2" data-fragment-index-nimib="2"> 
+  
+      <div>
+      <p><strong>Same</strong> as shown in html:</p>
+      </div>
+      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers="|1-2,|3-4,|5-5,|6-6,|8-9,|10-10"><span class="hljs-keyword">import</span> math, strformat
+<span class="hljs-keyword">let</span>
+  n = <span class="hljs-number">1</span>
+<span class="hljs-keyword">echo</span> n + <span class="hljs-number">1</span> <span class="hljs-comment"># 2</span>
+<span class="hljs-comment">## documentation comment</span>
+struct(http):
+  s: _ = <span class="hljs-string">&quot;HTTP/&quot;</span>
+  *header: {headers}</code></pre>
+
+      </div>
+  
+      </div>
+      <div class="fragment fade-in" data-fragment-index="3" data-fragment-index-nimib="3"> 
+  
+      <p>Does not compose well (<a href="https://github.com/pietroppeter/nimib/issues/134">134</a>), there might still be 🐞s</p>
+      </div>
+  
+      <aside class="notes">
+  
+</aside>
+      </section>
+      </section>
+      <section >
+      <section >
+      <h3>make your own <code>NbBlock</code>👷</h3>
+      </section>
+      <section >
+      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">import</span> nimib
+
+nbInit <span class="hljs-comment"># creates a nb: NbDoc object</span>
+<span class="hljs-comment"># it has attribute nb.blocks: seq[NbBlock]</span>
+
+nbText: <span class="hljs-string">&quot;hi&quot;</span> <span class="hljs-comment"># new NbBlock added to nb.blocks</span>
+
+nbCode: <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;hi&quot;</span> <span class="hljs-comment"># new NbBlock added to nb.blocks</span>
+
+nbImage(<span class="hljs-string">&quot;hi.png&quot;</span>) <span class="hljs-comment"># new NbBlock added to nb.blocks</span>
+
+myCustomBlock: <span class="hljs-keyword">discard</span> <span class="hljs-comment"># new NbBlock added to nb.blocks</span>
+
+nbSave <span class="hljs-comment"># renders each block in nb.blocks (+theme stuff +save file)</span></code></pre>
+      </section>
+      <section >
+      <h4>Nimib types</h4>
+      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">type</span>
+  <span class="hljs-type">NbBlock</span> = <span class="hljs-keyword">ref</span> <span class="hljs-keyword">object</span>
+    command*: <span class="hljs-built_in">string</span>
+    code*: <span class="hljs-built_in">string</span>
+    output*: <span class="hljs-built_in">string</span>
+    context*: <span class="hljs-type">Context</span> <span class="hljs-comment"># think of this as a JsonNode           </span>
+  <span class="hljs-type">NbDoc</span>* = <span class="hljs-keyword">object</span>
+    blocks*: <span class="hljs-built_in">seq</span>[<span class="hljs-type">NbBlock</span>]
+    blk*: <span class="hljs-type">NbBlock</span>  <span class="hljs-comment">## current block being processed</span>
+    <span class="hljs-comment"># in these table NbBlock.command is the key</span>
+    partials*: <span class="hljs-type">Table</span>[<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>]
+    renderPlans*: <span class="hljs-type">Table</span>[<span class="hljs-built_in">string</span>, <span class="hljs-built_in">seq</span>[<span class="hljs-built_in">string</span>]]
+    renderProcs*: <span class="hljs-type">Table</span>[<span class="hljs-built_in">string</span>, <span class="hljs-type">NbRenderProc</span>]
+    <span class="hljs-comment"># ... and other fields</span>
+  <span class="hljs-type">NbRenderProc</span>* = <span class="hljs-keyword">proc</span> (doc: <span class="hljs-keyword">var</span> <span class="hljs-type">NbDoc</span>, blk: <span class="hljs-keyword">var</span> <span class="hljs-type">NbBlock</span>) {.nimcall.}</code></pre>
+      </section>
+      <section >
+      <h4>Block render function</h4>
+      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">proc</span> render*(nb: <span class="hljs-keyword">var</span> <span class="hljs-type">NbDoc</span>, blk: <span class="hljs-keyword">var</span> <span class="hljs-type">NbBlock</span>): <span class="hljs-built_in">string</span> =
+  <span class="hljs-comment"># adapted from src/nimib/renders.nim</span>
+  <span class="hljs-keyword">if</span> blk.command <span class="hljs-keyword">in</span> nb.renderPlans:
+    <span class="hljs-keyword">for</span> step <span class="hljs-keyword">in</span> nb.renderPlans[blk.command]:
+      <span class="hljs-keyword">if</span> step <span class="hljs-keyword">in</span> nb.renderProcs:
+        nb.renderProcs[step](nb, blk)
+  blk.context.searchTable(nb.partials)
+  <span class="hljs-literal">result</span> = nb.partials[blk.command].render(blk.context)</code></pre>
       </section>
       </section>
     </div>

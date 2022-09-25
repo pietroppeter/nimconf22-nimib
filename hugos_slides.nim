@@ -6,6 +6,10 @@ import nimiSlides
 nbInit(theme = revealTheme)
 setSlidesTheme(Moon)
 
+template slideAutoAnimate(body: untyped) =
+  slide(slideOptions(autoAnimate=true)):
+    body
+
 when not defined(skipPython):
   import nimpy/py_lib
   pyInitLibPath("/usr/lib/x86_64-linux-gnu/libpython3.10.so.1.0")
@@ -208,7 +212,7 @@ Create interactive elements in Nimib using Nim!
           p.innerHtml = name & "'s favourite food is " & food
         )
 
-  slide:
+  slideAutoAnimate:
     nbText: "nbJsFromCode + Karax"
     nbCodeDontRun: #nimibCodeAnimate(@[1..2, 4..4, 6..7, 15..15], @[5..5, 8..13]):
       let rootId = "karax-" & $nb.newId()
@@ -227,7 +231,7 @@ Create interactive elements in Nimib using Nim!
 
         setRenderer(createDom, root = rootId.cstring)
 
-  slide:
+  slideAutoAnimate:
     nbText: "nbKaraxCode"
     nimibCodeAnimate(1, 2, 3, 4..5, 6..9):
       nbKaraxCode:

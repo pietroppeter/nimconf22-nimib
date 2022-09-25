@@ -6,8 +6,6 @@ import nimiSlides
 nbInit(theme = revealTheme)
 setSlidesTheme(Moon)
 
-proc hlHtml(html: string): string = html
-
 template slideText(text: string) =
   slide:
     nbText: text
@@ -22,11 +20,15 @@ template nbCodeDontRun*(body: untyped) = # from hugos_slides
 nb.partials["nbCodeDontRun"] = nb.partials["nbCode"]
 nb.renderPlans["nbCodeDontRun"] = nb.renderPlans["nbCode"]
 
-template nbCodeBefore*(body: untyped) = # use to show how CodeFromAst would have looked like
-  newNbCodeBlock("nbCodeDontRun", body):
-    nb.blk.code = toStr(body)
+template nbCodeDontRunAnimateImpl(body: untyped) =
+  discard
 
-template placeholder(body: untyped) = body
+newAnimateCodeBlock(nbCodeDontRunAnimate, nbCodeDontRunAnimateImpl)
+
+template nbCodeBeforeImpl*(body: untyped) = # use to show how CodeFromAst would have looked like
+  nb.blk.code = toStr(body)
+
+newAnimateCodeBlock(nbCodeBeforeAnimate, nbCodeBeforeImpl)
 
 slideText: hlMd"""### 👨‍👩‍👧 ME AND NIM
 - Pietro Peterlongo, [Milan, Italy 🇮🇹](https://goo.gl/maps/ceG6UsLEGqmx5Kpa7)
@@ -52,6 +54,7 @@ slideText: hlMdF"""## Content of presentation
   - {title_block}
   - {title_js}
 - Nimiboost🚀 and Nimibook📚 0.3
+- Nimib Gallery
 - Contributing🤲 and Roadmap🗺️
 """
 
@@ -110,7 +113,7 @@ slide:
           nbText: "Code as shown in html:"
           # it would be nice to animate 1..2, 3, 4, 5, 6, 8..9, 10
           # also it would be nice to have this code block appear with a different background
-          nbCodeBefore: 
+          nbCodeBeforeAnimate([1..2, 3..4, 5..5, 6..6, 8..9, 10..10]): 
             import math, strformat
             let
               n = 1
@@ -145,9 +148,9 @@ slide:
       column:
         nbText: ""
       fragmentFadeIn:
-        placeholder: # column
+        column:
           nbText: "**Same** as shown in html:"
-        nbCodeDontRun:
+        nbCodeDontRunAnimate([1..2, 3..4, 5..5, 6..6, 8..9, 10..10]):
           import math, strformat
           let
             n = 1
@@ -164,5 +167,51 @@ slide:
 slide:
   slideText: hlMdF"""### {title_block}
 """
+  slide:
+    nbCodeDontRun: # should higlight lines line by one
+      import nimib
+
+      nbInit # creates a nb: NbDoc object
+      # it has attribute nb.blocks: seq[NbBlock]
+
+      nbText: "hi" # new NbBlock added to nb.blocks
+
+      nbCode: echo "hi" # new NbBlock added to nb.blocks
+
+      nbImage("hi.png") # new NbBlock added to nb.blocks
+
+      myCustomBlock: discard # new NbBlock added to nb.blocks
+
+      nbSave # renders each block in nb.blocks (+theme stuff +save file)
+  
+  slide:
+    nbText: "#### Nimib types" # essentials for rendering blocks
+    nbCodeDontRun:
+      type
+        NbBlock = ref object
+          command*: string
+          code*: string
+          output*: string
+          context*: Context # think of this as a JsonNode           
+        NbDoc* = object
+          blocks*: seq[NbBlock]
+          blk*: NbBlock  ## current block being processed
+          # in these table NbBlock.command is the key
+          partials*: Table[string, string]
+          renderPlans*: Table[string, seq[string]]
+          renderProcs*: Table[string, NbRenderProc]
+          # ... and other fields
+        NbRenderProc* = proc (doc: var NbDoc, blk: var NbBlock) {.nimcall.}
+  slide:
+    nbText: "#### Block render function"
+    nbCodeDontRun:
+      proc render*(nb: var NbDoc, blk: var NbBlock): string =
+        # adapted from src/nimib/renders.nim
+        if blk.command in nb.renderPlans:
+          for step in nb.renderPlans[blk.command]:
+            if step in nb.renderProcs:
+              nb.renderProcs[step](nb, blk)
+        blk.context.searchTable(nb.partials)
+        result = nb.partials[blk.command].render(blk.context)
 
 nbSave

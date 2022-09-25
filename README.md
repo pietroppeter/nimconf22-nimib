@@ -29,26 +29,31 @@ Title: Nimib goes interactive
     - [x] intro slide for release
     - [x] codeAsInSource
     - [ ] custom block theory
-      - [ ] custom block examples
+      - [ ] custom block examples: nbCode, nbText, nbImage
   - [x] nimib changes
     - [x] stdout flush fix
     - [x] pre line-height fix
 - Hugo:
   - [x] nbPython example
-  - [ ] nbJstuff
+  - [x] nbJstuff
     - [x] js app for qr code app
     - [x] nbJsFromCode with counter example
-    - [ ] boilerplate karax in nbJsFromCode
+    - [x] boilerplate karax in nbJsFromCode
     - [x] nbKaraxCode with counter example
-    - [ ] capture variable example
+    - [x] capture variable example
   - [ ] nimiboost
     - [x] livecoding example
     - [ ] record nimiboost livecoding
     - [ ] Hugo nimiboost: add a way to add video to slides
+  - [ ] details
+    - [ ] bigger buttons
+    - [ ] better example for postRender
 - back to Pietro
   - [ ] nimibook changes
+  - [ ] nimib gallery
 - together:
   - [ ] contributing
+  - [ ] roadmap
   - [ ] hi, thanks, goodbye
 
 ## summary
@@ -75,8 +80,8 @@ video editing: ?
 meetings:
 - [x] Sep 10th, Sat 12:00
 - [x] Sep 17-18, Sat 15:00
-- [ ] Sep 24-25, to be planned (not Saturday)
-- [ ] Oct 1-2
+- [x] Sep 24-25, Sun 15:00
+- [ ] Oct 1-2 - start
 - [ ] Oct 8-9 **deadline for video**
 - [ ] Oct 15-16 (what else?)
 - [ ] Oct 22, Saturday NIMCONF!!!!
