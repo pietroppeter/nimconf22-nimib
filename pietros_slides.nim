@@ -35,10 +35,15 @@ slideText: hlMd"""### 👨‍👩‍👧 ME AND NIM
 - helped organize [Nim Devroom at FOSDEM 2022](https://archive.fosdem.org/2022/schedule/track/nim_programming_language/)
 - let's organize again the Nim Devroom and meet at [FOSDEM 2023](https://fosdem.org/2023/)!
 """
+
+slide:
+  nbText: "### Previously at NimConf 2021"
+  nbRawHtml: """<iframe width="560" height="315" src="https://www.youtube.com/embed/sWA58Wtk6L8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>"""
+
 let
   title_block = "make your own `NbBlock`👷"
   title_js = "🤯 `nbJsFromCode`, `nbKaraxCode`"
-  title_source = "🪞`CodeAsInSource` now default"
+  title_source = "🪞`CodeAsInSource`"
   title_python = "🐍`nbPython`"
 
 slideText: hlMdF"""## Content of presentation
@@ -123,9 +128,9 @@ slide:
   - https://github.com/nim-lang/Nim/issues/17292
 """
   slide:
-    nbText: "#### After (`CodeAsInSource`)"
-    placeholder: # columns
-      placeholder: # column
+    nbText: "#### Now (`CodeAsInSource`)"
+    columns:
+      column:
         nbText: "Code in source file:"
         nbCodeDontRun:
           import math, strformat
@@ -137,7 +142,7 @@ slide:
             s: _ = "HTTP/"
             *header: {headers}
 
-      placeholder: # column
+      column:
         nbText: ""
       fragmentFadeIn:
         placeholder: # column
@@ -152,7 +157,7 @@ slide:
             s: _ = "HTTP/"
             *header: {headers}
     fragmentFadeIn:
-      nbText: "There might be bugs and it complicates some stuff"
+      nbText: "Does not compose well ([134](https://github.com/pietroppeter/nimib/issues/134)), there might still be 🐞s"
     speakerNote: """"""
 
 
