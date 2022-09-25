@@ -190,11 +190,42 @@ Create interactive elements in Nimib using Nim!
 
   slide:
     nbText: "Capture variables"
-    nbText: "Some example where we have a variable in C-land that we want to access in JS-land"
+    speakerNote: "Must capture variables in C-land to use their values in JS-land"
+    nimibCodeAnimate(1..2, 3..6, 7, 8..11, 12..15):
+      let name = "Hugo"
+      let food = "hot dogs"
+      nbRawHtml: """
+<p id="text2-id">...</p>
+<button id="btn2-id">Click me!</button>
+"""
+      nbJsFromCode(name, food):
+        import std / [dom]
+
+        let btn = getElementById("btn2-id")
+        let p = getElementById("text2-id")
+
+        btn.addEventListener("click", proc (event: Event) =
+          p.innerHtml = name & "'s favourite food is " & food
+        )
 
   slide:
     nbText: "nbJsFromCode + Karax"
-    nbText: "Show boilerplate-y nbJsFromCode + Karax here?"
+    nbCodeDontRun: #nimibCodeAnimate(@[1..2, 4..4, 6..7, 15..15], @[5..5, 8..13]):
+      let rootId = "karax-" & $nb.newId()
+      nbRawHtml: "<div id=\"" & rootId & "\"></div>"
+      nbJsFromCode:
+        include karax / prelude
+        var counter: int
+        proc createDom(): VNode =
+          result = buildHtml(tdiv):
+            p:
+              text "You have clicked " & $counter & " times!"
+            button:
+              text "Click me!"
+              proc onClick() =
+                counter += 1
+
+        setRenderer(createDom, root = rootId.cstring)
 
   slide:
     nbText: "nbKaraxCode"
@@ -203,7 +234,7 @@ Create interactive elements in Nimib using Nim!
         var counter: int
         karaxHtml:
           p:
-            text "You have click " & $counter & " times!"
+            text "You have clicked " & $counter & " times!"
           button:
             text "Click me!"
             proc onClick() =
@@ -211,6 +242,17 @@ Create interactive elements in Nimib using Nim!
 
   slide:
     nbText: "postRender"
+    nimibCodeAnimate(7..9, 2, 2..5):
+      nbKaraxCode:
+        postRender:
+          let btn = getElementById("btn3-id")
+          # btn will be nil if the button hasn't
+          # been created by Karax yet
+
+        karaxHtml:
+          button(id="btn3-id"):
+            text "Click me"
+
 
 
 slide:
