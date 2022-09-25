@@ -72,16 +72,16 @@ template fadeInText(text: string) =
     nbText: text
 
 slide:
-  nbText: hlMd"""
-### Who am I 🙋‍♂️
-
-- Engineering Physics student
-- Nimib maintainer - since July 2022
-  - nimiSlides
-- SciNim member - since the start 2020
-  - NumericalNim
-  - Scinim/getting-started (uses nimiBook)
-"""
+  nbText: "### Who am I 🙋‍♂️"
+  unorderedList:
+    listItem: nbText: "Engineering Physics student"
+    listItem: nbText: "Nimib maintainer - since July 2022"
+    unorderedList:
+      listItem: nbText: "nimiSlides"
+    listItem: nbText: "SciNim member - since the start 2020"
+    unorderedList:
+      listItem: nbText: "NumericalNim"
+      listItem: nbText: "Scinim/getting-started (uses nimiBook)"
 
 slide:
   nbKaraxCode:
