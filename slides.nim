@@ -6,6 +6,12 @@ import nimiSlides
 nbInit(theme = revealTheme)
 setSlidesTheme(Moon)
 
+when not defined(skipPython):
+  when defined(hugo):
+    import nimpy/py_lib
+    pyInitLibPath("/usr/lib/x86_64-linux-gnu/libpython3.10.so.1.0")
+  nbInitPython()
+
 # CUSTOM blocks and templates ------------------------------------------------------------------------------------------
 template slideText(text: string) =
   slide:
