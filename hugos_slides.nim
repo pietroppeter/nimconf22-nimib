@@ -6,18 +6,44 @@ import nimiSlides
 nbInit(theme = revealTheme)
 setSlidesTheme(Moon)
 
+nb.addStyle: """
+button {
+  font-size: 30px;
+  padding: 10px 24px;
+  border-radius: 4px;
+}
+"""
+
+when not defined(skipPython):
+  when defined(hugo):
+    import nimpy/py_lib
+    pyInitLibPath("/usr/lib/x86_64-linux-gnu/libpython3.10.so.1.0")
+  nbInitPython()
+
+# CUSTOM blocks and templates ------------------------------------------------------------------------------------------
+template slideText(text: string) =
+  slide:
+    nbText: text
+
 template slideAutoAnimate(body: untyped) =
   slide(slideOptions(autoAnimate=true)):
     body
 
-when not defined(skipPython):
-  import nimpy/py_lib
-  pyInitLibPath("/usr/lib/x86_64-linux-gnu/libpython3.10.so.1.0")
-  nbInitPython()
-
-template nbCodeDontRun*(body: untyped) =
+template nbCodeDontRun*(body: untyped) = # from hugos_slides
   newNbCodeBlock("nbCodeDontRun", body):
     discard
+nb.partials["nbCodeDontRun"] = nb.partials["nbCode"]
+nb.renderPlans["nbCodeDontRun"] = nb.renderPlans["nbCode"]
+
+template nbCodeDontRunAnimateImpl(body: untyped) =
+  discard
+
+newAnimateCodeBlock(nbCodeDontRunAnimate, nbCodeDontRunAnimateImpl)
+
+template nbCodeBeforeImpl*(body: untyped) = # use to show how CodeFromAst would have looked like
+  nb.blk.code = toStr(body)
+
+newAnimateCodeBlock(nbCodeBeforeAnimate, nbCodeBeforeImpl)
 
 template nimibCode*(body: untyped) =
   newNbCodeBlock("nimibCode", body):
@@ -63,8 +89,6 @@ template nimibCodeAnimate*(lines: varargs[HSlice[int, int], toHSlice], body: unt
   nimibCodeAnimate(s):
     body
 
-nb.partials["nbCodeDontRun"] = nb.partials["nbCode"]
-nb.renderPlans["nbCodeDontRun"] = nb.renderPlans["nbCode"]
 nb.partials["nimibCode"] = nb.partials["nbCode"]
 nb.renderPlans["nimibCode"] = nb.renderPlans["nbCode"]
 nb.partials["nimibCodeAnimate"] = nb.partials["animateCode"]
@@ -74,6 +98,7 @@ nb.renderPlans["nimibCodeAnimate"] = nb.renderPlans["animateCode"]
 template fadeInText(text: string) =
   fragment(fadeInThenSemiOut):
     nbText: text
+
 
 slide:
   nbText: "### Who am I 🙋‍♂️"
@@ -173,11 +198,9 @@ Create interactive elements in Nimib using Nim!
 
   slide:
     nbText: "nbJsFromCode"
-    nimibCodeAnimate(1..4, 6, 7..10, 12, 14, 15, 16):
-      nbRawHtml: """
-<p id="text-id">You have clicked 0 times!</p>
-<button id="btn-id">Click me!</button>
-"""
+    nimibCodeAnimate(1..2, 4, 5..8, 10, 12, 13, 14):
+      nbRawHtml: """<p id="text-id">You have clicked 0 times!</p>
+<button id="btn-id">Click me!</button>"""
 
       nbJsFromCode:
         import std / [dom]
@@ -214,7 +237,7 @@ Create interactive elements in Nimib using Nim!
 
   slideAutoAnimate:
     nbText: "nbJsFromCode + Karax"
-    nbCodeDontRun: #nimibCodeAnimate(@[1..2, 4..4, 6..7, 15..15], @[5..5, 8..13]):
+    nbCodeDontRunAnimate(@[1..2, 4..4, 6..7, 15..15], @[5..5, 8..13]): #nimibCodeAnimate(@[1..2, 4..4, 6..7, 15..15], @[5..5, 8..13]):
       let rootId = "karax-" & $nb.newId()
       nbRawHtml: "<div id=\"" & rootId & "\"></div>"
       nbJsFromCode:
@@ -246,16 +269,34 @@ Create interactive elements in Nimib using Nim!
 
   slide:
     nbText: "postRender"
-    nimibCodeAnimate(7..9, 2, 2..5):
+    nimibCodeAnimate(1..2, 25..26, 4, 5..7, 8..14, 15..23):
       nbKaraxCode:
+        import jscanvas, dom, colors, math, random
+
         postRender:
-          let btn = getElementById("btn3-id")
-          # btn will be nil if the button hasn't
+          var canvas = getElementById("canvas-id").CanvasElement
+          # canvas will be nil if it hasn't
           # been created by Karax yet
+          canvas.width = 500
+          canvas.height = 100
+          var ctx = canvas.getContext2d()
+
+          # Fill background
+          ctx.fillStyle = $colBlack
+          ctx.fillRect(0,0,canvas.width,canvas.height)
+          # Draw ball
+          var x = rand(0..canvas.width)
+          var y = rand(0..canvas.height)
+          var ballRadius = 10
+          ctx.beginPath()
+          ctx.arc(x, y, ballRadius, 0, Pi*2)
+          ctx.fillStyle = $colBlue
+          ctx.fill()
+          ctx.closePath()
 
         karaxHtml:
-          button(id="btn3-id"):
-            text "Click me"
+          canvas(id="canvas-id")
+              
 
 
 
