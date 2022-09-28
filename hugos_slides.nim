@@ -17,7 +17,7 @@ button {
 when not defined(skipPython):
   when defined(hugo):
     import nimpy/py_lib
-    pyInitLibPath("/usr/lib/x86_64-linux-gnu/libpython3.10.so.1.0")
+    pyInitLibPath("/home/hugo/miniconda3/lib/libpython3.9.so.1.0")
   nbInitPython()
 
 # CUSTOM blocks and templates ------------------------------------------------------------------------------------------
@@ -166,8 +166,15 @@ when not defined(skipPython):
 ## nbPython
 """
     nbPython: hlPy"""
-print("Hello world")
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(-5, 5)
+y = np.sin(x)
+plt.plot(x, y)
+plt.title("nbPython Plot")
+plt.savefig("matplotlib_example.png", dpi=60)
 """
+    nbImage("matplotlib_example.png")
 
 slide:
   slide:
