@@ -232,7 +232,9 @@ Create interactive elements in Nimib using Nim!
     nbText: hlMd"""
 ### Why?
 """
-    fadeInText: "Engaging"
+    fadeInText: "Engaging content"
+    fadeInText: "Comfortable - Nim all the way"
+    fadeInText: "Runs locally"
     fadeInText: "Fun!"
 
   nimConfSlide:
