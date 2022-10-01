@@ -5,7 +5,6 @@ import nimiSlides
 
 
 nbInit(theme = revealTheme)
-setSlidesTheme(Moon)
 
 nb.addStyle: """
 button {
@@ -17,6 +16,11 @@ button {
 
 template nimConfSlide(body: untyped) =
   slide:
+    cornerImage("https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png", UpperRight, size=100, animate=false)
+    body
+
+template nimConfSlide(options: SlideOptions, body: untyped) =
+  slide(options):
     cornerImage("https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png", UpperRight, size=100, animate=false)
     body
 
@@ -134,18 +138,18 @@ template fadeInText(text: string) =
   fragment(fadeInThenSemiOut):
     nbText: text
 
-
-nimconfslide:
-  nbText: "### Who am I 🙋‍♂️"
-  unorderedList:
-    listItem: nbText: "Engineering Physics student"
-    listItem: nbText: "Nimib maintainer - since July 2022"
+slide:
+  nimConfSlide:
+    nbText: "### Who am I 🙋‍♂️"
     unorderedList:
-      listItem: nbText: "nimiSlides"
-    listItem: nbText: "SciNim member - since the start 2020"
-    unorderedList:
-      listItem: nbText: "NumericalNim"
-      listItem: nbText: "Scinim/getting-started (uses nimiBook)"
+      listItem: nbText: "Engineering Physics student "
+      listItem: nbText: "Nimib maintainer - since July 2022"
+      unorderedList:
+        listItem: nbText: "nimiSlides"
+      listItem: nbText: "SciNim member - since the start 2020"
+      unorderedList:
+        listItem: nbText: "NumericalNim"
+        listItem: nbText: "Scinim/getting-started (uses nimiBook)"
 
 #[
 slide:
@@ -198,17 +202,24 @@ slide:
 
 when not defined(skipPython):
   slide:
-    nimConfSlide:
+    nimConfSlide(slideOptions(autoAnimate=true)):
       nbText: hlMd"""
   ## nbPython
-  """ 
-      fragmentFadeIn:
-        nbCodeDontRun:
-          nbPython: """
-print("Hello World")
+  """
+
+    nimConfSlide(slideOptions(autoAnimate=true)):
+      nbText: hlMd"""
+  ## nbPython
+  """
+      nbCodeDontRun:
+        nbPython: """
+print("Hello World") 
 """
 
-    nimConfSlide:
+    nimConfSlide(slideOptions(autoAnimate=true)):
+      nbText: hlMd"""
+## nbPython
+"""
       nbPython: hlPy"""
 import matplotlib.pyplot as plt
 import numpy as np
@@ -230,7 +241,7 @@ Create interactive elements in Nimib using Nim!
 
   nimConfSlide:
     nbText: hlMd"""
-### Why?
+### Why? 
 """
     fadeInText: "Engaging content"
     fadeInText: "Comfortable - Nim all the way"
@@ -367,6 +378,7 @@ VS Codium/VS Code extension
       listItem: nbText: "Syntax highlighting"
       listItem: nbText: "Preview"
     fadeInText: "Let's head over to VSCodium!"
+
 
 
 nbSave
