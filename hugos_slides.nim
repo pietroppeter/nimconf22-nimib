@@ -1,3 +1,4 @@
+import std / strutils
 import nimib
 import nimib/capture
 import nimiSlides
@@ -6,18 +7,78 @@ import nimiSlides
 nbInit(theme = revealTheme)
 setSlidesTheme(Moon)
 
+nb.addStyle: """
+button {
+  font-size: 30px;
+  padding: 10px 24px;
+  border-radius: 4px;
+}
+"""
+
+template nimConfSlide(body: untyped) =
+  slide:
+    cornerImage("https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png", UpperRight, size=100, animate=false)
+    body
+
+template nimConfTheme*() =
+  setSlidesTheme(Black)
+  let nimYellow = "#FFE953"
+  nb.addStyle: """
+:root {
+  --r-background-color: #181922;
+  --r-heading-color: $1;
+  --r-link-color: $1;
+  --r-selection-color: $1;
+  --r-link-color-dark: darken($1 , 15%)
+}
+
+.reveal ul, .reveal ol {
+  display: block;
+  text-align: left;
+}
+
+li::marker {
+  color: $1;
+  content: "»";
+}
+
+li {
+  padding-left: 12px;
+}
+""" % [nimYellow]
+
+nimConfTheme()
+
+when not defined(skipPython):
+  when defined(hugo):
+    import nimpy/py_lib
+    pyInitLibPath("/home/hugo/miniconda3/lib/libpython3.9.so.1.0")
+  nbInitPython()
+
+# CUSTOM blocks and templates ------------------------------------------------------------------------------------------
+template slideText(text: string) =
+  slide:
+    nbText: text
+
 template slideAutoAnimate(body: untyped) =
   slide(slideOptions(autoAnimate=true)):
     body
 
-when not defined(skipPython):
-  import nimpy/py_lib
-  pyInitLibPath("/usr/lib/x86_64-linux-gnu/libpython3.10.so.1.0")
-  nbInitPython()
-
-template nbCodeDontRun*(body: untyped) =
+template nbCodeDontRun*(body: untyped) = # from hugos_slides
   newNbCodeBlock("nbCodeDontRun", body):
     discard
+nb.partials["nbCodeDontRun"] = nb.partials["nbCode"]
+nb.renderPlans["nbCodeDontRun"] = nb.renderPlans["nbCode"]
+
+template nbCodeDontRunAnimateImpl(body: untyped) =
+  discard
+
+newAnimateCodeBlock(nbCodeDontRunAnimate, nbCodeDontRunAnimateImpl)
+
+template nbCodeBeforeImpl*(body: untyped) = # use to show how CodeFromAst would have looked like
+  nb.blk.code = toStr(body)
+
+newAnimateCodeBlock(nbCodeBeforeAnimate, nbCodeBeforeImpl)
 
 template nimibCode*(body: untyped) =
   newNbCodeBlock("nimibCode", body):
@@ -63,8 +124,6 @@ template nimibCodeAnimate*(lines: varargs[HSlice[int, int], toHSlice], body: unt
   nimibCodeAnimate(s):
     body
 
-nb.partials["nbCodeDontRun"] = nb.partials["nbCode"]
-nb.renderPlans["nbCodeDontRun"] = nb.renderPlans["nbCode"]
 nb.partials["nimibCode"] = nb.partials["nbCode"]
 nb.renderPlans["nimibCode"] = nb.renderPlans["nbCode"]
 nb.partials["nimibCodeAnimate"] = nb.partials["animateCode"]
@@ -75,7 +134,8 @@ template fadeInText(text: string) =
   fragment(fadeInThenSemiOut):
     nbText: text
 
-slide:
+
+nimconfslide:
   nbText: "### Who am I 🙋‍♂️"
   unorderedList:
     listItem: nbText: "Engineering Physics student"
@@ -87,6 +147,7 @@ slide:
       listItem: nbText: "NumericalNim"
       listItem: nbText: "Scinim/getting-started (uses nimiBook)"
 
+#[
 slide:
   nbKaraxCode:
     import karax / vstyles
@@ -130,57 +191,73 @@ slide:
         text "Refresh"
         proc onclick() =
           updateQR(currentData, ar, mr)
-    
+]#
 
 
 
 
 when not defined(skipPython):
   slide:
-    nbText: hlMd"""
-## nbPython
-"""
-    nbPython: hlPy"""
-print("Hello world")
+    nimConfSlide:
+      nbText: hlMd"""
+  ## nbPython
+  """ 
+      fragmentFadeIn:
+        nbCodeDontRun:
+          nbPython: """
+print("Hello World")
 """
 
+    nimConfSlide:
+      nbPython: hlPy"""
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(-5, 5)
+y = np.sin(x)
+plt.plot(x, y)
+plt.title("nbPython Plot")
+plt.savefig("matplotlib_example.png", dpi=60)
+  """
+      fragmentFadeIn:
+        nbImage("matplotlib_example.png")
+
 slide:
-  slide:
+  nimConfSlide:
     nbText: hlMd"""
 ## Nimib goes interactive!
 Create interactive elements in Nimib using Nim!
 """
 
-  slide:
+  nimConfSlide:
     nbText: hlMd"""
 ### Why?
 """
+    fadeInText: "Engaging content"
+    fadeInText: "Comfortable - Nim all the way"
+    fadeInText: "Runs locally"
     fadeInText: "Fun!"
-    fadeInText: "Rich content"
 
-  slide:
+  nimConfSlide:
     nbText: "### How?"
     fadeInText: "Nim → JS"
     fadeInText: "Capture variables"
 
 
-  slide:
+  nimConfSlide:
     nbText: hlMd"""
 ### API
 - `nbJsFromCode` - compiles code to JS
 - `nbKaraxCode` - sugar for Karax
 """
 
-  slide:
+  nimConfSlide:
     nbText: "nbJsFromCode"
-    nimibCodeAnimate(1..4, 6, 7..10, 12, 14, 15, 16):
-      nbRawHtml: """
-<p id="text-id">You have clicked 0 times!</p>
-<button id="btn-id">Click me!</button>
-"""
+    nimibCodeAnimate(1..2, 4, 5..8, 10, 12, 13, 14):
+      nbRawHtml: """<p id="text-id">You have clicked 0 times!</p>
+<button id="btn-id">Click me!</button>"""
 
       nbJsFromCode:
-        import std / [dom]
+        import std / dom
 
         let btn = getElementById("btn-id")
         let p = getElementById("text-id")
@@ -192,7 +269,7 @@ Create interactive elements in Nimib using Nim!
           p.innerHtml = "You have clicked " & $counter & " times!"
         )
 
-  slide:
+  nimConfSlide:
     nbText: "Capture variables"
     speakerNote: "Must capture variables in C-land to use their values in JS-land"
     nimibCodeAnimate(1..2, 3..6, 7, 8..11, 12..15):
@@ -203,7 +280,7 @@ Create interactive elements in Nimib using Nim!
 <button id="btn2-id">Click me!</button>
 """
       nbJsFromCode(name, food):
-        import std / [dom]
+        import std / dom
 
         let btn = getElementById("btn2-id")
         let p = getElementById("text2-id")
@@ -212,9 +289,9 @@ Create interactive elements in Nimib using Nim!
           p.innerHtml = name & "'s favourite food is " & food
         )
 
-  slideAutoAnimate:
+  nimConfSlide:
     nbText: "nbJsFromCode + Karax"
-    nbCodeDontRun: #nimibCodeAnimate(@[1..2, 4..4, 6..7, 15..15], @[5..5, 8..13]):
+    nbCodeDontRunAnimate(@[1..2, 4..4, 6..7, 15..15], @[5..5, 8..13]): #nimibCodeAnimate(@[1..2, 4..4, 6..7, 15..15], @[5..5, 8..13]):
       let rootId = "karax-" & $nb.newId()
       nbRawHtml: "<div id=\"" & rootId & "\"></div>"
       nbJsFromCode:
@@ -231,7 +308,7 @@ Create interactive elements in Nimib using Nim!
 
         setRenderer(createDom, root = rootId.cstring)
 
-  slideAutoAnimate:
+  nimConfSlide:
     nbText: "nbKaraxCode"
     nimibCodeAnimate(1, 2, 3, 4..5, 6..9):
       nbKaraxCode:
@@ -244,31 +321,51 @@ Create interactive elements in Nimib using Nim!
             proc onClick() =
               counter += 1
 
-  slide:
+  nimConfSlide:
     nbText: "postRender"
-    nimibCodeAnimate(7..9, 2, 2..5):
+    nimibCodeAnimate(1..2, 25..26, 4, 5..7, 8..14, 15..23):
       nbKaraxCode:
+        import jscanvas, dom, colors, math, random
+
         postRender:
-          let btn = getElementById("btn3-id")
-          # btn will be nil if the button hasn't
+          var canvas = getElementById("canvas-id").CanvasElement
+          # canvas will be nil if it hasn't
           # been created by Karax yet
+          canvas.width = 500
+          canvas.height = 100
+          var ctx = canvas.getContext2d()
+
+          # Fill background
+          ctx.fillStyle = $colBlack
+          ctx.fillRect(0,0,canvas.width,canvas.height)
+          # Draw ball
+          var x = rand(0..canvas.width)
+          var y = rand(0..canvas.height)
+          var ballRadius = 10
+          ctx.beginPath()
+          ctx.arc(x, y, ballRadius, 0, Pi*2)
+          ctx.fillStyle = $colBlue
+          ctx.fill()
+          ctx.closePath()
 
         karaxHtml:
-          button(id="btn3-id"):
-            text "Click me"
+          canvas(id="canvas-id")
+              
 
 
 
 slide:
-  slide:
+  nimConfSlide:
     nbText: hlMd"""
 ## Nimiboost
 VS Codium/VS Code extension
   """
 
-  slide:
-    fadeInText: "Syntax highlighting"
-    fadeInText: "Preview"
+  nimConfSlide:
+    nbText: "### Features"
+    unorderedList:
+      listItem: nbText: "Syntax highlighting"
+      listItem: nbText: "Preview"
     fadeInText: "Let's head over to VSCodium!"
 
 
