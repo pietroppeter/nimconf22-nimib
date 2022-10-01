@@ -51,7 +51,9 @@ Title: Nimib goes interactive
     - [ ] better example for postRender
 - back to Pietro
   - [ ] nimibook changes
-  - [ ] nimib gallery
+  - [x] nimib gallery
+    - [ ] fix mermaid in nblog
+    - [ ] fix plotly in nblog
 - together:
   - [ ] contributing
   - [ ] roadmap
@@ -104,7 +106,7 @@ meetings:
 - [x] Sep 10th, Sat 12:00
 - [x] Sep 17-18, Sat 15:00
 - [x] Sep 24-25, Sun 15:00
-- [ ] Oct 1-2 - start
+- [ ] Oct 1-2 - start recording (all individual parts + intro together)
 - [ ] Oct 8-9 **deadline for video**
 - [ ] Oct 15-16 (what else?)
 - [ ] Oct 22, Saturday NIMCONF!!!!
