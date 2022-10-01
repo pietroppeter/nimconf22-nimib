@@ -1,4 +1,4 @@
 import QRgen
 
-let myQR = newQr("https://github.com/pietroppeter/nimconf22-nimib")
+let myQR = newQr("https://conf.nim-lang.org")
 myQR.printTerminal

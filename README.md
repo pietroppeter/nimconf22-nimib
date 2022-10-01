@@ -114,3 +114,5 @@ meetings:
 ### random notes
 
 - all links (to slides repo, to livecoding video) will have a small qr code in the slides
+- Pietro using a circular mask for the webcam, as in [this video](https://www.youtube.com/watch?v=4i5rTa7m9Uo)
+- very easy, add filter -> image mask -> select `circular_mask_obs.png` here in repo
