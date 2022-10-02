@@ -163,13 +163,15 @@ slideText: """# NIMIB🐳 GOES INTERACTIVE🤯
   link/url to slides
 ]#
 
-slideText: hlMd"""### 👨‍👩‍👧 Pietro
-- Pietro Peterlongo, [Milan, Italy 🇮🇹](https://goo.gl/maps/ceG6UsLEGqmx5Kpa7)
-- Python Data Scientist working on a [Supply Chain Planning Software](https://www.toolsgroup.com)
-- talked previously about nimib at [NimConf2021](https://pietroppeter.github.io/nimconf2021/revealjs/index.html)
-- helped organize [Nim Devroom at FOSDEM 2022](https://archive.fosdem.org/2022/schedule/track/nim_programming_language/)
-- let's organize again the Nim Devroom and meet at [FOSDEM 2023](https://fosdem.org/2023/)!
-"""
+
+nimConfSlide:
+  nbText: "### 👨‍👩‍👧 Pietro"
+  unorderedList:
+    listItem: nbText: "Pietro Peterlongo, [Milan, Italy 🇮🇹](https://goo.gl/maps/ceG6UsLEGqmx5Kpa7)"
+    listItem: nbText: "Python Data Scientist working on a [Supply Chain Planning Software](https://www.toolsgroup.com)"
+    listItem: nbText: "talked previously about nimib at [NimConf2021](https://pietroppeter.github.io/nimconf2021/revealjs/index.html)"
+    listItem: nbText: "helped organize [Nim Devroom at FOSDEM 2022](https://archive.fosdem.org/2022/schedule/track/nim_programming_language/)"
+    listItem: nbText: "let's organize again the Nim Devroom and meet at [FOSDEM 2023](https://fosdem.org/2023/)!"
 
 nimConfSlide:
   nbText: "### HUGO 🙋‍♂️"
