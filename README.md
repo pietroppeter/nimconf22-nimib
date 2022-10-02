@@ -82,6 +82,7 @@ during sessions:
   - [ ] record outro together
 
 nice to have:
+  - [ ] cornerImage without JS?
   - [ ] qr code links around
   - [ ] whale in the qr code
 
