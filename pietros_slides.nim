@@ -253,7 +253,7 @@ slide:
       fragmentFadeIn:
         column:
           nbText: "**Same** as shown in html:"
-        nbCodeDontRunAnimate([1..2, 3..4, 5..5, 6..6, 8..9, 10..10]):
+        nbCodeDontRun:
           import math, strformat
           let
             n = 1
