@@ -1,3 +1,4 @@
+import std / [strutils]
 import nimib
 import nimib / [blocks]
 import nimiSlides
@@ -13,12 +14,23 @@ when not defined(skipPython):
   nbInitPython()
 
 # CUSTOM blocks and templates ------------------------------------------------------------------------------------------
-template slideText(text: string) =
+template nimConfSlide(body: untyped) =
   slide:
+    cornerImage("https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png", UpperRight, size=100, animate=false)
+    body
+
+template nimConfSlide(options: SlideOptions, body: untyped) =
+  slide(options):
+    cornerImage("https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png", UpperRight, size=100, animate=false)
+    body
+
+
+template slideText(text: string) =
+  nimConfSlide:
     nbText: text
 
 template slideAutoAnimate(body: untyped) =
-  slide(slideOptions(autoAnimate=true)):
+  nimConfSlide(slideOptions(autoAnimate=true)):
     body
 
 template nbCodeDontRun*(body: untyped) = # from hugos_slides
@@ -91,6 +103,57 @@ template fadeInText(text: string) =
   fragment(fadeInThenSemiOut):
     nbText: text
 
+nb.addStyle: """
+button {
+  font-size: 30px;
+  padding: 10px 24px;
+  border-radius: 4px;
+}
+"""
+
+template nimConfTheme*() =
+  setSlidesTheme(Black)
+  let nimYellow = "#FFE953"
+  nb.addStyle: """
+:root {
+  --r-background-color: #181922;
+  --r-heading-color: $1;
+  --r-link-color: $1;
+  --r-selection-color: $1;
+  --r-link-color-dark: darken($1 , 15%)
+}
+
+.reveal ul, .reveal ol {
+  display: block;
+  text-align: left;
+}
+
+li::marker {
+  color: $1;
+  content: "»";
+}
+
+li {
+  padding-left: 12px;
+}
+""" % [nimYellow]
+
+nimConfTheme()
+
+# this embed worked in nimconf2021 nimib slides, it does not work anymore
+template nbEmbed(url: string) =
+  nbRawHtml: "<iframe src=\"" & url & "\" class=\"fullframe\"></iframe>"
+
+template nbEmbedFromNblog(filename: string) =
+  nbEmbed("https://pietroppeter.github.io/nblog/drafts/" & filename & ".html")
+
+# instead I will use full interactive iframes
+template slideIframe(url: string) =
+  nbRawHtml: "<section data-background-iframe=\"" & url & "\" data-background-interactive></section>"
+
+template slideIframeFromNblog(filename: string) =
+  slideIframe("https://pietroppeter.github.io/nblog/drafts/" & filename & ".html")
+
 # INTRO together ------------------------------------------------------------------------------------------
 
 slideText: """# NIMIB🐳 GOES INTERACTIVE🤯
@@ -108,7 +171,7 @@ slideText: hlMd"""### 👨‍👩‍👧 Pietro
 - let's organize again the Nim Devroom and meet at [FOSDEM 2023](https://fosdem.org/2023/)!
 """
 
-slide:
+nimConfSlide:
   nbText: "### HUGO 🙋‍♂️"
   unorderedList:
     listItem: nbText: "Engineering Physics student"
@@ -120,7 +183,7 @@ slide:
       listItem: nbText: "NumericalNim"
       listItem: nbText: "Scinim/getting-started (uses nimiBook)"
 
-slide:
+nimConfSlide:
   nbText: "### Previously at NimConf 2021"
   nbRawHtml: """<iframe width="560" height="315" src="https://www.youtube.com/embed/sWA58Wtk6L8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>"""
 
@@ -135,12 +198,12 @@ slideText: hlMdF"""## Content of presentation
 - ✨Release of Nimib 0.3 - BlockMaker🧱
   - {title_block}
   - {title_js}
-- Nimiboost🚀 and Nimibook📚 0.3
-- Nimib Gallery🖼️
-- Contributing🤲 and Roadmap🗺️
+- Nimiboost🚀
+- Contributing🤲 
+- Roadmap🗺️
 """
 
-slide:
+nimConfSlide:
   nbText: "## A livecoding👨‍💻 intro to Nimib🐳"
   speakerNote: "here I need to add the video" 
 
@@ -176,7 +239,7 @@ and [0.3.1](https://github.com/pietroppeter/nimib/releases/tag/v0.3.1) release n
 slide:
   slideText: hlMdF"""### {title_source}
 """
-  slide:
+  nimConfSlide:
     nbText: "#### Before (`CodeFromAst`)"
     columns:
       column:
@@ -215,7 +278,7 @@ slide:
   - https://github.com/pietroppeter/nimib/issues/20
   - https://github.com/nim-lang/Nim/issues/17292
 """
-  slide:
+  nimConfSlide:
     nbText: "#### Now (`CodeAsInSource`)"
     columns:
       column:
@@ -251,7 +314,7 @@ slide:
 slide:
   slideText: hlMdF"""### {title_block}
 """
-  slide:
+  nimConfSlide:
     nbCodeDontRun: # should higlight lines line by one
       import nimib
 
@@ -268,7 +331,7 @@ slide:
 
       nbSave # renders each block in nb.blocks (+theme stuff +save file)
   
-  slide:
+  nimConfSlide:
     nbText: "#### Nimib types" # essentials for rendering blocks
     nbCodeDontRun:
       type
@@ -286,7 +349,7 @@ slide:
           renderProcs*: Table[string, NbRenderProc]
           # ... and other fields
         NbRenderProc* = proc (doc: var NbDoc, blk: var NbBlock) {.nimcall.}
-  slide:
+  nimConfSlide:
     nbText: "#### Block render function"
     nbCodeDontRun:
       proc render*(nb: var NbDoc, blk: var NbBlock): string =
@@ -302,50 +365,73 @@ slide:
 
 when not defined(skipPython):
   slide:
-    nbText: hlMd"""
-## nbPython
-"""
-    nbPython: hlPy"""
-print("Hello world")
+    nimConfSlide(slideOptions(autoAnimate=true)):
+      nbText: hlMd"""
+  ## nbPython
+  """
+
+    nimConfSlide(slideOptions(autoAnimate=true)):
+      nbText: hlMd"""
+  ## nbPython
+  """
+      nbCodeDontRun:
+        nbPython: """
+print("Hello World") 
 """
 
+    nimConfSlide(slideOptions(autoAnimate=true)):
+      nbText: hlMd"""
+## nbPython
+"""
+      nbPython: hlPy"""
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(-5, 5)
+y = np.sin(x)
+plt.plot(x, y)
+plt.title("nbPython Plot")
+plt.savefig("matplotlib_example.png", dpi=60)
+  """
+      fragmentFadeIn:
+        nbImage("matplotlib_example.png")
+
 slide:
-  slide:
+  nimConfSlide:
     nbText: hlMd"""
 ## Nimib goes interactive!
 Create interactive elements in Nimib using Nim!
 """
 
-  slide:
+  nimConfSlide:
     nbText: hlMd"""
-### Why?
+### Why? 
 """
+    fadeInText: "Engaging content"
+    fadeInText: "Comfortable - Nim all the way"
+    fadeInText: "Runs locally"
     fadeInText: "Fun!"
-    fadeInText: "Rich content"
 
-  slide:
+  nimConfSlide:
     nbText: "### How?"
     fadeInText: "Nim → JS"
     fadeInText: "Capture variables"
 
 
-  slide:
+  nimConfSlide:
     nbText: hlMd"""
 ### API
 - `nbJsFromCode` - compiles code to JS
 - `nbKaraxCode` - sugar for Karax
 """
 
-  slide:
+  nimConfSlide:
     nbText: "nbJsFromCode"
-    nimibCodeAnimate(1..4, 6, 7..10, 12, 14, 15, 16):
-      nbRawHtml: """
-<p id="text-id">You have clicked 0 times!</p>
-<button id="btn-id">Click me!</button>
-"""
+    nimibCodeAnimate(1..2, 4, 5..8, 10, 12, 13, 14):
+      nbRawHtml: """<p id="text-id">You have clicked 0 times!</p>
+<button id="btn-id">Click me!</button>"""
 
       nbJsFromCode:
-        import std / [dom]
+        import std / dom
 
         let btn = getElementById("btn-id")
         let p = getElementById("text-id")
@@ -357,7 +443,7 @@ Create interactive elements in Nimib using Nim!
           p.innerHtml = "You have clicked " & $counter & " times!"
         )
 
-  slide:
+  nimConfSlide:
     nbText: "Capture variables"
     speakerNote: "Must capture variables in C-land to use their values in JS-land"
     nimibCodeAnimate(1..2, 3..6, 7, 8..11, 12..15):
@@ -368,7 +454,7 @@ Create interactive elements in Nimib using Nim!
 <button id="btn2-id">Click me!</button>
 """
       nbJsFromCode(name, food):
-        import std / [dom]
+        import std / dom
 
         let btn = getElementById("btn2-id")
         let p = getElementById("text2-id")
@@ -377,9 +463,9 @@ Create interactive elements in Nimib using Nim!
           p.innerHtml = name & "'s favourite food is " & food
         )
 
-  slideAutoAnimate:
+  nimConfSlide:
     nbText: "nbJsFromCode + Karax"
-    nbCodeDontRun: #nimibCodeAnimate(@[1..2, 4..4, 6..7, 15..15], @[5..5, 8..13]):
+    nbCodeDontRunAnimate(@[1..2, 4..4, 6..7, 15..15], @[5..5, 8..13]): #nimibCodeAnimate(@[1..2, 4..4, 6..7, 15..15], @[5..5, 8..13]):
       let rootId = "karax-" & $nb.newId()
       nbRawHtml: "<div id=\"" & rootId & "\"></div>"
       nbJsFromCode:
@@ -396,7 +482,7 @@ Create interactive elements in Nimib using Nim!
 
         setRenderer(createDom, root = rootId.cstring)
 
-  slideAutoAnimate:
+  nimConfSlide:
     nbText: "nbKaraxCode"
     nimibCodeAnimate(1, 2, 3, 4..5, 6..9):
       nbKaraxCode:
@@ -409,38 +495,52 @@ Create interactive elements in Nimib using Nim!
             proc onClick() =
               counter += 1
 
-  slide:
+  nimConfSlide:
     nbText: "postRender"
-    nimibCodeAnimate(7..9, 2, 2..5):
+    nimibCodeAnimate(1..2, 25..26, 4, 5..7, 8..14, 15..23):
       nbKaraxCode:
+        import jscanvas, dom, colors, math, random
+
         postRender:
-          let btn = getElementById("btn3-id")
-          # btn will be nil if the button hasn't
+          var canvas = getElementById("canvas-id").CanvasElement
+          # canvas will be nil if it hasn't
           # been created by Karax yet
+          canvas.width = 500
+          canvas.height = 100
+          var ctx = canvas.getContext2d()
+
+          # Fill background
+          ctx.fillStyle = $colBlack
+          ctx.fillRect(0,0,canvas.width,canvas.height)
+          # Draw ball
+          var x = rand(0..canvas.width)
+          var y = rand(0..canvas.height)
+          var ballRadius = 10
+          ctx.beginPath()
+          ctx.arc(x, y, ballRadius, 0, Pi*2)
+          ctx.fillStyle = $colBlue
+          ctx.fill()
+          ctx.closePath()
 
         karaxHtml:
-          button(id="btn3-id"):
-            text "Click me"
+          canvas(id="canvas-id")
+              
 
 
 
 slide:
-  slide:
+  nimConfSlide:
     nbText: hlMd"""
 ## Nimiboost
 VS Codium/VS Code extension
   """
 
-  slide:
-    fadeInText: "Syntax highlighting"
-    fadeInText: "Preview"
+  nimConfSlide:
+    nbText: "### Features"
+    unorderedList:
+      listItem: nbText: "Syntax highlighting"
+      listItem: nbText: "Preview"
     fadeInText: "Let's head over to VSCodium!"
-
-# NIMIBOOK + GALLERY Pietro ------------------------------------------------------------------------------------------
-
-slideText: "## Nimibook"
-
-slideText: "## Nimib Gallery"
 
 # CONCLUSIONS (Contributing + Roadmap + thanks) together ----------------------------------------------------------
 
