@@ -37,6 +37,11 @@ template nbCodeBeforeImpl*(body: untyped) = # use to show how CodeFromAst would 
 
 newAnimateCodeBlock(nbCodeBeforeAnimate, nbCodeBeforeImpl)
 
+template nbCodeDontRunBefore*(body: untyped) = # from hugos_slides
+  newNbCodeBlock("nbCodeDontRun", body):
+    discard
+  nb.blk.code = toStr(body)
+
 template nimibCode*(body: untyped) =
   newNbCodeBlock("nimibCode", body):
     discard
@@ -105,58 +110,20 @@ template slideIframe(url: string) =
 template slideIframeFromNblog(filename: string) =
   slideIframe("https://pietroppeter.github.io/nblog/drafts/" & filename & ".html")
 
+# Nim logo in top right corner ------------------------------------------------------------------------------------------
+
+nb.context["nimLogo"] = true # does not work
+
 # INTRO together ------------------------------------------------------------------------------------------
-
-slideText: """# NIMIB🐳 GOES INTERACTIVE🤯
-"""
-#[
-  authors
-  link/url to slides
-]#
-
-slideText: hlMd"""### 👨‍👩‍👧 Pietro
-- Pietro Peterlongo, [Milan, Italy 🇮🇹](https://goo.gl/maps/ceG6UsLEGqmx5Kpa7)
-- Python Data Scientist working on a [Supply Chain Planning Software](https://www.toolsgroup.com)
-- talked previously about nimib at [NimConf2021](https://pietroppeter.github.io/nimconf2021/revealjs/index.html)
-- helped organize [Nim Devroom at FOSDEM 2022](https://archive.fosdem.org/2022/schedule/track/nim_programming_language/)
-- let's organize again the Nim Devroom and meet at [FOSDEM 2023](https://fosdem.org/2023/)!
-"""
-
-slide:
-  nbText: "### HUGO 🙋‍♂️"
-  unorderedList:
-    listItem: nbText: "Engineering Physics student"
-    listItem: nbText: "Nimib maintainer - since July 2022"
-    unorderedList:
-      listItem: nbText: "nimiSlides"
-    listItem: nbText: "SciNim member - since the start 2020"
-    unorderedList:
-      listItem: nbText: "NumericalNim"
-      listItem: nbText: "Scinim/getting-started (uses nimiBook)"
-
-slide:
-  nbText: "### Previously at NimConf 2021"
-  nbRawHtml: """<iframe width="560" height="315" src="https://www.youtube.com/embed/sWA58Wtk6L8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>"""
 
 let
   title_block = "make your own `NbBlock`👷"
   title_js = "🤯 `nbJsFromCode`, `nbKaraxCode`"
   title_source = "🪞`CodeAsInSource`"
   title_python = "🐍`nbPython`"
-  title_nimibook = "Nimibook📚 0.3"
   title_gallery = "Nimib Gallery🖼️"
   title_contribute = "Contributing🤲"
   title_roadmap = "Roadmap🗺️"
-
-slideText: hlMdF"""## Content of presentation
-- A livecoding👨‍💻 intro to Nimib🐳
-- ✨Release of Nimib 0.3 - BlockMaker🧱
-  - {title_block}
-  - {title_js}
-- Nimiboost🚀 and {title_nimibook}
-- {title_gallery}
-- {title_contribute} and {title_roadmap}
-"""
 
 slide:
   nbText: "## A livecoding👨‍💻 intro to Nimib🐳"
@@ -192,9 +159,9 @@ and [0.3.1](https://github.com/pietroppeter/nimib/releases/tag/v0.3.1) release n
 """
 
 slide:
-  nbText: hlMdF"""### {title_source}
-"""
   slide:
+    nbText: hlMdF"### {title_source}"
+  slideAutoAnimate:
     nbText: "#### Before (`CodeFromAst`)"
     columns:
       column:
@@ -225,14 +192,47 @@ slide:
             struct(http):
               s: _ = "HTTP/"
               *header: {headers}
-    fragmentFadeIn:
-      nbText: "Still available with `-d:nimibCodeFromAst`"
     speakerNote: """
 - It was very nice, since it was very easy to implement with a simple `macro toStr(body) = body.toStrLit`
 - it inherited bugs from Nim, see:
   - https://github.com/pietroppeter/nimib/issues/20
   - https://github.com/nim-lang/Nim/issues/17292
 """
+  # I used autoAnimate to have last two fades come after code Animation (still not smooth)
+  slideAutoAnimate:
+    nbText: "#### Before (`CodeFromAst`)"
+    columns:
+      column:
+        nbText: "Code in source file:"
+        nbCodeDontRun:
+          import math, strformat
+          let
+            n = 1
+          echo n + 1 # 2
+          ## documentation comment
+          struct(http):
+            s: _ = "HTTP/"
+            *header: {headers}
+
+      column: # had to do this to have some padding space between code columns
+        nbText: ""
+      column:
+        nbText: "Code as shown in html:"
+        # it would be nice to animate 1..2, 3, 4, 5, 6, 8..9, 10
+        # also it would be nice to have this code block appear with a different background
+        nbCodeDontRunBefore: 
+          import math, strformat
+          let
+            n = 1
+          echo n + 1 # 2
+          ## documentation comment
+          struct(http):
+            s: _ = "HTTP/"
+            *header: {headers}
+    fragment(fadeLeft):
+      nbText: "Uses `macro toStr(body) = body.toStrLit`"
+    fragment(fadeRight):
+      nbText: "Still available with `-d:nimibCodeFromAst`"
   slide:
     nbText: "#### Now (`CodeAsInSource`)"
     columns:
@@ -262,7 +262,9 @@ slide:
           struct(http):
             s: _ = "HTTP/"
             *header: {headers}
-    fragmentFadeIn:
+    fragment(fadeLeft):
+      nbText: "This is what you expect!"
+    fragment(fadeRight):
       nbText: "Does not compose well ([134](https://github.com/pietroppeter/nimib/issues/134)), there might still be 🐞s"
     speakerNote: """"""
 
@@ -318,9 +320,7 @@ slide:
 
 # RELEASE - Part 2 + Nimiboost - Hugo ------------------------------------------------------------------------------------------
 
-# NIMIBOOK + GALLERY Pietro ------------------------------------------------------------------------------------------
-
-slideText: hlMdF"## {title_nimibook}"
+# GALLERY Pietro ------------------------------------------------------------------------------------------
 
 slide:
   slideText: hlMdF"## {title_gallery}"

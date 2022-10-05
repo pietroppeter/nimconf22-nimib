@@ -21,16 +21,20 @@ Title: Nimib goes interactive
   - [x] who am I (reuse from last time)
   - [ ] livecoding
     - [x] code example
-    - [ ] record livecoding
+    - [x] record livecoding
     - [x] livecode slide
       - [ ] add nbVideo to nimib (for Pietro's live coding)
       - [ ] add a small QR code with link to video
   - [ ] 0.3.x changes
     - [x] intro slide for release
     - [x] codeAsInSource
-      - [ ] fix animation of code lines and mention CodeFromAst macro
+      - [x] fix animation of code lines and mention CodeFromAst macro
     - [ ] custom block theory
       - [ ] custom block examples: nbCode, nbText, nbImage
+      - [ ] nbRawHtml
+      - [ ] discussion when to use the whole block machinery
+      - [ ] example fo customziing a block: nbText that uses rst
+      - [ ] block examples from gallery here
   - [x] nimib changes
     - [x] stdout flush fix
     - [x] pre line-height fix
@@ -42,15 +46,15 @@ Title: Nimib goes interactive
     - [x] boilerplate karax in nbJsFromCode
     - [x] nbKaraxCode with counter example
     - [x] capture variable example
-  - [ ] nimiboost
+  - [x] nimiboost
     - [x] livecoding example
-    - [ ] record nimiboost livecoding
+    - [x] record nimiboost livecoding
     - [ ] Hugo nimiboost: add a way to add video to slides
-  - [ ] details
-    - [ ] bigger buttons
-    - [ ] better example for postRender
+  - [x] details
+    - [x] bigger buttons
+    - [x] better example for postRender
 - back to Pietro
-  - [ ] nimibook changes
+  - [ ] ~~nimibook changes~~
   - [x] nimib gallery
     - [ ] fix mermaid in nblog
     - [ ] fix plotly in nblog
@@ -65,12 +69,12 @@ Title: Nimib goes interactive
 
 homework:
   Pietro:
-    - [ ] livecoding recording
+    - [x] livecoding recording
     - [ ] complete release slides + record
     - [ ] work on later slides 
   Hugo:
-    - [ ] nimiboost recording
-    - [ ] record part 2 of slides (+ details)
+    - [x] nimiboost recording
+    - [x] record part 2 of slides (+ details)
 
 during session:
   - [ ] record intro together
