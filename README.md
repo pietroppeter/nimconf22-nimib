@@ -25,18 +25,40 @@ Title: Nimib goes interactive
     - [x] livecode slide
   - [ ] 0.3.x changes
     - [x] intro slide for release
+      - [ ] add lines on 1) how to (custom blocks examples) 2) a js mathy plant app
     - [x] codeAsInSource
       - [x] fix animation of code lines
-      - [ ] mention CodeFromAst macro
+      - [x] mention CodeFromAst macro
     - [ ] custom block theory
-      - [ ] custom block examples: nbCode, nbText, nbImage
-      - [ ] customization examples (e.g.nbText with rst)
-      - [ ] nbRawHtml
+      - [x] what are blocks
+        - [ ] add title and animate
+      - [ ] what is a block: data + render (two columns with examples)
+        - mention backend concept
+      - [x] nimib types (implementation details)
+        - [ ] animate and review
+        - mention that until 0.2 it was an object variant with 3 kinds
+      - [x] render function (implementation details)
+        - [ ] review and animate
+      - [ ] "native" block examples (two columns: data + render)
+        - [ ] nbCode
+          - [ ] customization example: add "Output:"
+        - [ ] nbText
+          - [ ] customization examples (e.g.nbText with rst)
+        - [ ] nbImage
+        - [ ] nbRawHtml
+          - example on how to create blocks with this
       - [ ] discussion about partials+renderPlans vs nbRawHtml
-      - [ ] fix mermaid in nblog
-      - [ ] fix plotly in nblog
-      - [ ] leftRight slider
-    - [ ] record
+    - [ ] examples of custom blocks (previously gallery)
+      - [ ] add redo a title slide
+      - [ ] leftRight slider      
+      - [ ] mermaid
+        - [ ] fix
+      - [ ] plotly
+        - [ ] fix
+    - [ ] js mathy plant app: title slide
+      - [x] embed html
+    - [ ] use nimconf theme
+    - [ ] record the 0.3.x changes part
   - [ ] record description of plant_app as example of js
   - [x] nimib changes
     - [x] stdout flush fix
