@@ -14,27 +14,30 @@ Title: Nimib goes interactive
 ## status
 
 - together
-  - [ ] title slide
-    - [ ] add a small QR code with link to slides
+  - [x] title slide
   - [x] presentation content slide
+  - [ ] recorded intro
 - Pietro:
   - [x] who am I (reuse from last time)
-  - [ ] livecoding
+  - [x] livecoding
     - [x] code example
     - [x] record livecoding
     - [x] livecode slide
-      - [ ] add nbVideo to nimib (for Pietro's live coding)
-      - [ ] add a small QR code with link to video
   - [ ] 0.3.x changes
     - [x] intro slide for release
     - [x] codeAsInSource
-      - [x] fix animation of code lines and mention CodeFromAst macro
+      - [x] fix animation of code lines
+      - [ ] mention CodeFromAst macro
     - [ ] custom block theory
       - [ ] custom block examples: nbCode, nbText, nbImage
+      - [ ] customization examples (e.g.nbText with rst)
       - [ ] nbRawHtml
-      - [ ] discussion when to use the whole block machinery
-      - [ ] example fo customziing a block: nbText that uses rst
-      - [ ] block examples from gallery here
+      - [ ] discussion about partials+renderPlans vs nbRawHtml
+      - [ ] fix mermaid in nblog
+      - [ ] fix plotly in nblog
+      - [ ] leftRight slider
+    - [ ] record
+  - [ ] record description of plant_app as example of js
   - [x] nimib changes
     - [x] stdout flush fix
     - [x] pre line-height fix
@@ -49,15 +52,11 @@ Title: Nimib goes interactive
   - [x] nimiboost
     - [x] livecoding example
     - [x] record nimiboost livecoding
-    - [ ] Hugo nimiboost: add a way to add video to slides
+    - [x] Hugo nimiboost: add a way to add video to slides
   - [x] details
     - [x] bigger buttons
     - [x] better example for postRender
 - back to Pietro
-  - [ ] ~~nimibook changes~~
-  - [x] nimib gallery
-    - [ ] fix mermaid in nblog
-    - [ ] fix plotly in nblog
 - together:
   - [ ] contributing
   - [ ] roadmap
@@ -65,21 +64,25 @@ Title: Nimib goes interactive
 
 ## recording
 
-### first session (October 8-9)
+### recording sessions (October 2 and October 9)
 
 homework:
   Pietro:
     - [x] livecoding recording
     - [ ] complete release slides + record
-    - [ ] work on later slides 
+    - [ ] record plant app
+    - [ ] work on later slides (contribution + roadmap)
   Hugo:
     - [x] nimiboost recording
     - [x] record part 2 of slides (+ details)
+    - [ ] test putting together videos
 
-during session:
-  - [ ] record intro together
+during sessions:
+  - [x] record intro together
+  - [ ] record outro together
 
 nice to have:
+  - [ ] cornerImage without JS?
   - [ ] qr code links around
   - [ ] whale in the qr code
 
@@ -110,7 +113,7 @@ meetings:
 - [x] Sep 10th, Sat 12:00
 - [x] Sep 17-18, Sat 15:00
 - [x] Sep 24-25, Sun 15:00
-- [ ] Oct 1-2 - start recording (all individual parts + intro together)
+- [x] Oct 1 - Sun 10-12 start recording (all individual parts + intro together)
 - [ ] Oct 8-9 **deadline for video**
 - [ ] Oct 15-16 (what else?)
 - [ ] Oct 22, Saturday NIMCONF!!!!
