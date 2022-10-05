@@ -121,7 +121,8 @@ let
   title_js = "🤯 `nbJsFromCode`, `nbKaraxCode`"
   title_source = "🪞`CodeAsInSource`"
   title_python = "🐍`nbPython`"
-  title_gallery = "Nimib Gallery🖼️"
+  title_howto = "How to 🖼️"
+  title_plant = "A mathy plant app 🌱"
   title_contribute = "Contributing🤲"
   title_roadmap = "Roadmap🗺️"
 
@@ -151,8 +152,20 @@ slide:
     nbText: hlMdF"""## ✨Nimib 0.3 - BlockMaker🧱
 - {title_source}
 - {title_block}
+  - {title_howto}
 - {title_python}
 - {title_js}
+  - {title_plant}
+"""
+
+  slideAutoAnimate:
+    nbText: hlMdF"""## ✨Nimib 0.3 - BlockMaker🧱
+- {title_source}
+- {title_block}
+  - {title_howto}
+- {title_python}
+- {title_js}
+  - {title_plant}
 
 more stuff and details in [0.3.0](https://github.com/pietroppeter/nimib/releases/tag/v0.3.0)
 and [0.3.1](https://github.com/pietroppeter/nimib/releases/tag/v0.3.1) release notes
@@ -318,17 +331,19 @@ slide:
         blk.context.searchTable(nb.partials)
         result = nb.partials[blk.command].render(blk.context)
 
+slide:
+  slideText: hlMdF"## {title_howto}"
+  slideIframeFromNblog("before_after_image_slider")
+  slideIframeFromNblog("mermaid_diagram") # fix document using main instead of right (as in image slider)
+  slideIframeFromNblog("show_plotly") # fix to show plotly's code
+
 # RELEASE - Part 2 + Nimiboost - Hugo ------------------------------------------------------------------------------------------
 
-# GALLERY Pietro ------------------------------------------------------------------------------------------
-
+# plant app
 slide:
-  slideText: hlMdF"## {title_gallery}"
-  slideIframeFromNblog("mermaid_diagram") # fix document using main instead of right (as in image slider)
-  slideIframeFromNblog("before_after_image_slider")
-  slideIframeFromNblog("show_plotly") # fix to show plotly's code
+  slideText: hlMdF"## {title_plant}"
   slideIframeFromNblog("plant_app")
-  slideIframe("https://pietroppeter.github.io/adventofnim/2021/day03.html") # whale music!
+
 
 # CONCLUSIONS (Contributing + Roadmap + thanks) together ----------------------------------------------------------
 

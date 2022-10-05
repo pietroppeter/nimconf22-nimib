@@ -37,19 +37,44 @@
       <h2>✨Nimib 0.3 - BlockMaker🧱</h2>
 <ul>
 <li>🪞<code>CodeAsInSource</code></li>
-<li>make your own <code>NbBlock</code>👷</li>
+<li>make your own <code>NbBlock</code>👷
+<ul>
+<li>How to 🖼️</li>
+</ul>
+</li>
 <li>🐍<code>nbPython</code></li>
-<li>🤯 <code>nbJsFromCode</code>, <code>nbKaraxCode</code></li>
+<li>🤯 <code>nbJsFromCode</code>, <code>nbKaraxCode</code>
+<ul>
+<li>A mathy plant app 🌱</li>
+</ul>
+</li>
+</ul>
+      </section>
+      <section data-nimib-slide-number="6" data-auto-animate >
+      <h2>✨Nimib 0.3 - BlockMaker🧱</h2>
+<ul>
+<li>🪞<code>CodeAsInSource</code></li>
+<li>make your own <code>NbBlock</code>👷
+<ul>
+<li>How to 🖼️</li>
+</ul>
+</li>
+<li>🐍<code>nbPython</code></li>
+<li>🤯 <code>nbJsFromCode</code>, <code>nbKaraxCode</code>
+<ul>
+<li>A mathy plant app 🌱</li>
+</ul>
+</li>
 </ul>
 <p>more stuff and details in <a href="https://github.com/pietroppeter/nimib/releases/tag/v0.3.0">0.3.0</a>
 and <a href="https://github.com/pietroppeter/nimib/releases/tag/v0.3.1">0.3.1</a> release notes</p>
       </section>
       </section>
-      <section data-nimib-slide-number="6" >
       <section data-nimib-slide-number="7" >
+      <section data-nimib-slide-number="8" >
       <h3>🪞<code>CodeAsInSource</code></h3>
       </section>
-      <section data-nimib-slide-number="8" data-auto-animate >
+      <section data-nimib-slide-number="9" data-auto-animate >
       <h4>Before (<code>CodeFromAst</code>)</h4>
       <div style="display: grid; grid-auto-flow: column;">
       <div>
@@ -98,7 +123,7 @@ struct(http):
 
 </aside>
       </section>
-      <section data-nimib-slide-number="9" data-auto-animate >
+      <section data-nimib-slide-number="10" data-auto-animate >
       <h4>Before (<code>CodeFromAst</code>)</h4>
       <div style="display: grid; grid-auto-flow: column;">
       <div>
@@ -140,7 +165,7 @@ struct(http):
       </div>
   
       </section>
-      <section data-nimib-slide-number="10" >
+      <section data-nimib-slide-number="11" >
       <h4>Now (<code>CodeAsInSource</code>)</h4>
       <div style="display: grid; grid-auto-flow: column;">
       <div>
@@ -188,11 +213,11 @@ struct(http):
 </aside>
       </section>
       </section>
-      <section data-nimib-slide-number="11" >
       <section data-nimib-slide-number="12" >
+      <section data-nimib-slide-number="13" >
       <h3>make your own <code>NbBlock</code>👷</h3>
       </section>
-      <section data-nimib-slide-number="13" >
+      <section data-nimib-slide-number="14" >
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">import</span> nimib
 
 nbInit <span class="hljs-comment"># creates a nb: NbDoc object</span>
@@ -208,7 +233,7 @@ myCustomBlock: <span class="hljs-keyword">discard</span> <span class="hljs-comme
 
 nbSave <span class="hljs-comment"># renders each block in nb.blocks (+theme stuff +save file)</span></code></pre>
       </section>
-      <section data-nimib-slide-number="14" >
+      <section data-nimib-slide-number="15" >
       <h4>Nimib types</h4>
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">type</span>
   <span class="hljs-type">NbBlock</span> = <span class="hljs-keyword">ref</span> <span class="hljs-keyword">object</span>
@@ -226,7 +251,7 @@ nbSave <span class="hljs-comment"># renders each block in nb.blocks (+theme stuf
     <span class="hljs-comment"># ... and other fields</span>
   <span class="hljs-type">NbRenderProc</span>* = <span class="hljs-keyword">proc</span> (doc: <span class="hljs-keyword">var</span> <span class="hljs-type">NbDoc</span>, blk: <span class="hljs-keyword">var</span> <span class="hljs-type">NbBlock</span>) {.nimcall.}</code></pre>
       </section>
-      <section data-nimib-slide-number="15" >
+      <section data-nimib-slide-number="16" >
       <h4>Block render function</h4>
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">proc</span> render*(nb: <span class="hljs-keyword">var</span> <span class="hljs-type">NbDoc</span>, blk: <span class="hljs-keyword">var</span> <span class="hljs-type">NbBlock</span>): <span class="hljs-built_in">string</span> =
   <span class="hljs-comment"># adapted from src/nimib/renders.nim</span>
@@ -238,32 +263,30 @@ nbSave <span class="hljs-comment"># renders each block in nb.blocks (+theme stuf
   <span class="hljs-literal">result</span> = nb.partials[blk.command].render(blk.context)</code></pre>
       </section>
       </section>
-      <section data-nimib-slide-number="16" >
       <section data-nimib-slide-number="17" >
-      <h2>Nimib Gallery🖼️</h2>
+      <section data-nimib-slide-number="18" >
+      <h2>How to 🖼️</h2>
       </section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/mermaid_diagram.html" data-background-interactive></section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/before_after_image_slider.html" data-background-interactive></section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/show_plotly.html" data-background-interactive></section>
-      <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/plant_app.html" data-background-interactive></section>
-      <section data-background-iframe="https://pietroppeter.github.io/adventofnim/2021/day03.html" data-background-interactive></section>
-      </section>
-      <section data-nimib-slide-number="18" >
-      <h2>Contributing🤲</h2>
       </section>
       <section data-nimib-slide-number="19" >
+      <section data-nimib-slide-number="20" >
+      <h2>A mathy plant app 🌱</h2>
+      </section>
+      <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/plant_app.html" data-background-interactive></section>
+      </section>
+      <section data-nimib-slide-number="21" >
+      <h2>Contributing🤲</h2>
+      </section>
+      <section data-nimib-slide-number="22" >
       <h2>Roadmap🗺️</h2>
       </section>
-      <section data-nimib-slide-number="20" >
+      <section data-nimib-slide-number="23" >
       <h2>Thanks</h2>
       </section>
     </div>
-      <div id="nimLogo" style="background: url(https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png);
-                              position: absolute;
-                              top: 100px;
-                              right: 100px;
-                              width: 100px;
-                              height: 100px;"></div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/reveal.js" integrity="sha512-+Dy2HJZ3Z1DWerDhqFE7AH2HTfnbq8RC1pKOashfMwx1s01fjPUebWoHqrRedU1yFimkexmzJJRilKxjs7lz8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/plugin/highlight/highlight.min.js" integrity="sha512-U3fPDUX5bMrn1wnYqjaK44MFA9E6MKS+zPAg9WPAGF5XhReBeDj3FGaA831CjueG+YJxYA3WaO/m33kMIoOs/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

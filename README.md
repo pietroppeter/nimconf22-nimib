@@ -25,7 +25,7 @@ Title: Nimib goes interactive
     - [x] livecode slide
   - [ ] 0.3.x changes
     - [x] intro slide for release
-      - [ ] add lines on 1) how to (custom blocks examples) 2) a js mathy plant app
+      - [x] add lines on 1) how to (custom blocks examples) 2) a js mathy plant app
     - [x] codeAsInSource
       - [x] fix animation of code lines
       - [x] mention CodeFromAst macro
@@ -48,16 +48,17 @@ Title: Nimib goes interactive
         - [ ] nbRawHtml
           - example on how to create blocks with this
       - [ ] discussion about partials+renderPlans vs nbRawHtml
-    - [ ] examples of custom blocks (previously gallery)
-      - [ ] add redo a title slide
-      - [ ] leftRight slider      
-      - [ ] mermaid
-        - [ ] fix
-      - [ ] plotly
-        - [ ] fix
-    - [ ] js mathy plant app: title slide
+        - mention container block as missing piece
+    - [ ] how to: examples of custom blocks (previously gallery)
+      - [x] add redo a title slide
+      - [x] leftRight slider      
+      - [x] mermaid
+        - [ ] fix in nblog
+      - [x] plotly
+        - [ ] fix in nblog
+    - [x] js mathy plant app: title slide
       - [x] embed html
-    - [ ] use nimconf theme
+    - [ ] use nimconf theme and merge all in slides.nim
     - [ ] record the 0.3.x changes part
   - [ ] record description of plant_app as example of js
   - [x] nimib changes
