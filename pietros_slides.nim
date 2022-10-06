@@ -17,6 +17,12 @@ template slideText(text: string) =
   slide:
     nbText: text
 
+nb.partials["nbTextSmall"] = "<small>" & nb.partials["nbText"] & "</small>"
+nb.renderPlans["nbTextSmall"] = nb.renderPlans["nbText"]
+template nbTextSmall(text: string) =
+  nbText: text
+  nb.blk.command = "nbTextSmall"
+
 template slideAutoAnimate(body: untyped) =
   slide(slideOptions(autoAnimate=true)):
     body
@@ -285,22 +291,80 @@ slide:
   slideText: hlMdF"""### {title_block}
 """
   slide:
-    nbCodeDontRun: # should higlight lines line by one
+    nbText: "#### What are blocks?"
+    nbCodeDontRunAnimate([3..3, 4..4, 6..6, 8..8, 10..10, 12..12, 14..14]): # should higlight lines line by one
       import nimib
 
       nbInit # creates a nb: NbDoc object
-      # it has attribute nb.blocks: seq[NbBlock]
+      # it has attribute nb.blocks: seq[NbBlock] = []
 
-      nbText: "hi" # new NbBlock added to nb.blocks
+      nbText: "hi" # add new NbBlock to nb.blocks = [🟩]
 
-      nbCode: echo "hi" # new NbBlock added to nb.blocks
+      nbCode: echo "hi" # add new NbBlock to nb.blocks = [⬛, 🟩]
 
-      nbImage("hi.png") # new NbBlock added to nb.blocks
+      nbImage("hi.png") # add new NbBlock to nb.blocks = [⬛, ⬛, 🟩]
 
-      myCustomBlock: discard # new NbBlock added to nb.blocks
+      myBlock: discard # add new NbBlock to nb.blocks = [⬛, ⬛, ⬛, 🟩]
 
       nbSave # renders each block in nb.blocks (+theme stuff +save file)
-  
+
+  slideAutoAnimate:
+    nbText: "#### What is a block?"
+    columns:
+      column:
+        nbText: "##### DATA"
+      column:
+        nbText: "##### RENDER"
+  slideAutoAnimate:
+    nbText: "#### What is a block?"
+    columns:
+      column:
+        nbText: "##### DATA"
+      column:
+        nbText: "##### RENDER"
+        nbText: "###### html backend\n###### md backend\n<small>other backends</small>"
+  slideAutoAnimate:
+    nbText: "#### What is a block?"
+    nbCodeDontRun: nbCode: echo "hi"
+    columns:
+      column:
+        nbText: "##### DATA"
+        nbTextSmall: """
+- code source: `echo "hi"`
+- code output: `hi`
+"""
+      column:
+        nbText: "##### RENDER"
+        nbText: "###### html backend"
+        nbTextSmall: """
+* preprocess:
+  - highlight code
+* render:
+  - wrap highlighted code source in
+    `<pre><code class="nim">`
+  - wrap code output in
+    `<pre><samp>`
+"""
+  slideAutoAnimate:
+    nbText: "#### What is a block?"
+    nbCodeDontRun: nbCode: echo "hi"
+    columns:
+      column:
+        nbText: "##### DATA"
+        nbTextSmall: """
+- code source: `echo "hi"`
+- code output: `hi`
+"""
+      column:
+        nbText: "##### RENDER"
+        nbText: "###### md backend"
+        nbTextSmall: """
+- no preprocess
+- render:
+  - wrap code source in ```` ```nim ... ``` ````
+  - wrap code output in ```` ``` ... ``` ````
+"""
+
   slide:
     nbText: "#### Nimib types" # essentials for rendering blocks
     nbCodeDontRun:

@@ -218,22 +218,107 @@ struct(http):
       <h3>make your own <code>NbBlock</code>👷</h3>
       </section>
       <section data-nimib-slide-number="14" >
-      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">import</span> nimib
+      <h4>What are blocks?</h4>
+      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers="|3-3,|4-4,|6-6,|8-8,|10-10,|12-12,|14-14"><span class="hljs-keyword">import</span> nimib
 
 nbInit <span class="hljs-comment"># creates a nb: NbDoc object</span>
-<span class="hljs-comment"># it has attribute nb.blocks: seq[NbBlock]</span>
+<span class="hljs-comment"># it has attribute nb.blocks: seq[NbBlock] = []</span>
 
-nbText: <span class="hljs-string">&quot;hi&quot;</span> <span class="hljs-comment"># new NbBlock added to nb.blocks</span>
+nbText: <span class="hljs-string">&quot;hi&quot;</span> <span class="hljs-comment"># add new NbBlock to nb.blocks = [🟩]</span>
 
-nbCode: <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;hi&quot;</span> <span class="hljs-comment"># new NbBlock added to nb.blocks</span>
+nbCode: <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;hi&quot;</span> <span class="hljs-comment"># add new NbBlock to nb.blocks = [⬛, 🟩]</span>
 
-nbImage(<span class="hljs-string">&quot;hi.png&quot;</span>) <span class="hljs-comment"># new NbBlock added to nb.blocks</span>
+nbImage(<span class="hljs-string">&quot;hi.png&quot;</span>) <span class="hljs-comment"># add new NbBlock to nb.blocks = [⬛, ⬛, 🟩]</span>
 
-myCustomBlock: <span class="hljs-keyword">discard</span> <span class="hljs-comment"># new NbBlock added to nb.blocks</span>
+myBlock: <span class="hljs-keyword">discard</span> <span class="hljs-comment"># add new NbBlock to nb.blocks = [⬛, ⬛, ⬛, 🟩]</span>
 
 nbSave <span class="hljs-comment"># renders each block in nb.blocks (+theme stuff +save file)</span></code></pre>
+
       </section>
-      <section data-nimib-slide-number="15" >
+      <section data-nimib-slide-number="15" data-auto-animate >
+      <h4>What is a block?</h4>
+      <div style="display: grid; grid-auto-flow: column;">
+      <div>
+      <h5>DATA</h5>
+      </div>
+      <div>
+      <h5>RENDER</h5>
+      </div>
+      </div>
+      </section>
+      <section data-nimib-slide-number="16" data-auto-animate >
+      <h4>What is a block?</h4>
+      <div style="display: grid; grid-auto-flow: column;">
+      <div>
+      <h5>DATA</h5>
+      </div>
+      <div>
+      <h5>RENDER</h5>
+      <h6>html backend</h6>
+<h6>md backend</h6>
+<p><small>other backends</small></p>
+      </div>
+      </div>
+      </section>
+      <section data-nimib-slide-number="17" data-auto-animate >
+      <h4>What is a block?</h4>
+      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers>nbCode: <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;hi&quot;</span></code></pre>
+      <div style="display: grid; grid-auto-flow: column;">
+      <div>
+      <h5>DATA</h5>
+      <small><ul>
+<li>code source: <code>echo &quot;hi&quot;</code></li>
+<li>code output: <code>hi</code></li>
+</ul></small>
+      </div>
+      <div>
+      <h5>RENDER</h5>
+      <h6>html backend</h6>
+      <small><ul>
+<li>preprocess:
+<ul>
+<li>highlight code</li>
+</ul>
+</li>
+<li>render:
+<ul>
+<li>wrap highlighted code source in
+<code>&lt;pre&gt;&lt;code class=&quot;nim&quot;&gt;</code></li>
+<li>wrap code output in
+<code>&lt;pre&gt;&lt;samp&gt;</code></li>
+</ul>
+</li>
+</ul></small>
+      </div>
+      </div>
+      </section>
+      <section data-nimib-slide-number="18" data-auto-animate >
+      <h4>What is a block?</h4>
+      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers>nbCode: <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;hi&quot;</span></code></pre>
+      <div style="display: grid; grid-auto-flow: column;">
+      <div>
+      <h5>DATA</h5>
+      <small><ul>
+<li>code source: <code>echo &quot;hi&quot;</code></li>
+<li>code output: <code>hi</code></li>
+</ul></small>
+      </div>
+      <div>
+      <h5>RENDER</h5>
+      <h6>md backend</h6>
+      <small><ul>
+<li>no preprocess</li>
+<li>render:
+<ul>
+<li>wrap code source in <code>```nim ... ```</code></li>
+<li>wrap code output in <code>``` ... ```</code></li>
+</ul>
+</li>
+</ul></small>
+      </div>
+      </div>
+      </section>
+      <section data-nimib-slide-number="19" >
       <h4>Nimib types</h4>
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">type</span>
   <span class="hljs-type">NbBlock</span> = <span class="hljs-keyword">ref</span> <span class="hljs-keyword">object</span>
@@ -251,7 +336,7 @@ nbSave <span class="hljs-comment"># renders each block in nb.blocks (+theme stuf
     <span class="hljs-comment"># ... and other fields</span>
   <span class="hljs-type">NbRenderProc</span>* = <span class="hljs-keyword">proc</span> (doc: <span class="hljs-keyword">var</span> <span class="hljs-type">NbDoc</span>, blk: <span class="hljs-keyword">var</span> <span class="hljs-type">NbBlock</span>) {.nimcall.}</code></pre>
       </section>
-      <section data-nimib-slide-number="16" >
+      <section data-nimib-slide-number="20" >
       <h4>Block render function</h4>
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">proc</span> render*(nb: <span class="hljs-keyword">var</span> <span class="hljs-type">NbDoc</span>, blk: <span class="hljs-keyword">var</span> <span class="hljs-type">NbBlock</span>): <span class="hljs-built_in">string</span> =
   <span class="hljs-comment"># adapted from src/nimib/renders.nim</span>
@@ -263,30 +348,36 @@ nbSave <span class="hljs-comment"># renders each block in nb.blocks (+theme stuf
   <span class="hljs-literal">result</span> = nb.partials[blk.command].render(blk.context)</code></pre>
       </section>
       </section>
-      <section data-nimib-slide-number="17" >
-      <section data-nimib-slide-number="18" >
+      <section data-nimib-slide-number="21" >
+      <section data-nimib-slide-number="22" >
       <h2>How to 🖼️</h2>
       </section>
-      <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/mermaid_diagram.html" data-background-interactive></section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/before_after_image_slider.html" data-background-interactive></section>
+      <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/mermaid_diagram.html" data-background-interactive></section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/show_plotly.html" data-background-interactive></section>
       </section>
-      <section data-nimib-slide-number="19" >
-      <section data-nimib-slide-number="20" >
+      <section data-nimib-slide-number="23" >
+      <section data-nimib-slide-number="24" >
       <h2>A mathy plant app 🌱</h2>
       </section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/plant_app.html" data-background-interactive></section>
       </section>
-      <section data-nimib-slide-number="21" >
+      <section data-nimib-slide-number="25" >
       <h2>Contributing🤲</h2>
       </section>
-      <section data-nimib-slide-number="22" >
+      <section data-nimib-slide-number="26" >
       <h2>Roadmap🗺️</h2>
       </section>
-      <section data-nimib-slide-number="23" >
+      <section data-nimib-slide-number="27" >
       <h2>Thanks</h2>
       </section>
     </div>
+      <div id="nimLogo" style="background: url(https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png);
+                              position: absolute;
+                              top: 100px;
+                              right: 100px;
+                              width: 100px;
+                              height: 100px;"></div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/reveal.js" integrity="sha512-+Dy2HJZ3Z1DWerDhqFE7AH2HTfnbq8RC1pKOashfMwx1s01fjPUebWoHqrRedU1yFimkexmzJJRilKxjs7lz8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/plugin/highlight/highlight.min.js" integrity="sha512-U3fPDUX5bMrn1wnYqjaK44MFA9E6MKS+zPAg9WPAGF5XhReBeDj3FGaA831CjueG+YJxYA3WaO/m33kMIoOs/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

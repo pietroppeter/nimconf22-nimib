@@ -31,9 +31,12 @@ Title: Nimib goes interactive
       - [x] mention CodeFromAst macro
     - [ ] custom block theory
       - [x] what are blocks
-        - [ ] add title and animate
-      - [ ] what is a block: data + render (two columns with examples)
-        - mention backend concept
+        - [x] add title and animate
+      - [x] what is a block: data + render (two columns with examples)
+        - [x] mention backend concept
+        - [x] nbCode
+        - [ ] nbText
+        - [ ] nbImage
       - [x] nimib types (implementation details)
         - [ ] animate and review
         - mention that until 0.2 it was an object variant with 3 kinds
