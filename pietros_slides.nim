@@ -484,6 +484,7 @@ slide:
 # @hugo: an idea I had in mind, first time I am proposing it...
 # see https://simonwillison.net/2021/Feb/19/office-hours/
 # I remember some tweet that mentioned a better name for office hours
+# ah "speaking hours"! yes, better. see https://twitter.com/simonw/status/1578410543014035457?s=20&t=y6ONp5McTq38bmwRAO2jPw
 slide:
   slideText: hlMdF"## {title_roadmap}"
   slideText: """
