@@ -162,3 +162,7 @@ meetings:
 - all links (to slides repo, to livecoding video) will have a small qr code in the slides
 - Pietro using a circular mask for the webcam, as in [this video](https://www.youtube.com/watch?v=4i5rTa7m9Uo)
 - very easy, add filter -> image mask -> select `circular_mask_obs.png` here in repo
+- ideas for Thank you slide:
+  - add a gif from here: https://giphy.com/explore/thank-you
+  - a nim/js app that cycles through "Thanks" in different languages
+    (Grazie, Takk, Arigato - but written in japanese, ...)
