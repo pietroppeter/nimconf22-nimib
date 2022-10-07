@@ -2,6 +2,7 @@ import nimib
 import nimib / [blocks]
 import nimiSlides
 import std / strformat
+import std / [strutils]
 
 nbInit(theme = revealTheme)
 setSlidesTheme(Moon)
@@ -13,6 +14,51 @@ when not defined(skipPython):
   nbInitPython()
 
 # CUSTOM blocks and templates ------------------------------------------------------------------------------------------
+when defined(confTheme):
+  template nimConfSlide(body: untyped) =
+    slide:
+      cornerImage("https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png", UpperRight, size=100, animate=false)
+      body
+
+  template nimConfSlide(options: SlideOptions, body: untyped) =
+    slide(options):
+      cornerImage("https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png", UpperRight, size=100, animate=false)
+      body
+
+  template slideConfText(text: string) =
+    nimConfSlide:
+      nbText: text
+
+  template nimConfTheme*() =
+    setSlidesTheme(Black)
+    let nimYellow = "#FFE953"
+    nb.addStyle: """
+:root {
+  --r-background-color: #181922;
+  --r-heading-color: $1;
+  --r-link-color: $1;
+  --r-selection-color: $1;
+  --r-link-color-dark: darken($1 , 15%)
+}
+
+.reveal ul, .reveal ol {
+  display: block;
+  text-align: left;
+}
+
+li::marker {
+  color: $1;
+  content: "»";
+}
+
+li {
+  padding-left: 12px;
+}
+""" % [nimYellow]
+
+  nimConfTheme()
+
+
 template slideText(text: string) =
   slide:
     nbText: text
@@ -455,9 +501,22 @@ slide:
 # RELEASE - Part 2 + Nimiboost - Hugo ------------------------------------------------------------------------------------------
 
 # plant app
-slide:
-  slideText: hlMdF"## {title_plant}"
-  slideIframeFromNblog("plant_app")
+when defined(confTheme):
+  nimConfSlide:
+    nimConfSlide:
+      nbText: hlMdF"## {title_plant}"
+      fadeInText: "- example of a more complex nbKarax app"
+      fadeInText: "- based on [a plot function](https://pietroppeter.github.io/nblog/drafts/plant_js.html) built with [planetis-m/jscanvas](https://github.com/planetis-m/jscanvas)"
+      fadeInText: "- preliminary api for [karax widgets](https://pietroppeter.github.io/nblog/drafts/karax_widgets_demo.html)"
+    slideIframeFromNblog("plant_app")
+else:
+  slide:
+    slide:
+      nbText: hlMdF"## {title_plant}"
+      fadeInText: "- example of a more complex nbKarax app"
+      fadeInText: "- based on [a plot function built with js canvas](https://pietroppeter.github.io/nblog/drafts/plant_js.html)"
+      fadeInText: "- preliminary api for [karax widgets](https://pietroppeter.github.io/nblog/drafts/karax_widgets_demo.html)"
+    slideIframeFromNblog("plant_app")
 
 
 # CONCLUSIONS (Contributing + Roadmap + thanks) together ----------------------------------------------------------

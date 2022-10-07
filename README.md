@@ -16,7 +16,7 @@ Title: Nimib goes interactive
 - together
   - [x] title slide
   - [x] presentation content slide
-  - [ ] recorded intro
+  - [x] recorded intro
 - Pietro:
   - [x] who am I (reuse from last time)
   - [x] livecoding
@@ -68,11 +68,13 @@ Title: Nimib goes interactive
         - [x] fix in nblog
       - [x] plotly
     - [x] js mathy plant app: title slide
+      - [x] add minimal intro
       - [x] embed html
+      - [x] use nimconf for this part of slides
     - [ ] use nimconf theme and merge all in slides.nim
       - refactor by making slides call a proc from pietro_slides?
     - [ ] record the 0.3.x changes part
-  - [ ] record description of plant_app as example of js
+  - [x] record description of plant_app as example of js
   - [x] contributing slides draft
   - [x] roadmap draft
   - [x] nimib changes
@@ -108,7 +110,7 @@ homework:
     - [x] livecoding recording
     - [ ] complete release slides
     - [ ] record release part
-    - [ ] record plant app
+    - [x] record plant app
     - [x] work on later slides (contribution + roadmap)
   Hugo:
     - [x] nimiboost recording
