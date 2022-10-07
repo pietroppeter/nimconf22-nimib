@@ -514,6 +514,7 @@ slide:
 - nog
 - nex
 - github powered CMS
+- nimetta / the algorithms
 - ...
 """
   slideText: """
