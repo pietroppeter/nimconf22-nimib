@@ -164,5 +164,6 @@ meetings:
 - very easy, add filter -> image mask -> select `circular_mask_obs.png` here in repo
 - ideas for Thank you slide:
   - add a gif from here: https://giphy.com/explore/thank-you
+    or here: https://giphy.com/search/thank-you-for-listening
   - a nim/js app that cycles through "Thanks" in different languages
     (Grazie, Takk, Arigato - but written in japanese, ...)
