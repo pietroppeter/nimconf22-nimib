@@ -61,12 +61,12 @@ Title: Nimib goes interactive
           - mention container block as missing piece
     - [ ] blocks with (external) js
       - [ ] how to use external js functionality (add to head, add to main)
+      - [ ] a refresher on mustache? here or earlier? probably earlier!
       - [x] add redo a title slide
       - [x] leftRight slider      
       - [x] mermaid
-        - [ ] fix in nblog
+        - [x] fix in nblog
       - [x] plotly
-        - [ ] fix in nblog
     - [x] js mathy plant app: title slide
       - [x] embed html
     - [ ] use nimconf theme and merge all in slides.nim
@@ -104,7 +104,8 @@ Title: Nimib goes interactive
 homework:
   Pietro:
     - [x] livecoding recording
-    - [ ] complete release slides + record
+    - [ ] complete release slides
+    - [ ] record release part
     - [ ] record plant app
     - [ ] work on later slides (contribution + roadmap)
   Hugo:
@@ -113,8 +114,8 @@ homework:
     - [ ] test putting together videos
 
 during sessions:
-  - [x] record intro together
-  - [ ] record outro together
+  - [x] record intro together - Oct 2
+  - [ ] record outro together - Oct 9
 
 nice to have:
   - [ ] cornerImage without JS?
