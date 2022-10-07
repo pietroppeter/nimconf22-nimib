@@ -35,24 +35,32 @@ Title: Nimib goes interactive
       - [x] what is a block: data + render (two columns with examples)
         - [x] mention backend concept
         - [x] nbCode
-        - [ ] nbText
-        - [ ] nbImage
+        - [x] nbText
+        - [x] nbImage
       - [x] nimib types (implementation details)
-        - [ ] animate and review
+        - [x] animate and review
         - mention that until 0.2 it was an object variant with 3 kinds
       - [x] render function (implementation details)
-        - [ ] review and animate
-      - [ ] "native" block examples (two columns: data + render)
+        - [x] review and animate
+      - [ ] how do I create (and customize) blocks
         - [ ] nbCode
           - [ ] customization example: add "Output:"
         - [ ] nbText
           - [ ] customization examples (e.g.nbText with rst)
         - [ ] nbImage
+      - [ ] other blocks
+        - [ ] nbCodeInBlock
+        - [ ] nbTextWithCode
+        - [ ] nbFile (string and untyped)
         - [ ] nbRawHtml
           - example on how to create blocks with this
-      - [ ] discussion about partials+renderPlans vs nbRawHtml
-        - mention container block as missing piece
-    - [ ] how to: examples of custom blocks (previously gallery)
+      - [ ] how to create blocks
+        - [ ] "natively" (newNbCodeBlock, newNbSlimBlock)
+        - [ ] from other blocks, composing, copying and customizing
+        - [ ] discussion about partials+renderPlans vs nbRawHtml
+          - mention container block as missing piece
+    - [ ] blocks with (external) js
+      - [ ] how to use external js functionality (add to head, add to main)
       - [x] add redo a title slide
       - [x] leftRight slider      
       - [x] mermaid
@@ -62,6 +70,7 @@ Title: Nimib goes interactive
     - [x] js mathy plant app: title slide
       - [x] embed html
     - [ ] use nimconf theme and merge all in slides.nim
+      - refactor by making slides call a proc from pietro_slides?
     - [ ] record the 0.3.x changes part
   - [ ] record description of plant_app as example of js
   - [x] nimib changes
@@ -111,6 +120,7 @@ nice to have:
   - [ ] cornerImage without JS?
   - [ ] qr code links around
   - [ ] whale in the qr code
+  - [ ] source of slides (bottom of title slide)
 
 ## summary
 

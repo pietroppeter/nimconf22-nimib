@@ -364,35 +364,86 @@ slide:
   - wrap code source in ```` ```nim ... ``` ````
   - wrap code output in ```` ``` ... ``` ````
 """
+  slideAutoAnimate:
+    nbText: "#### What is a block?"
+    nbCodeDontRun: nbText: "hi"
+    columns:
+      column:
+        nbText: "##### DATA"
+        nbTextSmall: """
+- text: `"hi"`
+"""
+      column:
+        nbText: "##### RENDER"
+        nbText: "###### html backend"
+        nbTextSmall: """
+- convert md to html
+- render:
+  - use directly converted html
+"""
+        nbText: "###### md backend"
+        nbTextSmall: """
+- no preprocess
+- render:
+  - use directly original md text
+"""
+  slideAutoAnimate:
+    nbText: "#### What is a block?"
+    nbCodeDontRun: nbImage("hi.png")
+    columns:
+      column:
+        nbText: "##### DATA"
+        nbTextSmall: """
+- image url (or relative local path)
+- (optional) caption
+"""
+      column:
+        nbText: "##### RENDER"
+        nbText: "###### html backend"
+        nbTextSmall: """
+- no preprocess
+- render:
+  - wrap using `<figure>`, `<img>`, `<figcaption>` elements
+"""
+        nbText: "###### md backend"
+        nbTextSmall: """
+- no preprocess
+- render:
+  - `![{{caption}}]({{url}})`
+"""
 
   slide:
-    nbText: "#### Nimib types" # essentials for rendering blocks
-    nbCodeDontRun:
+    nbText: "#### Yeah, but what is a `NbBlock`?"
+    nbCodeDontRunAnimate([2..10, 11..18, 3..7, 4..4, 5..7, 8..10, 10..10, 12..13, 14..15, 16..18]):
       type
+        ## DATA 👇
         NbBlock = ref object
-          command*: string
-          code*: string
-          output*: string
-          context*: Context # think of this as a JsonNode           
+          command*: string ## (NbCode, NbText, ...) used for render
+          code*: string  ## nbCode source
+          output*: string  ## nbCode output / nbText text
+          context*: Context ## think of this as a JsonNode           
         NbDoc* = object
           blocks*: seq[NbBlock]
           blk*: NbBlock  ## current block being processed
-          # in these table NbBlock.command is the key
-          partials*: Table[string, string]
+        ## RENDER 👇
+          partials*: Table[string,  string]
+            ## key is command, value is a mustache template                              
           renderPlans*: Table[string, seq[string]]
+            ## key is command, value is a seq of proc names
           renderProcs*: Table[string, NbRenderProc]
-          # ... and other fields
+            ## key is proc name, value is implementation
         NbRenderProc* = proc (doc: var NbDoc, blk: var NbBlock) {.nimcall.}
+    speakerNote("until 0.2 blocks were variant kind with 3 kinds: Code, Text, Image")
   slide:
     nbText: "#### Block render function"
-    nbCodeDontRun:
+    nbCodeDontRunAnimate([3..6, 7..8]):
       proc render*(nb: var NbDoc, blk: var NbBlock): string =
         # adapted from src/nimib/renders.nim
-        if blk.command in nb.renderPlans:
+        if blk.command in nb.renderPlans: # "preprocess"
           for step in nb.renderPlans[blk.command]:
             if step in nb.renderProcs:
               nb.renderProcs[step](nb, blk)
-        blk.context.searchTable(nb.partials)
+        blk.context.searchTable(nb.partials) # apply templates
         result = nb.partials[blk.command].render(blk.context)
 
 slide:
