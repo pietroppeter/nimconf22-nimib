@@ -489,6 +489,7 @@ slide:
   slideText: """
 ### priorities
 - first goal: produce stuff with nimib 0.3.x!
+  - e.g. a nim-lang blogpost using md backend (but with js stuff?)
 - next 0.4 target: backend maker
 - (Pietro) a blog theme / jekyll clone (side project)
 """
