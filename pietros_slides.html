@@ -39,7 +39,7 @@
 <li>🪞<code>CodeAsInSource</code></li>
 <li>make your own <code>NbBlock</code>👷
 <ul>
-<li>How to 🖼️</li>
+<li>Fancy blocks 🖼️</li>
 </ul>
 </li>
 <li>🐍<code>nbPython</code></li>
@@ -56,7 +56,7 @@
 <li>🪞<code>CodeAsInSource</code></li>
 <li>make your own <code>NbBlock</code>👷
 <ul>
-<li>How to 🖼️</li>
+<li>Fancy blocks 🖼️</li>
 </ul>
 </li>
 <li>🐍<code>nbPython</code></li>
@@ -390,9 +390,9 @@ nbSave <span class="hljs-comment"># renders each block in nb.blocks (+theme stuf
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers="|2-10,|11-18,|3-7,|4-4,|5-7,|8-10,|10-10,|12-13,|14-15,|16-18"><span class="hljs-keyword">type</span>
   <span class="hljs-comment">## DATA 👇</span>
   <span class="hljs-type">NbBlock</span> = <span class="hljs-keyword">ref</span> <span class="hljs-keyword">object</span>
-    command*: <span class="hljs-built_in">string</span> <span class="hljs-comment">## used to drive render part</span>
-    code*: <span class="hljs-built_in">string</span>
-    output*: <span class="hljs-built_in">string</span>
+    command*: <span class="hljs-built_in">string</span> <span class="hljs-comment">## (NbCode, NbText, ...) used for render</span>
+    code*: <span class="hljs-built_in">string</span>  <span class="hljs-comment">## nbCode source</span>
+    output*: <span class="hljs-built_in">string</span>  <span class="hljs-comment">## nbCode output / nbText text</span>
     context*: <span class="hljs-type">Context</span> <span class="hljs-comment">## think of this as a JsonNode           </span>
   <span class="hljs-type">NbDoc</span>* = <span class="hljs-keyword">object</span>
     blocks*: <span class="hljs-built_in">seq</span>[<span class="hljs-type">NbBlock</span>]
@@ -406,22 +406,27 @@ nbSave <span class="hljs-comment"># renders each block in nb.blocks (+theme stuf
       <span class="hljs-comment">## key is proc name, value is implementation</span>
   <span class="hljs-type">NbRenderProc</span>* = <span class="hljs-keyword">proc</span> (doc: <span class="hljs-keyword">var</span> <span class="hljs-type">NbDoc</span>, blk: <span class="hljs-keyword">var</span> <span class="hljs-type">NbBlock</span>) {.nimcall.}</code></pre>
 
+      <aside class="notes">
+  <p>until 0.2 blocks were variant kind with 3 kinds: Code, Text, Image</p>
+
+</aside>
       </section>
       <section data-nimib-slide-number="22" >
       <h4>Block render function</h4>
-      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">proc</span> render*(nb: <span class="hljs-keyword">var</span> <span class="hljs-type">NbDoc</span>, blk: <span class="hljs-keyword">var</span> <span class="hljs-type">NbBlock</span>): <span class="hljs-built_in">string</span> =
+      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers="|3-6,|7-8"><span class="hljs-keyword">proc</span> render*(nb: <span class="hljs-keyword">var</span> <span class="hljs-type">NbDoc</span>, blk: <span class="hljs-keyword">var</span> <span class="hljs-type">NbBlock</span>): <span class="hljs-built_in">string</span> =
   <span class="hljs-comment"># adapted from src/nimib/renders.nim</span>
-  <span class="hljs-keyword">if</span> blk.command <span class="hljs-keyword">in</span> nb.renderPlans:
+  <span class="hljs-keyword">if</span> blk.command <span class="hljs-keyword">in</span> nb.renderPlans: <span class="hljs-comment"># &quot;preprocess&quot;</span>
     <span class="hljs-keyword">for</span> step <span class="hljs-keyword">in</span> nb.renderPlans[blk.command]:
       <span class="hljs-keyword">if</span> step <span class="hljs-keyword">in</span> nb.renderProcs:
         nb.renderProcs[step](nb, blk)
-  blk.context.searchTable(nb.partials)
+  blk.context.searchTable(nb.partials) <span class="hljs-comment"># apply templates</span>
   <span class="hljs-literal">result</span> = nb.partials[blk.command].render(blk.context)</code></pre>
+
       </section>
       </section>
       <section data-nimib-slide-number="23" >
       <section data-nimib-slide-number="24" >
-      <h2>How to 🖼️</h2>
+      <h2>Fancy blocks 🖼️</h2>
       </section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/before_after_image_slider.html" data-background-interactive></section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/mermaid_diagram.html" data-background-interactive></section>
@@ -434,12 +439,100 @@ nbSave <span class="hljs-comment"># renders each block in nb.blocks (+theme stuf
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/plant_app.html" data-background-interactive></section>
       </section>
       <section data-nimib-slide-number="27" >
+      <section data-nimib-slide-number="28" >
       <h2>Contributing🤲</h2>
       </section>
-      <section data-nimib-slide-number="28" >
+      <section data-nimib-slide-number="29" >
+      <h3>Improved Dev Experience</h3>
+<ul>
+<li>docs are now built in CI</li>
+<li>deploy preview!</li>
+<li>we added tests (and removed ptest)</li>
+<li>update docs and separated changelog</li>
+<li>a new <a href="">CONTRIBUTE.md</a>!</li>
+<li>some issues marked as good-first-issue</li>
+</ul>
+      </section>
+      <section data-nimib-slide-number="30" >
+      <h3>Office Hours!</h3>
+<ul>
+<li>me and Hugo have been meeting regularly</li>
+<li>we could continue to meet regularly
+<ul>
+<li>(e.g. once a month, on weekends, a floating hour)</li>
+</ul>
+</li>
+<li>in this meeting we would welcome and support users of nimib who are
+struggling or new contributors</li>
+</ul>
+      </section>
+      </section>
+      <section data-nimib-slide-number="31" >
+      <section data-nimib-slide-number="32" >
       <h2>Roadmap🗺️</h2>
       </section>
-      <section data-nimib-slide-number="29" >
+      <section data-nimib-slide-number="33" >
+      <h3>priorities</h3>
+<ul>
+<li>first goal: produce stuff with nimib 0.3.x!</li>
+<li>next 0.4 target: backend maker</li>
+<li>(Pietro) a blog theme / jekyll clone (side project)</li>
+</ul>
+      </section>
+      <section data-nimib-slide-number="34" >
+      <h3>0.3.x</h3>
+<ul>
+<li>more blocks (nbAudio, nbVideo, nbPlotly, nbShell, ...)</li>
+<li>container block</li>
+<li><code>NbBlock.data: JsonNode</code></li>
+<li>improve default theme
+<ul>
+<li>better code output</li>
+<li>anchors for headers</li>
+</ul>
+</li>
+<li>table of contents</li>
+<li>html outputs from code blocks (nbShow?):
+<ul>
+<li>html table for a dataframe</li>
+</ul>
+</li>
+<li>shared data between documents
+<ul>
+<li>site index</li>
+</ul>
+</li>
+</ul>
+      </section>
+      <section data-nimib-slide-number="35" >
+      <h3>side projects</h3>
+<ul>
+<li>feedo</li>
+<li>nog</li>
+<li>nex</li>
+<li>github powered CMS</li>
+<li>...</li>
+</ul>
+      </section>
+      <section data-nimib-slide-number="36" >
+      <h3>further down the road</h3>
+<ul>
+<li>new backends
+<ul>
+<li>a latex theme (for articles or, using beamer, for presentations)</li>
+<li>a pdf theme (without passing from latex?)</li>
+<li>a twitter backend?</li>
+</ul>
+</li>
+<li>serving a (real) backend that interacts with the page (streamlit style? jester? htmx?)</li>
+<li>can I use nimib to build a library directly from documentation (like in nbdev)?</li>
+<li>nimib executable for scaffolding and to support different publishing workflows</li>
+<li>possibility of editing document in the browser (similar to jupyter UI, not necessarily taking advantage of hot code reloading)</li>
+<li>...</li>
+</ul>
+      </section>
+      </section>
+      <section data-nimib-slide-number="37" >
       <h2>Thanks</h2>
       </section>
     </div>

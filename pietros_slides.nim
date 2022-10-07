@@ -123,11 +123,11 @@ nb.context["nimLogo"] = true # does not work
 # INTRO together ------------------------------------------------------------------------------------------
 
 let
-  title_block = "make your own `NbBlock`👷"
-  title_js = "🤯 `nbJsFromCode`, `nbKaraxCode`"
   title_source = "🪞`CodeAsInSource`"
+  title_block = "make your own `NbBlock`👷"
+  title_howto = "Fancy blocks 🖼️"
   title_python = "🐍`nbPython`"
-  title_howto = "How to 🖼️"
+  title_js = "🤯 `nbJsFromCode`, `nbKaraxCode`"
   title_plant = "A mathy plant app 🌱"
   title_contribute = "Contributing🤲"
   title_roadmap = "Roadmap🗺️"
@@ -462,9 +462,70 @@ slide:
 
 # CONCLUSIONS (Contributing + Roadmap + thanks) together ----------------------------------------------------------
 
-slideText: hlMdF"## {title_contribute}"
-
-slideText: hlMdF"## {title_roadmap}"
+slide:
+  slideText: hlMdF"## {title_contribute}"
+  slideText: """
+### Improved Dev Experience
+- docs are now built in CI
+- deploy preview!
+- we added tests (and removed ptest)
+- update docs and separated changelog
+- a new [CONTRIBUTE.md]()!
+- some issues marked as good-first-issue
+"""
+  slideText: """
+### Office Hours!
+- me and Hugo have been meeting regularly
+- we could continue to meet regularly
+  - (e.g. once a month, on weekends, a floating hour)
+- in this meeting we would welcome and support users of nimib who are
+  struggling or new contributors
+"""
+# @hugo: an idea I had in mind, first time I am proposing it...
+# see https://simonwillison.net/2021/Feb/19/office-hours/
+# I remember some tweet that mentioned a better name for office hours
+slide:
+  slideText: hlMdF"## {title_roadmap}"
+  slideText: """
+### priorities
+- first goal: produce stuff with nimib 0.3.x!
+- next 0.4 target: backend maker
+- (Pietro) a blog theme / jekyll clone (side project)
+"""
+  slideText: """
+### 0.3.x
+- more blocks (nbAudio, nbVideo, nbPlotly, nbShell, ...)
+- container block
+- `NbBlock.data: JsonNode`
+- improve default theme
+  - better code output
+  - anchors for headers
+- table of contents
+- html outputs from code blocks (nbShow?):
+  - html table for a dataframe
+- shared data between documents
+  - site index
+"""
+  slideText: """
+### side projects
+- feedo
+- nog
+- nex
+- github powered CMS
+- ...
+"""
+  slideText: """
+### further down the road
+- new backends
+  - a latex theme (for articles or, using beamer, for presentations)
+  - a pdf theme (without passing from latex?)
+  - a twitter backend?
+- serving a (real) backend that interacts with the page (streamlit style? jester? htmx?)
+- can I use nimib to build a library directly from documentation (like in nbdev)?
+- nimib executable for scaffolding and to support different publishing workflows
+- possibility of editing document in the browser (similar to jupyter UI, not necessarily taking advantage of hot code reloading)
+- ...
+"""
 
 slideText: "## Thanks"
 

@@ -73,6 +73,8 @@ Title: Nimib goes interactive
       - refactor by making slides call a proc from pietro_slides?
     - [ ] record the 0.3.x changes part
   - [ ] record description of plant_app as example of js
+  - [x] contributing slides draft
+  - [x] roadmap draft
   - [x] nimib changes
     - [x] stdout flush fix
     - [x] pre line-height fix
@@ -107,7 +109,7 @@ homework:
     - [ ] complete release slides
     - [ ] record release part
     - [ ] record plant app
-    - [ ] work on later slides (contribution + roadmap)
+    - [x] work on later slides (contribution + roadmap)
   Hugo:
     - [x] nimiboost recording
     - [x] record part 2 of slides (+ details)
