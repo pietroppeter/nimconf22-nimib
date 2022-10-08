@@ -42,24 +42,25 @@ Title: Nimib goes interactive
         - mention that until 0.2 it was an object variant with 3 kinds
       - [x] render function (implementation details)
         - [x] review and animate
-      - [ ] how do I create (and customize) blocks
-        - [ ] nbCode
-          - [ ] customization example: add "Output:"
-        - [ ] nbText
-          - [ ] customization examples (e.g.nbText with rst)
-        - [ ] nbImage
+      - [x] how do I create a block
+        - [x] nbCode
+        - [x] nbText
+        - [x] nbImage
+      - [ ] how can you customize a block?
+        - [ ] nbCode customization example: add "Output:"
+        - [ ] nbText customization examples (e.g.nbText with rst)
       - [ ] other blocks
         - [ ] nbCodeInBlock
         - [ ] nbTextWithCode
         - [ ] nbFile (string and untyped)
         - [ ] nbRawHtml
           - example on how to create blocks with this
-      - [ ] how to create blocks
+      - [ ] how can **you** create blocks?
         - [ ] "natively" (newNbCodeBlock, newNbSlimBlock)
         - [ ] from other blocks, composing, copying and customizing
         - [ ] discussion about partials+renderPlans vs nbRawHtml
           - mention container block as missing piece
-    - [ ] blocks with (external) js
+    - [ ] fancy blocks (blocks with (external) js)
       - [ ] how to use external js functionality (add to head, add to main)
       - [ ] a refresher on mustache? here or earlier? probably earlier!
       - [x] add redo a title slide

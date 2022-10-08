@@ -492,6 +492,48 @@ slide:
         blk.context.searchTable(nb.partials) # apply templates
         result = nb.partials[blk.command].render(blk.context)
 
+  slideAutoAnimate:
+    nbText: "#### How do I create a block?"
+    nbText: "##### DATA generation"
+    nbCodeDontRun:
+      template nbCode*(body: untyped) =
+        newNbCodeBlock("nbCode", body): # create block and save source in .code
+          captureStdout(nb.blk.output): # run, capture output and save in .output
+            body
+    nbText: "##### RENDER (HTML)"
+    nbCodeDontRun:
+      nb.renderPlans["nbCode"] = @["highlightCode"]
+      nb.partials["nbCode"] = """
+{{>nbCodeSource}}
+{{>nbCodeOutput}}"""
+      nb.partials["nbCodeSource"] = "<pre><code class=\"nim hljs\">{{&codeHighlighted}}</code></pre>"
+      nb.partials["nbCodeOutput"] = """{{#output}}<pre class="nb-output"><samp>{{output}}</samp></pre>{{/output}}"""
+  slideAutoAnimate:
+    nbText: "#### How do I create a block?"
+    nbText: "##### DATA generation"
+    nbCodeDontRun:
+      template nbText*(text: string) =
+        newNbSlimBlock("nbText"):
+          nb.blk.output = text
+    nbText: "##### RENDER (HTML)"
+    nbCodeDontRun:
+      nb.renderPlans["nbText"] = @["mdOutputToHtml"]
+      nb.partials["nbText"] = "{{&outputToHtml}}"
+  slideAutoAnimate:
+    nbText: "#### How do I create a block?"
+    nbText: "##### DATA generation"
+    nbCodeDontRun:
+      template nbImage*(url: string, caption = "") =
+        newNbSlimBlock("nbImage"):
+          nb.blk.context["url"] = url # *special handling for relative paths
+          nb.blk.context["caption"] = caption
+    nbText: "##### RENDER (HTML)"
+    nbCodeDontRun:
+      nb.partials["nbImage"] = """<figure>
+<img src="{{url}}" alt="{{caption}}">
+<figcaption>{{caption}}</figcaption>
+</figure>"""
+
 slide:
   slideText: hlMdF"## {title_howto}"
   slideIframeFromNblog("before_after_image_slider")
