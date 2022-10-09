@@ -1,6 +1,6 @@
 import nimib, nimiSlides
 import nimib / blocks
-import std / strutils
+import std / [strutils, strformat]
 
 
 # titles
@@ -108,3 +108,5 @@ template textSwitcher*(texts: seq[string], duration: float = 2) =
     nbRawHtml: cssString
 
 
+proc nimibIssue*(num: int): string =
+  return fmt"[#{$num}](https://github.com/pietroppeter/nimib/issues/{$num})"

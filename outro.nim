@@ -1,6 +1,6 @@
 import nimib, nimiSlides
 from custom_blocks import
-  myInit, mySlide, slideText, title_contribute, title_roadmap, textSwitcher, slideAutoAnimate, addNbTextSmall, nbTextSmall
+  myInit, mySlide, slideText, title_contribute, title_roadmap, textSwitcher, slideAutoAnimate, addNbTextSmall, nbTextSmall, nimibIssue
 
 template contributeSlides* =
   mySlide:
@@ -47,20 +47,18 @@ template roadmapSlides* =
           listItem:
             nbText: "(Pietro) a blog theme / jekyll clone"
 
-    slideText: """
-  ### 0.3.x
-  - more blocks (nbAudio, nbVideo, nbPlotly, nbShell, ...)
-  - container block
-  - `NbBlock.data: JsonNode`
-  - improve default theme
-    - better code output
-    - anchors for headers
-  - table of contents
-  - html outputs from code blocks (nbShow?):
-    - html table for a dataframe
-  - shared data between documents
-    - site index
-  """
+
+    mySlide:
+      nbText: " ### 0.3.x"
+      unorderedList:
+        listItem: nbText: "more blocks, e.g. nbShell " & nimibIssue(34)
+        listItem: nbText: "container block " & nimibIssue(117)
+        listItem: nbText: "improve default theme, e.g. code output " & nimibIssue(65)
+        listItem: nbText: "table of contents " & nimibIssue(58)
+        listItem: nbText: "site index " & nimibIssue(129)
+        listItem: nbText: "dataframe to html table " & nimibIssue(65)
+        listItem: nbText: "..."
+
   #[
     slideText: """
   ### side projects
@@ -83,6 +81,7 @@ template roadmapSlides* =
         listItem: nbText: "build a library directly from documentation (like in [nbdev](https://nbdev.fast.ai/))?"
         listItem: nbText: "nimib executable for scaffolding"
         listItem: nbText: "possibility of editing document in the browser"
+
 
 template thankyouSlide* =
   mySlide:
