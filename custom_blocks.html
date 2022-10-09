@@ -11,100 +11,65 @@
     <div class="slides">
       <section data-nimib-slide-number="1" >
       <section data-nimib-slide-number="2" >
-      <h2>Contributing🤲</h2>
+      <h2>Roadmap🗺️</h2>
       </section>
-      <section data-nimib-slide-number="3" data-auto-animate >
-      <h3>👩‍💻Improved Dev Experience</h3>
-      <ul>
-      <div class="fragment fade-in" data-fragment-index="0" data-fragment-index-nimib="0"> 
-  
-      <li class="fragment fade-in-then-semi-out " data-fragment-index="0" data-fragment-index-nimib="0">
-      <p>docs are now built in CI</p>
-      </li>
-      </div>
-  
-      <div class="fragment fade-in" data-fragment-index="1" data-fragment-index-nimib="1"> 
-  
-      <li class="fragment fade-in-then-semi-out " data-fragment-index="1" data-fragment-index-nimib="1">
-      <p>deploy preview!</p>
-      </li>
-      </div>
-  
-      <div class="fragment fade-in" data-fragment-index="2" data-fragment-index-nimib="2"> 
-  
-      <li class="fragment fade-in-then-semi-out " data-fragment-index="2" data-fragment-index-nimib="2">
-      <p>we added tests (and removed ptest)</p>
-      </li>
-      </div>
-  
-      <div class="fragment fade-in" data-fragment-index="3" data-fragment-index-nimib="3"> 
-  
-      <li class="fragment fade-in-then-semi-out " data-fragment-index="3" data-fragment-index-nimib="3">
-      <p>updated docs and added a separate changelog</p>
-      </li>
-      </div>
-  
-      <div class="fragment fade-in" data-fragment-index="4" data-fragment-index-nimib="4"> 
-  
-      <li class="fragment fade-in-then-semi-out " data-fragment-index="4" data-fragment-index-nimib="4">
-      <p>a new <a href="">CONTRIBUTE.md</a>!</p>
-      </li>
-      </div>
-  
-      <div class="fragment fade-in" data-fragment-index="5" data-fragment-index-nimib="5"> 
-  
-      <li class="fragment fade-in-then-semi-out " data-fragment-index="5" data-fragment-index-nimib="5">
-      <p>some issues marked as good-first-issue</p>
-      </li>
-      </div>
-  
-      </ul>
+      <section data-nimib-slide-number="3" >
+      <h3>priorities</h3>
+<ul>
+<li>first goal: produce stuff with nimib 0.3.x!
+<ul>
+<li>more scinim/getting-started tutorials!</li>
+<li>advent of code!</li>
+</ul>
+</li>
+<li>next 0.4 target: backend maker</li>
+<li>side projects:
+<ul>
+<li>(Pietro) a blog theme / jekyll clone</li>
+</ul>
+</li>
+</ul>
       </section>
-      <section data-nimib-slide-number="4" data-auto-animate >
-      <h3>👩‍💻Improved Dev Experience</h3>
-      <h4>Deploy preview</h4>
-      <figure>
-<img src="deploy_preview.png" alt="">
-<figcaption></figcaption>
-</figure>
+      <section data-nimib-slide-number="4" >
+      <h3>0.3.x</h3>
+<ul>
+<li>more blocks (nbAudio, nbVideo, nbPlotly, nbShell, ...)</li>
+<li>container block</li>
+<li><code>NbBlock.data: JsonNode</code></li>
+<li>improve default theme
+<ul>
+<li>better code output</li>
+<li>anchors for headers</li>
+</ul>
+</li>
+<li>table of contents</li>
+<li>html outputs from code blocks (nbShow?):
+<ul>
+<li>html table for a dataframe</li>
+</ul>
+</li>
+<li>shared data between documents
+<ul>
+<li>site index</li>
+</ul>
+</li>
+</ul>
       </section>
       <section data-nimib-slide-number="5" >
-      <h3>Nimib Speaking Hours!</h3>
-      <ul>
-      <div class="fragment fade-in" data-fragment-index="6" data-fragment-index-nimib="6"> 
-  
-      <li class="fragment fade-in-then-semi-out " data-fragment-index="6" data-fragment-index-nimib="6">
-      <p>me and Hugo have been meeting regularly</p>
-      </li>
-      </div>
-  
-      <div class="fragment fade-in" data-fragment-index="7" data-fragment-index-nimib="7"> 
-  
-      <li class="fragment fade-in-then-semi-out " data-fragment-index="7" data-fragment-index-nimib="7">
-      <p>thinking of keeping this up (once a month)</p>
-      </li>
-      </div>
-  
-      <div class="fragment fade-in" data-fragment-index="8" data-fragment-index-nimib="8"> 
-  
-      <li class="fragment fade-in-then-semi-out " data-fragment-index="8" data-fragment-index-nimib="8">
-      <p>open to anyone using nimib or contributing</p>
-      </li>
-      </div>
-  
-      <div class="fragment fade-in" data-fragment-index="9" data-fragment-index-nimib="9"> 
-  
-      <li class="fragment fade-in-then-semi-out " data-fragment-index="9" data-fragment-index-nimib="9">
-      <p>will announce seomwhere (nimib discussions?)</p>
-      </li>
-      </div>
-  
-      </ul>
-      <div class="fragment fade-in" data-fragment-index="10" data-fragment-index-nimib="10"> 
-  
-      <small><p>(inspired by <a href="https://simonwillison.net/2021/Feb/19/office-hours/">Simon Willson</a>)</p></small>
-      </div>
-  
+      <h3>further down the road</h3>
+<ul>
+<li>(after 0.4) new backends
+<ul>
+<li>latex</li>
+<li>twitter?</li>
+</ul>
+</li>
+<li>serving a (real) backend that interacts with the page (<a href="https://streamlit.io/">streamlit</a> style? <a href="https://streamlit.io/">jester</a>? <a href="https://streamlit.io/">htmx</a>?)</li>
+<li>can I use nimib to build a library directly from documentation (like in <a href="https://streamlit.io/">nbdev</a>)?</li>
+<li>nimib executable for scaffolding and to support different publishing workflows</li>
+<li>possibility of editing document in the browser (similar to jupyter UI, not necessarily taking advantage of hot code reloading)</li>
+<li>...</li>
+</ul>
       </section>
       </section>
     </div>

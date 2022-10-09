@@ -37,9 +37,11 @@ template roadmapSlides* =
     slideText: """
   ### priorities
   - first goal: produce stuff with nimib 0.3.x!
-    - e.g. a nim-lang blogpost using md backend (but with js stuff?)
+    - more scinim/getting-started tutorials!
+    - advent of code!
   - next 0.4 target: backend maker
-  - (Pietro) a blog theme / jekyll clone (side project)
+  - side projects:
+    - (Pietro) a blog theme / jekyll clone
   """
     slideText: """
   ### 0.3.x
@@ -55,6 +57,7 @@ template roadmapSlides* =
   - shared data between documents
     - site index
   """
+  #[
     slideText: """
   ### side projects
   - feedo
@@ -64,17 +67,22 @@ template roadmapSlides* =
   - nimetta / the algorithms
   - ...
   """
+  ]#
     slideText: """
   ### further down the road
-  - new backends
-    - a latex theme (for articles or, using beamer, for presentations)
-    - a pdf theme (without passing from latex?)
-    - a twitter backend?
-  - serving a (real) backend that interacts with the page (streamlit style? jester? htmx?)
-  - can I use nimib to build a library directly from documentation (like in nbdev)?
+  - (after 0.4) new backends
+    - latex
+    - twitter?
+  - serving a (real) backend that interacts with the page ([streamlit] style? [jester]? [htmx]?)
+  - can I use nimib to build a library directly from documentation (like in [nbdev])?
   - nimib executable for scaffolding and to support different publishing workflows
   - possibility of editing document in the browser (similar to jupyter UI, not necessarily taking advantage of hot code reloading)
   - ...
+
+  [streamlit]: https://streamlit.io/
+  [jester]: https://streamlit.io/
+  [htmx]: https://streamlit.io/
+  [nbdev]: https://streamlit.io/
   """
 
 template thankyouSlide* =
@@ -86,7 +94,7 @@ template thankyouSlide* =
 
 when isMainModule:
   myInit()
-  contributeSlides()
-  #roadmapSlides()
+  #contributeSlides()
+  roadmapSlides()
   #thankyouSlide()
   nbSave
