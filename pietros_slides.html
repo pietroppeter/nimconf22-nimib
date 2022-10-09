@@ -432,6 +432,7 @@ nbSave <span class="hljs-comment"># renders each block in nb.blocks (+theme stuf
       body</code></pre>
       <h5>RENDER (HTML)</h5>
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers>nb.renderPlans[<span class="hljs-string">&quot;nbCode&quot;</span>] = @[<span class="hljs-string">&quot;highlightCode&quot;</span>]
+nb.renderProcs[<span class="hljs-string">&quot;highlightCode&quot;</span>] =  highlightCode
 nb.partials[<span class="hljs-string">&quot;nbCode&quot;</span>] = <span class="hljs-string">&quot;&quot;&quot;
 {{&gt;nbCodeSource}}
 {{&gt;nbCodeOutput}}&quot;&quot;&quot;</span>
@@ -446,6 +447,7 @@ nb.partials[<span class="hljs-string">&quot;nbCodeOutput&quot;</span>] = <span c
     nb.blk.output = text</code></pre>
       <h5>RENDER (HTML)</h5>
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers>nb.renderPlans[<span class="hljs-string">&quot;nbText&quot;</span>] = @[<span class="hljs-string">&quot;mdOutputToHtml&quot;</span>]
+nb.renderProcs[<span class="hljs-string">&quot;mdOutputToHtml&quot;</span>] =  mdOutputToHtml
 nb.partials[<span class="hljs-string">&quot;nbText&quot;</span>] = <span class="hljs-string">&quot;{{&amp;outputToHtml}}&quot;</span></code></pre>
       </section>
       <section data-nimib-slide-number="25" data-auto-animate >
@@ -463,62 +465,100 @@ nb.partials[<span class="hljs-string">&quot;nbText&quot;</span>] = <span class="
       </section>
       <section data-nimib-slide-number="26" >
       <h4>Other blocks</h4>
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="6" data-fragment-index-nimib="6"> 
-  
       <ul>
-<li><code>nbCodeInBlock</code>: a <code>nbCode</code> in a <code>block:</code></li>
-</ul>
+      <div class="fragment fade-in" data-fragment-index="6" data-fragment-index-nimib="6"> 
+  
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="6" data-fragment-index-nimib="6">
+      <p><code>nbCodeInBlock</code>: a <code>nbCode</code> in a <code>block:</code></p>
+      </li>
       </div>
   
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="7" data-fragment-index-nimib="7"> 
+      <div class="fragment fade-in" data-fragment-index="7" data-fragment-index-nimib="7"> 
   
-      <ul>
-<li><code>nbTextWithCode</code>: a <code>nbText</code> that saves code source</li>
-</ul>
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="7" data-fragment-index-nimib="7">
+      <p><code>nbTextWithCode</code>: a <code>nbText</code> that saves code source</p>
+      </li>
       </div>
   
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="8" data-fragment-index-nimib="8"> 
+      <div class="fragment fade-in" data-fragment-index="8" data-fragment-index-nimib="8"> 
   
-      <ul>
-<li><code>nbFile</code>: writes a file with content (there is an untyped version for nim code)</li>
-</ul>
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="8" data-fragment-index-nimib="8">
+      <p><code>nbFile</code>: writes a file with content (there is an untyped version for nim code)</p>
+      </li>
       </div>
   
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="9" data-fragment-index-nimib="9"> 
+      <div class="fragment fade-in" data-fragment-index="9" data-fragment-index-nimib="9"> 
   
-      <ul>
-<li><code>nbRawHtml</code>: used to output raw html</li>
-</ul>
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="9" data-fragment-index-nimib="9">
+      <p><code>nbRawHtml</code>: used to output raw html</p>
+      </li>
       </div>
   
-      </section>
+      </ul>
       </section>
       <section data-nimib-slide-number="27" >
+      <h4>How can <strong>you</strong> create blocks?</h4>
+      <div class="fragment fade-in" data-fragment-index="10" data-fragment-index-nimib="10"> 
+  
+      <h5>natively</h5>
+      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">template</span> newNbCodeBlock*(cmd: <span class="hljs-built_in">string</span>, body, blockImpl: <span class="hljs-built_in">untyped</span>) = <span class="hljs-keyword">discard</span>
+<span class="hljs-keyword">template</span> newNbSlimBlock*(cmd: <span class="hljs-built_in">string</span>, blockImpl: <span class="hljs-built_in">untyped</span>) = <span class="hljs-keyword">discard</span></code></pre>
+      <div class="fragment fade-in-then-semi-out" data-fragment-index="11" data-fragment-index-nimib="11"> 
+  
+      <p><small>(a slim block is a block without body)</small></p>
+      </div>
+  
+      </div>
+  
+      <div class="fragment fade-in" data-fragment-index="12" data-fragment-index-nimib="12"> 
+  
+      <h5>&quot;creatively&quot;</h5>
+      <ul>
+      <div class="fragment fade-in" data-fragment-index="13" data-fragment-index-nimib="13"> 
+  
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="13" data-fragment-index-nimib="13">
+      <p>copying and customizing (change partials, ...) existing blocks</p>
+      </li>
+      </div>
+  
+      <div class="fragment fade-in" data-fragment-index="14" data-fragment-index-nimib="14"> 
+  
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="14" data-fragment-index-nimib="14">
+      <p>composing other blocks (in particular <code>nbRawHtml</code>)</p>
+      </li>
+      </div>
+  
+      </ul>
+      </div>
+  
+      </section>
+      </section>
       <section data-nimib-slide-number="28" >
+      <section data-nimib-slide-number="29" >
       <h2>Fancy blocks 🖼️</h2>
       </section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/before_after_image_slider.html" data-background-interactive></section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/mermaid_diagram.html" data-background-interactive></section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/show_plotly.html" data-background-interactive></section>
       </section>
-      <section data-nimib-slide-number="29" >
       <section data-nimib-slide-number="30" >
+      <section data-nimib-slide-number="31" >
       <h2>A mathy plant app 🌱</h2>
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="10" data-fragment-index-nimib="10"> 
+      <div class="fragment fade-in-then-semi-out" data-fragment-index="15" data-fragment-index-nimib="15"> 
   
       <ul>
 <li>example of a more complex nbKarax app</li>
 </ul>
       </div>
   
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="11" data-fragment-index-nimib="11"> 
+      <div class="fragment fade-in-then-semi-out" data-fragment-index="16" data-fragment-index-nimib="16"> 
   
       <ul>
 <li>based on <a href="https://pietroppeter.github.io/nblog/drafts/plant_js.html">a plot function built with js canvas</a></li>
 </ul>
       </div>
   
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="12" data-fragment-index-nimib="12"> 
+      <div class="fragment fade-in-then-semi-out" data-fragment-index="17" data-fragment-index-nimib="17"> 
   
       <ul>
 <li>preliminary api for <a href="https://pietroppeter.github.io/nblog/drafts/karax_widgets_demo.html">karax widgets</a></li>
@@ -528,11 +568,11 @@ nb.partials[<span class="hljs-string">&quot;nbText&quot;</span>] = <span class="
       </section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/plant_app.html" data-background-interactive></section>
       </section>
-      <section data-nimib-slide-number="31" >
       <section data-nimib-slide-number="32" >
+      <section data-nimib-slide-number="33" >
       <h2>Contributing🤲</h2>
       </section>
-      <section data-nimib-slide-number="33" >
+      <section data-nimib-slide-number="34" >
       <h3>Improved Dev Experience</h3>
 <ul>
 <li>docs are now built in CI</li>
@@ -543,7 +583,7 @@ nb.partials[<span class="hljs-string">&quot;nbText&quot;</span>] = <span class="
 <li>some issues marked as good-first-issue</li>
 </ul>
       </section>
-      <section data-nimib-slide-number="34" >
+      <section data-nimib-slide-number="35" >
       <h3>Office Hours!</h3>
 <ul>
 <li>me and Hugo have been meeting regularly</li>
@@ -557,11 +597,11 @@ struggling or new contributors</li>
 </ul>
       </section>
       </section>
-      <section data-nimib-slide-number="35" >
       <section data-nimib-slide-number="36" >
+      <section data-nimib-slide-number="37" >
       <h2>Roadmap🗺️</h2>
       </section>
-      <section data-nimib-slide-number="37" >
+      <section data-nimib-slide-number="38" >
       <h3>priorities</h3>
 <ul>
 <li>first goal: produce stuff with nimib 0.3.x!
@@ -573,7 +613,7 @@ struggling or new contributors</li>
 <li>(Pietro) a blog theme / jekyll clone (side project)</li>
 </ul>
       </section>
-      <section data-nimib-slide-number="38" >
+      <section data-nimib-slide-number="39" >
       <h3>0.3.x</h3>
 <ul>
 <li>more blocks (nbAudio, nbVideo, nbPlotly, nbShell, ...)</li>
@@ -598,7 +638,7 @@ struggling or new contributors</li>
 </li>
 </ul>
       </section>
-      <section data-nimib-slide-number="39" >
+      <section data-nimib-slide-number="40" >
       <h3>side projects</h3>
 <ul>
 <li>feedo</li>
@@ -609,7 +649,7 @@ struggling or new contributors</li>
 <li>...</li>
 </ul>
       </section>
-      <section data-nimib-slide-number="40" >
+      <section data-nimib-slide-number="41" >
       <h3>further down the road</h3>
 <ul>
 <li>new backends
@@ -627,10 +667,16 @@ struggling or new contributors</li>
 </ul>
       </section>
       </section>
-      <section data-nimib-slide-number="41" >
+      <section data-nimib-slide-number="42" >
       <h2>Thanks</h2>
       </section>
     </div>
+      <div id="nimLogo" style="background: url(https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png);
+                              position: absolute;
+                              top: 100px;
+                              right: 100px;
+                              width: 100px;
+                              height: 100px;"></div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/reveal.js" integrity="sha512-+Dy2HJZ3Z1DWerDhqFE7AH2HTfnbq8RC1pKOashfMwx1s01fjPUebWoHqrRedU1yFimkexmzJJRilKxjs7lz8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/plugin/highlight/highlight.min.js" integrity="sha512-U3fPDUX5bMrn1wnYqjaK44MFA9E6MKS+zPAg9WPAGF5XhReBeDj3FGaA831CjueG+YJxYA3WaO/m33kMIoOs/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

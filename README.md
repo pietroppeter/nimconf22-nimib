@@ -46,14 +46,14 @@ Title: Nimib goes interactive
         - [x] nbCode
         - [x] nbText
         - [x] nbImage
-      - [ ] other blocks
-        - [ ] nbCodeInBlock
-        - [ ] nbTextWithCode
-        - [ ] nbFile (string and untyped)
-        - [ ] nbRawHtml
+      - [x] other blocks
+        - [x] nbCodeInBlock
+        - [x] nbTextWithCode
+        - [x] nbFile (string and untyped)
+        - [x] nbRawHtml
           - example on how to create blocks with this
       - [ ] how can **you** create blocks?
-        - [ ] "natively" (newNbCodeBlock, newNbSlimBlock)
+        - [x] "natively" (newNbCodeBlock, newNbSlimBlock)
         - [ ] from other blocks, composing, copying and customizing
         - [ ] discussion about partials+renderPlans vs nbRawHtml
           - mention container block as missing piece
