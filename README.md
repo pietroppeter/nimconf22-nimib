@@ -95,7 +95,7 @@ Title: Nimib goes interactive
     - [x] better example for postRender
 - back to Pietro
 - together:
-  - [ ] contributing
+  - [x] contributing
   - [ ] roadmap
   - [ ] hi, thanks, goodbye
 

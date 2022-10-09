@@ -1,27 +1,31 @@
 import nimib, nimiSlides
 from custom_blocks import
-  myInit, mySlide, slideText, title_contribute, title_roadmap, textSwitcher
+  myInit, mySlide, slideText, title_contribute, title_roadmap, textSwitcher, slideAutoAnimate, addNbTextSmall, nbTextSmall
 
 template contributeSlides* =
   mySlide:
     slideText: hlMdF"## {title_contribute}"
-    slideText: """
-  ### Improved Dev Experience
-  - docs are now built in CI
-  - deploy preview!
-  - we added tests (and removed ptest)
-  - update docs and separated changelog
-  - a new [CONTRIBUTE.md]()!
-  - some issues marked as good-first-issue
-  """
-    slideText: """
-  ### Office Hours!
-  - me and Hugo have been meeting regularly
-  - we could continue to meet regularly
-    - (e.g. once a month, on weekends, a floating hour)
-  - in this meeting we would welcome and support users of nimib who are
-    struggling or new contributors
-  """
+    slideAutoAnimate:
+      nbText: " ### 👩‍💻Improved Dev Experience"
+      unorderedList:
+        listItem: nbText: "docs are now built in CI"
+        listItem: nbText: "deploy preview!"
+        listItem: nbText: "we added tests (and removed ptest)"
+        listItem: nbText: "updated docs and added a separate changelog"
+        listItem: nbText: "a new [CONTRIBUTE.md]()!"
+        listItem: nbText: "some issues marked as good-first-issue"
+    slideAutoAnimate:
+      nbText: " ### 👩‍💻Improved Dev Experience"
+      nbText: " #### Deploy preview"
+      nbImage("deploy_preview.png")
+    mySlide:
+      nbText: " ### 🎪Nimib Speaking Hours!"
+      unorderedList:
+        listItem: nbText: "me and Hugo have been meeting regularly"
+        listItem: nbText: "thinking of keeping this up (once a month)"
+        listItem: nbText: "open to anyone using nimib or contributing"
+        listItem: nbText: "will announce somewhere (nimib discussions?)"
+      fragmentfadeIn: nbTextSmall "(inspired by [Simon Willson](https://simonwillison.net/2021/Feb/19/office-hours/))"
   # @hugo: an idea I had in mind, first time I am proposing it...
   # see https://simonwillison.net/2021/Feb/19/office-hours/
   # I remember some tweet that mentioned a better name for office hours
@@ -83,6 +87,6 @@ template thankyouSlide* =
 when isMainModule:
   myInit()
   contributeSlides()
-  roadmapSlides()
-  thankyouSlide()
+  #roadmapSlides()
+  #thankyouSlide()
   nbSave

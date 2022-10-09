@@ -23,6 +23,7 @@ template myInit* =
     nbInit(theme = revealTheme)
     when not defined(useNimConfSlide):
       setSlidesTheme(Moon)
+  addNbTextSmall
   
 
 # nim conf slides
@@ -61,6 +62,14 @@ template slideText*(text: string) =
 template slideAutoAnimate*(body: untyped) =
   mySlide(slideOptions(autoAnimate=true)):
     body
+
+template addNbTextSmall* =
+  nb.partials["nbTextSmall"] = "<small>" & nb.partials["nbText"] & "</small>"
+  nb.renderPlans["nbTextSmall"] = nb.renderPlans["nbText"]
+
+template nbTextSmall*(text: string) =
+  nbText: text
+  nb.blk.command = "nbTextSmall"
 
 
 # needed only for python section, allows to be skipped
