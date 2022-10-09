@@ -86,7 +86,7 @@ template roadmapSlides* =
 template thankyouSlide* =
   mySlide:
     nbText: "Thank you for listening!"
-    let thankyous = @["Thanks", "Danke", "Tack", "Grazie", "ありがとう", "Takk", "Gracias", "Merci", "Bedankt", "谢谢", "धन्यवाद"]
+    let thankyous = @["Thanks", "Danke", "Tack", "Grazie", "ありがとう", "Takk", "Gracias", "Obrigado", "Merci", "Bedankt", "谢谢", "धन्यवाद"]
     textSwitcher(thankyous)
 
 
