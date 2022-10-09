@@ -17,9 +17,13 @@ let
 
 # custom init
 template myInit* =
-  nbInit(theme = revealTheme)
-  when not defined(useNimConfSlide):
-    setSlidesTheme(Moon)
+  when defined(noReveal):
+    nbInit()
+  else:
+    nbInit(theme = revealTheme)
+    when not defined(useNimConfSlide):
+      setSlidesTheme(Moon)
+  
 
 # nim conf slides
 template nimConfSlide*(body: untyped) =
