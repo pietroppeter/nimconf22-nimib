@@ -1,7 +1,5 @@
 import nimib, nimiSlides
-from custom_blocks import
-  myInit, mySlide, slideText, title_contribute, title_roadmap, textSwitcher,
-  slideAutoAnimate, addNbTextSmall, nbTextSmall, nimibIssue, nimConfTheme, slideText
+import custom_blocks
 
 template contributeSlides* =
   mySlide:
