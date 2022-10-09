@@ -16,11 +16,11 @@ let
 
 
 # custom init
-template myInit* =
+template myInit*(sourceFileRel = "") =
   when defined(noReveal):
-    nbInit()
+    nbInit(thisFileRel=sourceFileRel)
   else:
-    nbInit(theme = revealTheme)
+    nbInit(theme = revealTheme, thisFileRel=sourceFileRel)
     when not defined(useNimConfSlide):
       setSlidesTheme(Moon)
     else:

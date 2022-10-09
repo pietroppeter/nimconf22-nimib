@@ -95,7 +95,7 @@ template thankyouSlide* =
 
 
 when isMainModule:
-  myInit()
+  myInit("outro.nim")
   slideText: ""
   roadmapSlides()
   contributeSlides()
