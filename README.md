@@ -46,9 +46,6 @@ Title: Nimib goes interactive
         - [x] nbCode
         - [x] nbText
         - [x] nbImage
-      - [ ] how can you customize a block?
-        - [ ] nbCode customization example: add "Output:"
-        - [ ] nbText customization examples (e.g.nbText with rst)
       - [ ] other blocks
         - [ ] nbCodeInBlock
         - [ ] nbTextWithCode

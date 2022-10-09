@@ -534,6 +534,21 @@ slide:
 <figcaption>{{caption}}</figcaption>
 </figure>"""
 
+  slide:
+    nbText: "#### Other blocks"
+    fadeInText: "- `nbCodeInBlock`: a `nbCode` in a `block:`"
+    fadeInText: "- `nbTextWithCode`: a `nbText` that saves code source"
+    fadeInText: "- `nbFile`: writes a file with content (there is an untyped version for nim code)"
+    fadeInText: "- `nbRawHtml`: used to output raw html"
+
+  slide:
+    nbText: "#### How can **you** create blocks?"
+    nbText: "##### \"natively\""
+    nbCode:
+      template newNbCodeBlock*(cmd: string, body, blockImpl: untyped) = discard
+      template newNbSlimBlock*(cmd: string, blockImpl: untyped) = discard
+    nbText: "##### \"creatively\""
+
 slide:
   slideText: hlMdF"## {title_howto}"
   slideIframeFromNblog("before_after_image_slider")
