@@ -34,15 +34,19 @@ template contributeSlides* =
 template roadmapSlides* =
   mySlide:
     slideText: hlMdF"## {title_roadmap}"
-    slideText: """
-  ### priorities
-  - first goal: produce stuff with nimib 0.3.x!
-    - more scinim/getting-started tutorials!
-    - advent of code!
-  - next 0.4 target: backend maker
-  - side projects:
-    - (Pietro) a blog theme / jekyll clone
-  """
+    mySlide:
+      nbText: "### priorities"
+      unorderedList:
+        listItem: nbText: "first goal: produce stuff with nimib 0.3.x!"
+        unorderedList: 
+          listItem: nbText: "more [scinim/getting-started](https://github.com/SciNim/getting-started) tutorials!"
+          listItem: nbText: "Advent of code!"
+        listItem: nbText: "next 0.4 target: backend maker"
+        listItem: nbText: "side projects:"
+        unorderedList:
+          listItem:
+            nbText: "(Pietro) a blog theme / jekyll clone"
+
     slideText: """
   ### 0.3.x
   - more blocks (nbAudio, nbVideo, nbPlotly, nbShell, ...)
@@ -68,27 +72,22 @@ template roadmapSlides* =
   - ...
   """
   ]#
-    slideText: """
-  ### further down the road
-  - (after 0.4) new backends
-    - latex
-    - twitter?
-  - serving a (real) backend that interacts with the page ([streamlit] style? [jester]? [htmx]?)
-  - can I use nimib to build a library directly from documentation (like in [nbdev])?
-  - nimib executable for scaffolding and to support different publishing workflows
-  - possibility of editing document in the browser (similar to jupyter UI, not necessarily taking advantage of hot code reloading)
-  - ...
-
-  [streamlit]: https://streamlit.io/
-  [jester]: https://streamlit.io/
-  [htmx]: https://streamlit.io/
-  [nbdev]: https://streamlit.io/
-  """
+    mySlide:
+      nbText: "### further down the road"
+      unorderedList:
+        listItem: nbText: "(after 0.4) new backends"
+        unorderedList:
+          listItem: nbText: "latex"
+          listItem: nbText: "twitter?"
+        listItem: nbText: "serving a backend that interacts with the page ([streamlit](https://streamlit.io/) style? [jester](https://github.com/dom96/jester)? [htmx](https://htmx.org/)?)"
+        listItem: nbText: "build a library directly from documentation (like in [nbdev](https://nbdev.fast.ai/))?"
+        listItem: nbText: "nimib executable for scaffolding"
+        listItem: nbText: "possibility of editing document in the browser"
 
 template thankyouSlide* =
   mySlide:
     nbText: "Thank you for listening!"
-    let thankyous = @["Thanks", "Danke", "Tack", "Grazie", "Takk"]
+    let thankyous = @["Thanks", "Danke", "Tack", "Grazie", "ありがとう", "Takk", "Gracias", "Merci", "Bedankt", "谢谢", "धन्यवाद"]
     textSwitcher(thankyous)
 
 
@@ -96,5 +95,5 @@ when isMainModule:
   myInit()
   #contributeSlides()
   roadmapSlides()
-  #thankyouSlide()
+  thankyouSlide()
   nbSave

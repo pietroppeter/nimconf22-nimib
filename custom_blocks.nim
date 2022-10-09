@@ -1,4 +1,4 @@
-import nimib, nimislides
+import nimib, nimiSlides
 import nimib / blocks
 import std / strutils
 
