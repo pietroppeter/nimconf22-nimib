@@ -96,8 +96,8 @@ Title: Nimib goes interactive
 - back to Pietro
 - together:
   - [x] contributing
-  - [ ] roadmap
-  - [ ] hi, thanks, goodbye
+  - [x] roadmap
+  - [x] hi, thanks, goodbye
 
 ## recording
 
@@ -117,7 +117,7 @@ homework:
 
 during sessions:
   - [x] record intro together - Oct 2
-  - [ ] record outro together - Oct 9
+  - [x] record outro together - Oct 9
 
 nice to have:
   - [ ] cornerImage without JS?
@@ -126,34 +126,40 @@ nice to have:
   - [ ] source of slides (bottom of title slide)
 
 ## summary
-
-- intro (title, who we are, previous presentation, content of presentation) - together
-- nimib livecoding
-- nimib 0.3 changes
+- [both: 5 mins] intro (title, who we are, previous presentation, content of presentation) - together
+- [pietro: 5 mins] nimib livecoding
+- [pietro: 20mins?] nimib 0.3 changes
   - nimibCodeAsInSource is default
-  - refactoring: custom blocks - explain how it works with live coding example
-    - examples (mostly from nblog and using embed)
-  - Pietro stops here and passes to Hugo
+  - make your own blok
+    - fancy blocks
+- [hugo: 15 mins]
   - nbPython (as a curiosity we should mention issues - in particular CI)
   - nbJSstuff...
-  - nimiboost
-- nimibook changes (back to Pietro)
-- nimib gallery
-- contributing (back together)
-- roadmap
+  - [pietro 5 mins] plant app
+- [hugo: 5 mins] nimiboost
+- [both 10 mins] outro
+  - contributing (back together)
+  - roadmap
+  - thanks 
 
-10'+10'+10'
+5+5+20?+15+5+10 = 1h?
+
+up for cuts:
+- plant app 5
+- nimiboost 5
+- make sure blocks is under 15
 
 video recording: OBS
 
-video editing: ?
+video editing: https://www.openshot.org/
 
 meetings:
 - [x] Sep 10th, Sat 12:00
 - [x] Sep 17-18, Sat 15:00
 - [x] Sep 24-25, Sun 15:00
 - [x] Oct 1 - Sun 10-12 start recording (all individual parts + intro together)
-- [ ] Oct 8-9 **deadline for video**
+- [x] Oct 9 - Sun 10-12:30
+- [ ] Oct 13 (Thu) **deadline for video**
 - [ ] Oct 15-16 (what else?)
 - [ ] Oct 22, Saturday NIMCONF!!!!
 

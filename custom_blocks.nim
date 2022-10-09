@@ -23,6 +23,8 @@ template myInit* =
     nbInit(theme = revealTheme)
     when not defined(useNimConfSlide):
       setSlidesTheme(Moon)
+    else:
+      nimConfTheme()
   addNbTextSmall
   
 
@@ -36,6 +38,35 @@ template nimConfSlide*(options: SlideOptions, body: untyped) =
   slide(options):
     cornerImage("https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png", UpperRight, size=100, animate=false)
     body
+
+# nimconf theme
+template nimConfTheme*() =
+  setSlidesTheme(Black)
+  let nimYellow = "#FFE953"
+  nb.addStyle: """
+:root {
+  --r-background-color: #181922;
+  --r-heading-color: $1;
+  --r-link-color: $1;
+  --r-selection-color: $1;
+  --r-link-color-dark: darken($1 , 15%)
+}
+
+.reveal ul, .reveal ol {
+  display: block;
+  text-align: left;
+}
+
+li::marker {
+  color: $1;
+  content: "»";
+}
+
+li {
+  padding-left: 12px;
+}
+""" % [nimYellow]
+
 
 # mySlide: pick between nimconf or other
 template mySlide*(body: untyped) =

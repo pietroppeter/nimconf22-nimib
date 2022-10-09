@@ -1,6 +1,7 @@
 import nimib, nimiSlides
 from custom_blocks import
-  myInit, mySlide, slideText, title_contribute, title_roadmap, textSwitcher, slideAutoAnimate, addNbTextSmall, nbTextSmall, nimibIssue
+  myInit, mySlide, slideText, title_contribute, title_roadmap, textSwitcher,
+  slideAutoAnimate, addNbTextSmall, nbTextSmall, nimibIssue, nimConfTheme, slideText
 
 template contributeSlides* =
   mySlide:
@@ -13,7 +14,6 @@ template contributeSlides* =
         listItem: nbText: "we added tests (and removed ptest)"
         listItem: nbText: "updated docs and added a separate changelog"
         listItem: nbText: "a new [CONTRIBUTE.md]()!"
-        listItem: nbText: "some issues marked as good-first-issue"
     slideAutoAnimate:
       nbText: " ### 👩‍💻Improved Dev Experience"
       nbText: " #### Deploy preview"
@@ -82,7 +82,7 @@ template roadmapSlides* =
 
 template thankyouSlide* =
   mySlide:
-    nbText: "Thank you for listening!"
+    nbText: "##### Thank you for listening!"
     let
       thankyous1 = @["Tack", "谢谢", "धन्यवाद", "Gracias"]
       thankyous2 = @["Grazie", "ありがとう", "Merci", "Bedankt"]
@@ -96,7 +96,8 @@ template thankyouSlide* =
 
 when isMainModule:
   myInit()
-  #contributeSlides()
-  #roadmapSlides()
+  slideText: ""
+  roadmapSlides()
+  contributeSlides()
   thankyouSlide()
   nbSave
