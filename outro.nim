@@ -39,8 +39,8 @@ template roadmapSlides* =
       unorderedList:
         listItem: nbText: "first goal: produce stuff with nimib 0.3.x!"
         unorderedList: 
-          listItem: nbText: "more [scinim/getting-started](https://github.com/SciNim/getting-started) tutorials!"
-          listItem: nbText: "Advent of code!"
+          listItem: nbText: "more [scinim/getting-started](https://github.com/SciNim/getting-started) tutorials! 👩‍🔬"
+          listItem: nbText: "Advent of code! 🎄"
         listItem: nbText: "next 0.4 target: backend maker"
         listItem: nbText: "side projects:"
         unorderedList:
@@ -73,10 +73,7 @@ template roadmapSlides* =
     mySlide:
       nbText: "### further down the road"
       unorderedList:
-        listItem: nbText: "(after 0.4) new backends"
-        unorderedList:
-          listItem: nbText: "latex"
-          listItem: nbText: "twitter?"
+        listItem: nbText: "(after 0.4) new backends (e.g latex, twitter?, ...)"
         listItem: nbText: "serving a backend that interacts with the page ([streamlit](https://streamlit.io/) style? [jester](https://github.com/dom96/jester)? [htmx](https://htmx.org/)?)"
         listItem: nbText: "build a library directly from documentation (like in [nbdev](https://nbdev.fast.ai/))?"
         listItem: nbText: "nimib executable for scaffolding"
@@ -86,13 +83,20 @@ template roadmapSlides* =
 template thankyouSlide* =
   mySlide:
     nbText: "Thank you for listening!"
-    let thankyous = @["Thanks", "Danke", "Tack", "Grazie", "ありがとう", "Takk", "Gracias", "Obrigado", "Merci", "Bedankt", "谢谢", "धन्यवाद"]
-    textSwitcher(thankyous)
+    let
+      thankyous1 = @["Tack", "谢谢", "धन्यवाद", "Gracias"]
+      thankyous2 = @["Grazie", "ありがとう", "Merci", "Bedankt"]
+      thankyous3 = @["Danke", "Дякую тобі", "Obrigado", "Dziękuję Ci"]
+    textSwitcher(thankyous1)
+    nbText: " "
+    textSwitcher(thankyous2)
+    nbText: " "
+    textSwitcher(thankyous3)
 
 
 when isMainModule:
   myInit()
   #contributeSlides()
-  roadmapSlides()
+  #roadmapSlides()
   thankyouSlide()
   nbSave
