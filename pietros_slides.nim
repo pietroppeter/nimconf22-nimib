@@ -90,6 +90,7 @@ template slideCodeBefore* =
               s: _ = "HTTP/"
               *header: {headers}
           nbCleanupGensym
+          nb.blk.code = nb.blk.code.replace("struct", "## documentation comment\nstruct")
   # I used autoAnimate to have last two fades come after code Animation (still not smooth)
   slideAutoAnimate:
     nbText: "#### Before (`CodeFromAst`)"
@@ -122,6 +123,7 @@ template slideCodeBefore* =
             s: _ = "HTTP/"
             *header: {headers}
         nbCleanupGensym
+        nb.blk.code = nb.blk.code.replace("struct", "## documentation comment\nstruct")
     fragment(fadeLeft):
       nbText: "Uses `macro toStr(body) = body.toStrLit`"
     fragment(fadeRight):
@@ -330,8 +332,8 @@ template slideCreateBlockNative* =
     nbText: "##### DATA generation"
     nbCodeDontRun:
       template nbCode*(body: untyped) =
-        newNbCodeBlock("nbCode", body): # create block and save source in .code
-          captureStdout(nb.blk.output): # run, capture output and save in .output
+        newNbCodeBlock("nbCode", body): # create block and save source
+          captureStdout(nb.blk.output): # run and capture output
             body
     nbText: "##### RENDER (HTML)"
     nbCodeDontRun:
@@ -340,8 +342,11 @@ template slideCreateBlockNative* =
       nb.partials["nbCode"] = """
 {{>nbCodeSource}}
 {{>nbCodeOutput}}"""
-      nb.partials["nbCodeSource"] = "<pre><code class=\"nim hljs\">{{&codeHighlighted}}</code></pre>"
-      nb.partials["nbCodeOutput"] = """{{#output}}<pre class="nb-output"><samp>{{output}}</samp></pre>{{/output}}"""
+      nb.partials["nbCodeSource"] = 
+        "<pre><code class=\"nim hljs\">{{&codeHighlighted}}</code></pre>"
+      nb.partials["nbCodeOutput"] = """{{#output}}
+<pre class="nb-output"><samp>{{output}}</samp></pre>
+{{/output}}"""
   slideAutoAnimate:
     nbText: "#### How do I create a block?"
     nbText: "##### DATA generation"
@@ -360,7 +365,7 @@ template slideCreateBlockNative* =
     nbCodeDontRun:
       template nbImage*(url: string, caption = "") =
         newNbSlimBlock("nbImage"):
-          nb.blk.context["url"] = url # *special handling for relative paths
+          nb.blk.context["url"] = url # *special handling of relative paths
           nb.blk.context["caption"] = caption
     nbText: "##### RENDER (HTML)"
     nbCodeDontRun:
@@ -384,8 +389,12 @@ template slideYouCreateBlocks* =
     fragmentFadeIn:
       nbText: "##### natively"
       nbCode:
-        template newNbCodeBlock*(cmd: string, body, blockImpl: untyped) = discard
-        template newNbSlimBlock*(cmd: string, blockImpl: untyped) = discard
+        template newNbCodeBlock*(cmd: string, body, blockImpl: untyped) =
+          discard
+        
+        template newNbSlimBlock*(cmd: string, blockImpl: untyped) =
+          discard
+
       fadeInText("<small>(a slim block is a block without body)</small>")
     fragmentFadeIn:
       nbText: "##### creatively"
@@ -394,7 +403,7 @@ template slideYouCreateBlocks* =
     nbText: "##### creatively"
     nbText: "Copying and customizing blocks"
     fragmentFadeIn:
-      nimibCode:
+      nimibCodeAnimate([2..4, 5..6, 8..10]):
         template nbCodeHtmlOutput(body: untyped) =
           nbCode:
             body
@@ -419,7 +428,6 @@ template slideYouCreateBlocks* =
   slideAutoAnimate:
     nbText: "#### How can **you** create blocks?"
     nbText: "##### creatively"
-    nbText: "Composing other blocks"
     nbText: "`nbRawHtml` is particularly powerful"
     fragmentFadeIn:
       nimibCode:
@@ -429,13 +437,12 @@ template slideYouCreateBlocks* =
           nbRawHtml: "</details>"
 
         nbDetails("click to reveal details"):
-          nbText: "some text"
+          nbTextSmall: "some text"
           nbCode:
             echo "and code".replace("code", "output")
   slideAutoAnimate:
     nbText: "#### How can **you** create blocks?"
     nbText: "##### creatively"
-    nbText: "Composing other blocks"
     nbText: "`nbRawHtml` is particularly powerful"
     nbText: "(nimislides uses it for `slide` template)"
     fadeInText: "##### but"
@@ -452,7 +459,7 @@ template slideExplainMustache* =
         fragmentFadeIn:
           nbText: "##### Templates"
           nbCodeNoLineNumbers:
-            var partials: Table[string, string]
+            var partials: Table[string,string]
             partials["doc"] = """
 <head>
   {{> head }}
@@ -487,7 +494,7 @@ template slidesFancyBlocks* =
   mySlide:
     mySlide:
       nbText: fmt"## {title_howto}"
-      fadeInText: "blocks with interactivity given by external js functionalities"
+      fadeInText: "blocks with interactivity given by **external** javascript functionalities"
     slideExplainAddJsAndStyle
     slideIframeFromNblog("before_after_image_slider")
     slideIframeFromNblog("mermaid_diagram") # fix document using main instead of right (as in image slider)
@@ -518,24 +525,21 @@ template slidesPlantApp* =
 template slidesBlocks* =
   mySlide:
     slideText: hlMdF"### {title_block}"
-    when false:
-      slideWhatAreBlocks
-      slideWhatIsABlock
-      slideNimibTypes
+    slideWhatAreBlocks
+    slideWhatIsABlock
+    slideNimibTypes
     slideExplainMustache
-    when false:
-      slideBlockRender
-      slideCreateBlockNative
-      slideOtherBlocks
-      slideYouCreateBlocks
+    slideBlockRender
+    slideCreateBlockNative
+    slideOtherBlocks
+    slideYouCreateBlocks
 
 when isMainModule:
   myInit("pietros_slides.nim")
-  when false:
-    slideLiveCoding
-    slideBlockMaker
-    slidesCodeAsInsource
+  slideLiveCoding
+  slideBlockMaker
+  slidesCodeAsInsource
   slidesBlocks
   slidesFancyBlocks
-  slidesPlantApp
+  #slidesPlantApp
   nbSave
