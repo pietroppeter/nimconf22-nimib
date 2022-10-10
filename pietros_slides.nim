@@ -163,17 +163,6 @@ template slideCodeNow* =
       nbText: "Does not compose well ([134](https://github.com/pietroppeter/nimib/issues/134)), there might still be 🐞s"
     speakerNote: """"""
 
-template slidesBlocks* =
-  mySlide:
-    slideText: hlMdF"### {title_block}"
-    slideWhatAreBlocks
-    slideWhatIsABlock
-    slideNimibTypes
-    slideBlockRender
-    slideCreateBlockNative
-    slideOtherBlocks
-    slideYouCreateBlocks
-
 template slideWhatAreBlocks* =
   mySlide:
     nbText: "#### What are blocks?"
@@ -404,38 +393,60 @@ template slideYouCreateBlocks* =
         listItem: nbText: "copying and customizing (change partials, ...) existing blocks "
         listItem: nbText: "composing other blocks (in particular `nbRawHtml`)"
 
+template slideExplainMustache* =
+  discard
+
 template slidesFancyBlocks* =
   mySlide:
-    slideText: hlMdF"## {title_howto}"
+    mySlide:
+      nbText: fmt"## {title_howto}"
+      fadeInText: "blocks with interactivity given by external js functionalities"
+    slideExplainAddJsAndStyle
     slideIframeFromNblog("before_after_image_slider")
     slideIframeFromNblog("mermaid_diagram") # fix document using main instead of right (as in image slider)
     slideIframeFromNblog("show_plotly") # fix to show plotly's code
 
+template slideExplainAddJsAndStyle* =
+  mySlide:
+    nbText: "#### How to add a line at the end of `<head>` section"
+    fragmentFadeIn:
+      nbCodeDontRun:
+        nb.partials["head"] &= "<style>..."
+    fadeInText: "#### How to add a line at the end of `<body>` section"
+    fragmentFadeIn:
+      nbCodeDontRun:
+        nb.partials["main"] &= "<script>..."
+
 template slidesPlantApp* =
   # plant app
-  when defined(confTheme):
-    nimConfSlide:
-      nimConfSlide:
-        nbText: hlMdF"## {title_plant}"
-        fadeInText: "- example of a more complex nbKarax app"
-        fadeInText: "- based on [a plot function](https://pietroppeter.github.io/nblog/drafts/plant_js.html) built with [planetis-m/jscanvas](https://github.com/planetis-m/jscanvas)"
-        fadeInText: "- preliminary api for [karax widgets](https://pietroppeter.github.io/nblog/drafts/karax_widgets_demo.html)"
-      slideIframeFromNblog("plant_app")
-  else:
-    slide:
-      slide:
-        nbText: hlMdF"## {title_plant}"
-        fadeInText: "- example of a more complex nbKarax app"
-        fadeInText: "- based on [a plot function built with js canvas](https://pietroppeter.github.io/nblog/drafts/plant_js.html)"
-        fadeInText: "- preliminary api for [karax widgets](https://pietroppeter.github.io/nblog/drafts/karax_widgets_demo.html)"
-      slideIframeFromNblog("plant_app")
+  mySlide:
+    mySlide:
+      nbText: hlMdF"## {title_plant}"
+      unorderedList:
+        listItem: nbText: "example of a more complex nbKarax app"
+        listItem: nbText: "based on [a plot function built with js canvas](https://pietroppeter.github.io/nblog/drafts/plant_js.html)"
+        listItem: nbText: "preliminary api for [karax widgets](https://pietroppeter.github.io/nblog/drafts/karax_widgets_demo.html)"
+    slideIframeFromNblog("plant_app")
+
+template slidesBlocks* =
+  mySlide:
+    slideText: hlMdF"### {title_block}"
+    slideWhatAreBlocks
+    slideWhatIsABlock
+    slideNimibTypes
+    slideExplainMustache
+    slideBlockRender
+    slideCreateBlockNative
+    slideOtherBlocks
+    slideYouCreateBlocks
 
 when isMainModule:
   myInit("pietros_slides.nim")
-  slideLiveCoding
-  slideBlockMaker
-  slidesCodeAsInsource
-  slidesBlocks
+  when false:
+    slideLiveCoding
+    slideBlockMaker
+    slidesCodeAsInsource
+    slidesBlocks
   slidesFancyBlocks
   slidesPlantApp
   nbSave

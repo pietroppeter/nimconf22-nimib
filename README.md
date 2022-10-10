@@ -40,6 +40,7 @@ Title: Nimib goes interactive
       - [x] nimib types (implementation details)
         - [x] animate and review
         - mention that until 0.2 it was an object variant with 3 kinds
+      - [ ] a refresher on mustache
       - [x] render function (implementation details)
         - [x] review and animate
       - [x] how do I create a block
@@ -57,9 +58,8 @@ Title: Nimib goes interactive
         - [ ] from other blocks, composing, copying and customizing
         - [ ] discussion about partials+renderPlans vs nbRawHtml
           - mention container block as missing piece
-    - [ ] fancy blocks (blocks with (external) js)
-      - [ ] how to use external js functionality (add to head, add to main)
-      - [ ] a refresher on mustache? here or earlier? probably earlier!
+    - [x] fancy blocks (blocks with (external) js)
+      - [x] how to use external js functionality (add to head, add to main)
       - [x] add redo a title slide
       - [x] leftRight slider      
       - [x] mermaid
