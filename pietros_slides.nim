@@ -1,7 +1,7 @@
 import nimib
 import nimiSlides
 import custom_blocks
-import std / strformat
+import std / [strformat, strutils]
 
 
 template slideLiveCoding* =
@@ -379,7 +379,7 @@ template slideOtherBlocks* =
       listItem: nbText: "`nbRawHtml`: used to output raw html"
 
 template slideYouCreateBlocks* =
-  mySlide:
+  slideAutoAnimate:
     nbText: "#### How can **you** create blocks?"
     fragmentFadeIn:
       nbText: "##### natively"
@@ -389,9 +389,59 @@ template slideYouCreateBlocks* =
       fadeInText("<small>(a slim block is a block without body)</small>")
     fragmentFadeIn:
       nbText: "##### creatively"
-      unorderedList:
-        listItem: nbText: "copying and customizing (change partials, ...) existing blocks "
-        listItem: nbText: "composing other blocks (in particular `nbRawHtml`)"
+  slideAutoAnimate:
+    nbText: "#### How can **you** create blocks?"
+    nbText: "##### creatively"
+    nbText: "Copying and customizing blocks"
+    fragmentFadeIn:
+      nimibCode:
+        template nbCodeHtmlOutput(body: untyped) =
+          nbCode:
+            body
+          nb.blk.command = "nbCodeHtmlOutput"
+        nb.partials["nbCodeHtmlOutput"] =
+          nb.partials["nbCode"].replace("{{>nbCodeOutput}}", "{{&output}}")
+
+        nbCodeHtmlOutput:
+          for color in ["blue", "green", "yellow"]:
+            echo "<span style=\"color:" & color & "\">" & color & "</span>"
+  slideAutoAnimate:
+    nbText: "#### How can **you** create blocks?"
+    nbText: "##### creatively"
+    nbText: "Composing other blocks"
+    fragmentFadeIn:
+      nimibCode:
+        template nbTextRepeat(text: string, repeat: int) =
+          for i in 1 .. repeat:
+            nbText: text
+        
+        nbTextRepeat("All work and no play makes Jack a dull boy", 3)
+  slideAutoAnimate:
+    nbText: "#### How can **you** create blocks?"
+    nbText: "##### creatively"
+    nbText: "Composing other blocks"
+    nbText: "`nbRawHtml` is particularly powerful"
+    fragmentFadeIn:
+      nimibCode:
+        template nbDetails(summary: string, body: untyped) =
+          nbRawHtml: "<details><summary>" & summary & "</summary>"
+          body
+          nbRawHtml: "</details>"
+
+        nbDetails("click to reveal details"):
+          nbText: "some text"
+          nbCode:
+            echo "and code".replace("code", "output")
+  slideAutoAnimate:
+    nbText: "#### How can **you** create blocks?"
+    nbText: "##### creatively"
+    nbText: "Composing other blocks"
+    nbText: "`nbRawHtml` is particularly powerful"
+    nbText: "(nimislides uses it for `slide` template)"
+    fadeInText: "##### but"
+    fadeInText: "limited to html backend"
+    fadeInText: "cannot be customized"
+    fadeInText: ("a better solution will come with the " & nimibIssue(117)).replace("[#117]", "[container block!]")
 
 template slideExplainMustache* =
   discard
@@ -431,13 +481,14 @@ template slidesPlantApp* =
 template slidesBlocks* =
   mySlide:
     slideText: hlMdF"### {title_block}"
-    slideWhatAreBlocks
-    slideWhatIsABlock
-    slideNimibTypes
-    slideExplainMustache
-    slideBlockRender
-    slideCreateBlockNative
-    slideOtherBlocks
+    when false:
+      slideWhatAreBlocks
+      slideWhatIsABlock
+      slideNimibTypes
+      slideExplainMustache
+      slideBlockRender
+      slideCreateBlockNative
+      slideOtherBlocks
     slideYouCreateBlocks
 
 when isMainModule:
@@ -446,7 +497,7 @@ when isMainModule:
     slideLiveCoding
     slideBlockMaker
     slidesCodeAsInsource
-    slidesBlocks
+  slidesBlocks
   slidesFancyBlocks
   slidesPlantApp
   nbSave

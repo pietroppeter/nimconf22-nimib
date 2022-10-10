@@ -53,11 +53,11 @@ Title: Nimib goes interactive
         - [x] nbFile (string and untyped)
         - [x] nbRawHtml
           - example on how to create blocks with this
-      - [ ] how can **you** create blocks?
+      - [x] how can **you** create blocks?
         - [x] "natively" (newNbCodeBlock, newNbSlimBlock)
-        - [ ] from other blocks, composing, copying and customizing
-        - [ ] discussion about partials+renderPlans vs nbRawHtml
-          - mention container block as missing piece
+        - [x] from other blocks, composing, copying and customizing
+        - [x] discussion about partials+renderPlans vs nbRawHtml
+          - [x] mention container block as missing piece
     - [x] fancy blocks (blocks with (external) js)
       - [x] how to use external js functionality (add to head, add to main)
       - [x] add redo a title slide
