@@ -2,7 +2,6 @@ import nimib, nimiSlides
 import nimib / blocks
 import std / [strutils, strformat]
 
-
 # titles
 let
   title_source* = "🪞`CodeAsInSource`"

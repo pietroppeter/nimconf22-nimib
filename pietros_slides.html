@@ -98,8 +98,8 @@ struct(http):
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers="|1-2,|3-4,|5-5,|6-6,|8-9,|10-10"><span class="hljs-keyword">import</span>
   math, strformat
 
-<span class="hljs-keyword">let</span> n`gensym131 = <span class="hljs-number">1</span>
-<span class="hljs-keyword">echo</span> n`gensym131 + <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> n`gensym165 = <span class="hljs-number">1</span>
+<span class="hljs-keyword">echo</span> n`gensym165 + <span class="hljs-number">1</span>
 struct(http):
   s:
     _ = <span class="hljs-string">&quot;HTTP/&quot;</span>
@@ -109,18 +109,6 @@ struct(http):
       </div>
   
       </div>
-      <aside class="notes">
-  <ul>
-<li>It was very nice, since it was very easy to implement with a simple <code>macro toStr(body) = body.toStrLit</code></li>
-<li>it inherited bugs from Nim, see:
-<ul>
-<li>https://github.com/pietroppeter/nimib/issues/20</li>
-<li>https://github.com/nim-lang/Nim/issues/17292</li>
-</ul>
-</li>
-</ul>
-
-</aside>
       </section>
       <section data-nimib-slide-number="10" data-auto-animate >
       <h4>Before (<code>CodeFromAst</code>)</h4>
@@ -144,8 +132,8 @@ struct(http):
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">import</span>
   math, strformat
 
-<span class="hljs-keyword">let</span> n`gensym131 = <span class="hljs-number">1</span>
-<span class="hljs-keyword">echo</span> n`gensym131 + <span class="hljs-number">1</span>
+<span class="hljs-keyword">let</span> n`gensym165 = <span class="hljs-number">1</span>
+<span class="hljs-keyword">echo</span> n`gensym165 + <span class="hljs-number">1</span>
 struct(http):
   s:
     _ = <span class="hljs-string">&quot;HTTP/&quot;</span>
@@ -432,8 +420,8 @@ nbSave <span class="hljs-comment"># renders each block in nb.blocks (+theme stuf
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers>nb.renderPlans[<span class="hljs-string">&quot;nbCode&quot;</span>] = @[<span class="hljs-string">&quot;highlightCode&quot;</span>]
 nb.renderProcs[<span class="hljs-string">&quot;highlightCode&quot;</span>] =  highlightCode
 nb.partials[<span class="hljs-string">&quot;nbCode&quot;</span>] = <span class="hljs-string">&quot;&quot;&quot;
-  {{&gt;nbCodeSource}}
-  {{&gt;nbCodeOutput}}&quot;&quot;&quot;</span>
+{{&gt;nbCodeSource}}
+{{&gt;nbCodeOutput}}&quot;&quot;&quot;</span>
 nb.partials[<span class="hljs-string">&quot;nbCodeSource&quot;</span>] = <span class="hljs-string">&quot;&lt;pre&gt;&lt;code class=</span><span class="hljs-meta">\&quot;</span><span class="hljs-string">nim hljs</span><span class="hljs-meta">\&quot;</span><span class="hljs-string">&gt;{{&amp;codeHighlighted}}&lt;/code&gt;&lt;/pre&gt;&quot;</span>
 nb.partials[<span class="hljs-string">&quot;nbCodeOutput&quot;</span>] = <span class="hljs-string">&quot;&quot;&quot;{{#output}}&lt;pre class=&quot;nb-output&quot;&gt;&lt;samp&gt;{{output}}&lt;/samp&gt;&lt;/pre&gt;{{/output}}&quot;&quot;&quot;</span></code></pre>
       </section>
@@ -457,9 +445,9 @@ nb.partials[<span class="hljs-string">&quot;nbText&quot;</span>] = <span class="
     nb.blk.context[<span class="hljs-string">&quot;caption&quot;</span>] = caption</code></pre>
       <h5>RENDER (HTML)</h5>
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers>nb.partials[<span class="hljs-string">&quot;nbImage&quot;</span>] = <span class="hljs-string">&quot;&quot;&quot;&lt;figure&gt;
-  &lt;img src=&quot;{{url}}&quot; alt=&quot;{{caption}}&quot;&gt;
-  &lt;figcaption&gt;{{caption}}&lt;/figcaption&gt;
-  &lt;/figure&gt;&quot;&quot;&quot;</span></code></pre>
+&lt;img src=&quot;{{url}}&quot; alt=&quot;{{caption}}&quot;&gt;
+&lt;figcaption&gt;{{caption}}&lt;/figcaption&gt;
+&lt;/figure&gt;&quot;&quot;&quot;</span></code></pre>
       </section>
       <section data-nimib-slide-number="26" >
       <h4>Other blocks</h4>
