@@ -238,3 +238,23 @@ template slideIframeFromNblog*(filename: string) =
 
 proc nimibIssue*(num: int): string =
   return fmt"[#{$num}](https://github.com/pietroppeter/nimib/issues/{$num})"
+
+proc findNextGenSym(code: string): string =
+  var i = find(code, "`gensym")
+  if i < 0:
+    return ""
+  result = "`gensym"
+  i += len(result)
+  while i < len(code) and code[i].isDigit:
+    result &= code[i]
+    inc i
+
+proc cleanupGensym*(code: string): string =
+  result = code
+  var gensym = findNextGenSym(result)
+  while len(gensym) > 0:
+    result = result.replace(gensym, "")
+    gensym = findNextGenSym(result)
+
+template nbCleanupGensym* =
+  nb.blk.code = cleanupGensym(nb.blk.code)

@@ -89,6 +89,7 @@ template slideCodeBefore* =
             struct(http):
               s: _ = "HTTP/"
               *header: {headers}
+          nbCleanupGensym
   # I used autoAnimate to have last two fades come after code Animation (still not smooth)
   slideAutoAnimate:
     nbText: "#### Before (`CodeFromAst`)"
@@ -120,6 +121,7 @@ template slideCodeBefore* =
           struct(http):
             s: _ = "HTTP/"
             *header: {headers}
+        nbCleanupGensym
     fragment(fadeLeft):
       nbText: "Uses `macro toStr(body) = body.toStrLit`"
     fragment(fadeRight):
