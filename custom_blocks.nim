@@ -25,8 +25,13 @@ template myInit*(sourceFileRel = "") =
       setSlidesTheme(Moon)
     else:
       nimConfTheme()
+  addStuff
+
+template addStuff* =
   addNbTextSmall
-  
+  addNbCodeDontRun
+  addNewAnimateCodeBlocks
+  addNimibCodeBlocks
 
 # nim conf slides
 template nimConfSlide*(body: untyped) =
@@ -94,6 +99,7 @@ template slideAutoAnimate*(body: untyped) =
   mySlide(slideOptions(autoAnimate=true)):
     body
 
+# small text
 template addNbTextSmall* =
   nb.partials["nbTextSmall"] = "<small>" & nb.partials["nbText"] & "</small>"
   nb.renderPlans["nbTextSmall"] = nb.renderPlans["nbText"]
@@ -102,6 +108,79 @@ template nbTextSmall*(text: string) =
   nbText: text
   nb.blk.command = "nbTextSmall"
 
+# modified code blocks
+template nbCodeDontRun*(body: untyped) = # from hugos_slides
+  newNbCodeBlock("nbCodeDontRun", body):
+    discard
+
+template addNbCodeDontRun* =
+  nb.partials["nbCodeDontRun"] = nb.partials["nbCode"]
+  nb.renderPlans["nbCodeDontRun"] = nb.renderPlans["nbCode"]
+
+template nbCodeDontRunAnimateImpl*(body: untyped) =
+  discard
+
+template nbCodeBeforeImpl*(body: untyped) = # use to show how CodeFromAst would have looked like
+  nb.blk.code = toStr(body)
+
+template addNewAnimateCodeBlocks* =
+  newAnimateCodeBlock(nbCodeDontRunAnimate, nbCodeDontRunAnimateImpl)
+  newAnimateCodeBlock(nbCodeBeforeAnimate, nbCodeBeforeImpl)
+
+template nbCodeDontRunBefore*(body: untyped) = # from hugos_slides
+  newNbCodeBlock("nbCodeDontRun", body):
+    discard
+  nb.blk.code = toStr(body)
+
+template nimibCode*(body: untyped) =
+  newNbCodeBlock("nimibCode", body):
+    discard
+  fragmentFadeIn:
+    nbRawHtml: "<hr/>"
+    body
+
+template nimibCodeAnimate*(lines: varargs[seq[HSlice[int, int]]], body: untyped) =
+  ## Shows code and its output just like nbCode, but highlights different lines of the code in the order specified in `lines`.
+  ## lines: Specify which lines to highlight and in which order. (Must be specified as a seq[HSlice])
+  ## Ex: 
+  ## ```nim
+  ## animateCode(@[1..1], @[3..4, 6..6]): body
+  ## ```
+  ## This will first highlight line 1, then lines 3, 4 and 6.
+  newNbCodeBlock("nimibCodeAnimate", body):
+    var linesString: string
+    if lines.len > 0:
+      linesString &= "|"
+    for lineBundle in lines:
+      for line in lineBundle:
+        linesString &= $line.a & "-" & $line.b & ","
+      linesString &= "|"
+    if lines.len > 0:
+      linesString = linesString[0 .. ^3]
+    nb.blk.context["highlightLines"] = linesString
+  fragmentFadeIn:
+    nbRawHtml: "<hr/>"
+    body
+
+template nimibCodeAnimate*(lines: varargs[HSlice[int, int], toHSlice], body: untyped) =
+  ## Shows code and its output just like nbCode, but highlights different lines of the code in the order specified in `lines`.
+  ## lines: Specify which lines to highlight and in which order. (Must be specified as a HSlice)
+  ## Ex: 
+  ## ```nim
+  ## animateCode(1..1, 2..3, 5..5, 4..4): body
+  ## ```
+  ## This will first highlight line 1, then lines 2 and 3, then line 5 and last line 4.
+  var s: seq[seq[HSlice[int, int]]]
+  for line in lines:
+    s.add @[line]
+  nimibCodeAnimate(s):
+    body
+
+template addNimibCodeBlocks* =
+  nb.partials["nimibCode"] = nb.partials["nbCode"]
+  nb.renderPlans["nimibCode"] = nb.renderPlans["nbCode"]
+  nb.partials["nimibCodeAnimate"] = nb.partials["animateCode"]
+  nb.renderPlans["nimibCodeAnimate"] = nb.renderPlans["animateCode"]
 
 # needed only for python section, allows to be skipped
 template optionalInitPython* =
@@ -138,6 +217,25 @@ template textSwitcher*(texts: seq[string], duration: float = 2) =
     cssString.add "\n</style>"
     nbRawHtml: cssString
 
+# slide stuff
+template fadeInText*(text: string) =
+  fragment(fadeInThenSemiOut):
+    nbText: text
+
+#[ this embed worked in nimconf2021 nimib slides, it does not work anymore
+template nbEmbed(url: string) =
+  nbRawHtml: "<iframe src=\"" & url & "\" class=\"fullframe\"></iframe>"
+]#
+
+template nbEmbedFromNblog*(filename: string) =
+  nbEmbed("https://pietroppeter.github.io/nblog/drafts/" & filename & ".html")
+
+# instead I will use full interactive iframes
+template slideIframe*(url: string) =
+  nbRawHtml: "<section data-background-iframe=\"" & url & "\" data-background-interactive></section>"
+
+template slideIframeFromNblog*(filename: string) =
+  slideIframe("https://pietroppeter.github.io/nblog/drafts/" & filename & ".html")
 
 proc nimibIssue*(num: int): string =
   return fmt"[#{$num}](https://github.com/pietroppeter/nimib/issues/{$num})"
