@@ -444,7 +444,44 @@ template slideYouCreateBlocks* =
     fadeInText: ("a better solution will come with the " & nimibIssue(117)).replace("[#117]", "[container block!]")
 
 template slideExplainMustache* =
-  discard
+  import mustache
+  mySlide:
+    nbText: "#### Essentials of [mustache](https://github.com/soasme/nim-mustache)"
+    columns:
+      column:
+        fragmentFadeIn:
+          nbText: "##### Templates"
+          nbCodeNoLineNumbers:
+            var partials: Table[string, string]
+            partials["doc"] = """
+<head>
+  {{> head }}
+</head>
+<body>
+  {{> main }}
+</body>"""
+            partials["head"] = """
+{{#t}}<title>{{t}}</title>{{/t}}
+"""          
+            partials["main"] = """
+{{&html}}
+{{code}}
+"""
+      column:
+        nbText: " "
+      column:
+        fragmentFadeIn:
+          nbText: "##### Data"
+          nbCodeNoLineNumbers:
+            var context = newContext()
+            context["t"] = "hi"
+            context["html"] = "<p>hi</p>"
+            context["code"] = "1 < 2"
+            context.searchTable(partials)
+        fragmentFadeIn:
+          nbText: "##### Render"
+          nbCodeNoLineNumbers:
+            echo "{{>doc}}".render(context)
 
 template slidesFancyBlocks* =
   mySlide:
@@ -485,11 +522,12 @@ template slidesBlocks* =
       slideWhatAreBlocks
       slideWhatIsABlock
       slideNimibTypes
-      slideExplainMustache
+    slideExplainMustache
+    when false:
       slideBlockRender
       slideCreateBlockNative
       slideOtherBlocks
-    slideYouCreateBlocks
+      slideYouCreateBlocks
 
 when isMainModule:
   myInit("pietros_slides.nim")

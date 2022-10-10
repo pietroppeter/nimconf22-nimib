@@ -13,153 +13,83 @@
       <section data-nimib-slide-number="2" >
       <h3>make your own <code>NbBlock</code>👷</h3>
       </section>
-      <section data-nimib-slide-number="3" data-auto-animate >
-      <h4>How can <strong>you</strong> create blocks?</h4>
+      <section data-nimib-slide-number="3" >
+      <h4>Essentials of <a href="https://github.com/soasme/nim-mustache">mustache</a></h4>
+      <div style="display: grid; grid-auto-flow: column;">
+      <div>
       <div class="fragment fade-in" data-fragment-index="0" data-fragment-index-nimib="0"> 
   
-      <h5>natively</h5>
-      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">template</span> newNbCodeBlock*(cmd: <span class="hljs-built_in">string</span>, body, blockImpl: <span class="hljs-built_in">untyped</span>) = <span class="hljs-keyword">discard</span>
-<span class="hljs-keyword">template</span> newNbSlimBlock*(cmd: <span class="hljs-built_in">string</span>, blockImpl: <span class="hljs-built_in">untyped</span>) = <span class="hljs-keyword">discard</span></code></pre>
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="1" data-fragment-index-nimib="1"> 
-  
-      <p><small>(a slim block is a block without body)</small></p>
+      <h5>Templates</h5>
+      <pre style="width: 100%"><code class="nim hljs" data-noescape><span class="hljs-keyword">var</span> partials: <span class="hljs-type">Table</span>[<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>]
+partials[<span class="hljs-string">&quot;doc&quot;</span>] = <span class="hljs-string">&quot;&quot;&quot;
+&lt;head&gt;
+  {{&gt; head }}
+&lt;/head&gt;
+&lt;body&gt;
+  {{&gt; main }}
+&lt;/body&gt;&quot;&quot;&quot;</span>
+partials[<span class="hljs-string">&quot;head&quot;</span>] = <span class="hljs-string">&quot;&quot;&quot;
+{{#t}}&lt;title&gt;{{t}}&lt;/title&gt;{{/t}}
+&quot;&quot;&quot;</span>          
+partials[<span class="hljs-string">&quot;main&quot;</span>] = <span class="hljs-string">&quot;&quot;&quot;
+{{&amp;html}}
+{{code}}
+&quot;&quot;&quot;</span></code></pre>
       </div>
   
+      </div>
+      <div>
+      <p> </p>
+      </div>
+      <div>
+      <div class="fragment fade-in" data-fragment-index="1" data-fragment-index-nimib="1"> 
+  
+      <h5>Data</h5>
+      <pre style="width: 100%"><code class="nim hljs" data-noescape><span class="hljs-keyword">var</span> context = newContext()
+context[<span class="hljs-string">&quot;t&quot;</span>] = <span class="hljs-string">&quot;hi&quot;</span>
+context[<span class="hljs-string">&quot;html&quot;</span>] = <span class="hljs-string">&quot;&lt;p&gt;hi&lt;/p&gt;&quot;</span>
+context[<span class="hljs-string">&quot;code&quot;</span>] = <span class="hljs-string">&quot;1 &lt; 2&quot;</span>
+context.searchTable(partials)</code></pre>
       </div>
   
       <div class="fragment fade-in" data-fragment-index="2" data-fragment-index-nimib="2"> 
   
-      <h5>creatively</h5>
-      </div>
-  
-      </section>
-      <section data-nimib-slide-number="4" data-auto-animate >
-      <h4>How can <strong>you</strong> create blocks?</h4>
-      <h5>creatively</h5>
-      <p>Copying and customizing blocks</p>
-      <div class="fragment fade-in" data-fragment-index="3" data-fragment-index-nimib="3"> 
-  
-      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">template</span> nbCodeHtmlOutput(body: <span class="hljs-built_in">untyped</span>) =
-  nbCode:
-    body
-  nb.blk.command = <span class="hljs-string">&quot;nbCodeHtmlOutput&quot;</span>
-nb.partials[<span class="hljs-string">&quot;nbCodeHtmlOutput&quot;</span>] =
-  nb.partials[<span class="hljs-string">&quot;nbCode&quot;</span>].replace(<span class="hljs-string">&quot;{{&gt;nbCodeOutput}}&quot;</span>, <span class="hljs-string">&quot;{{&amp;output}}&quot;</span>)
-
-nbCodeHtmlOutput:
-  <span class="hljs-keyword">for</span> color <span class="hljs-keyword">in</span> [<span class="hljs-string">&quot;blue&quot;</span>, <span class="hljs-string">&quot;green&quot;</span>, <span class="hljs-string">&quot;yellow&quot;</span>]:
-    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;span style=</span><span class="hljs-meta">\&quot;</span><span class="hljs-string">color:&quot;</span> &amp; color &amp; <span class="hljs-string">&quot;</span><span class="hljs-meta">\&quot;</span><span class="hljs-string">&gt;&quot;</span> &amp; color &amp; <span class="hljs-string">&quot;&lt;/span&gt;&quot;</span></code></pre>
-      <div class="fragment fade-in" data-fragment-index="4" data-fragment-index-nimib="4"> 
-  
-      <hr/>
-      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers></code></pre><span style="color:blue">blue</span>
-<span style="color:green">green</span>
-<span style="color:yellow">yellow</span>
+      <h5>Render</h5>
+      <pre style="width: 100%"><code class="nim hljs" data-noescape><span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;{{&gt;doc}}&quot;</span>.render(context)</code></pre><pre style="width: 100%;"><samp class="hljs">&lt;head&gt;
+  &lt;title&gt;hi&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;hi&lt;/p&gt;
+  1 &amp;lt; 2
+&lt;/body&gt;</samp></pre>
       </div>
   
       </div>
-  
-      </section>
-      <section data-nimib-slide-number="5" data-auto-animate >
-      <h4>How can <strong>you</strong> create blocks?</h4>
-      <h5>creatively</h5>
-      <p>Composing other blocks</p>
-      <div class="fragment fade-in" data-fragment-index="5" data-fragment-index-nimib="5"> 
-  
-      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">template</span> nbTextRepeat(text: <span class="hljs-built_in">string</span>, repeat: <span class="hljs-built_in">int</span>) =
-  <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span> .. repeat:
-    nbText: text
-
-nbTextRepeat(<span class="hljs-string">&quot;All work and no play makes Jack a dull boy&quot;</span>, <span class="hljs-number">3</span>)</code></pre>
-      <div class="fragment fade-in" data-fragment-index="6" data-fragment-index-nimib="6"> 
-  
-      <hr/>
-      <p>All work and no play makes Jack a dull boy</p>
-      <p>All work and no play makes Jack a dull boy</p>
-      <p>All work and no play makes Jack a dull boy</p>
       </div>
-  
-      </div>
-  
-      </section>
-      <section data-nimib-slide-number="6" data-auto-animate >
-      <h4>How can <strong>you</strong> create blocks?</h4>
-      <h5>creatively</h5>
-      <p>Composing other blocks</p>
-      <p><code>nbRawHtml</code> is particularly powerful</p>
-      <div class="fragment fade-in" data-fragment-index="7" data-fragment-index-nimib="7"> 
-  
-      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">template</span> nbDetails(summary: <span class="hljs-built_in">string</span>, body: <span class="hljs-built_in">untyped</span>) =
-  nbRawHtml: <span class="hljs-string">&quot;&lt;details&gt;&lt;summary&gt;&quot;</span> &amp; summary &amp; <span class="hljs-string">&quot;&lt;/summary&gt;&quot;</span>
-  body
-  nbRawHtml: <span class="hljs-string">&quot;&lt;/details&gt;&quot;</span>
-
-nbDetails(<span class="hljs-string">&quot;click to reveal details&quot;</span>):
-  nbText: <span class="hljs-string">&quot;some text&quot;</span>
-  nbCode:
-    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;and code&quot;</span>.replace(<span class="hljs-string">&quot;code&quot;</span>, <span class="hljs-string">&quot;output&quot;</span>)</code></pre>
-      <div class="fragment fade-in" data-fragment-index="8" data-fragment-index-nimib="8"> 
-  
-      <hr/>
-      <details><summary>click to reveal details</summary>
-      <p>some text</p>
-      <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;and code&quot;</span>.replace(<span class="hljs-string">&quot;code&quot;</span>, <span class="hljs-string">&quot;output&quot;</span>)</code></pre><pre style="width: 100%;"><samp class="hljs">and output</samp></pre>
-      </details>
-      </div>
-  
-      </div>
-  
-      </section>
-      <section data-nimib-slide-number="7" data-auto-animate >
-      <h4>How can <strong>you</strong> create blocks?</h4>
-      <h5>creatively</h5>
-      <p>Composing other blocks</p>
-      <p><code>nbRawHtml</code> is particularly powerful</p>
-      <p>(nimislides uses it for <code>slide</code> template)</p>
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="9" data-fragment-index-nimib="9"> 
-  
-      <h5>but</h5>
-      </div>
-  
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="10" data-fragment-index-nimib="10"> 
-  
-      <p>limited to html backend</p>
-      </div>
-  
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="11" data-fragment-index-nimib="11"> 
-  
-      <p>cannot be customized</p>
-      </div>
-  
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="12" data-fragment-index-nimib="12"> 
-  
-      <p>a better solution will come with the <a href="https://github.com/pietroppeter/nimib/issues/117">container block!</a></p>
-      </div>
-  
       </section>
       </section>
-      <section data-nimib-slide-number="8" >
-      <section data-nimib-slide-number="9" >
+      <section data-nimib-slide-number="4" >
+      <section data-nimib-slide-number="5" >
       <h2>Fancy blocks 🖼️</h2>
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="13" data-fragment-index-nimib="13"> 
+      <div class="fragment fade-in-then-semi-out" data-fragment-index="3" data-fragment-index-nimib="3"> 
   
       <p>blocks with interactivity given by external js functionalities</p>
       </div>
   
       </section>
-      <section data-nimib-slide-number="10" >
+      <section data-nimib-slide-number="6" >
       <h4>How to add a line at the end of <code>&lt;head&gt;</code> section</h4>
-      <div class="fragment fade-in" data-fragment-index="14" data-fragment-index-nimib="14"> 
+      <div class="fragment fade-in" data-fragment-index="4" data-fragment-index-nimib="4"> 
   
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers>nb.partials[<span class="hljs-string">&quot;head&quot;</span>] &amp;= <span class="hljs-string">&quot;&lt;style&gt;...&quot;</span></code></pre>
       </div>
   
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="15" data-fragment-index-nimib="15"> 
+      <div class="fragment fade-in-then-semi-out" data-fragment-index="5" data-fragment-index-nimib="5"> 
   
       <h4>How to add a line at the end of <code>&lt;body&gt;</code> section</h4>
       </div>
   
-      <div class="fragment fade-in" data-fragment-index="16" data-fragment-index-nimib="16"> 
+      <div class="fragment fade-in" data-fragment-index="6" data-fragment-index-nimib="6"> 
   
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers>nb.partials[<span class="hljs-string">&quot;main&quot;</span>] &amp;= <span class="hljs-string">&quot;&lt;script&gt;...&quot;</span></code></pre>
       </div>
@@ -169,27 +99,27 @@ nbDetails(<span class="hljs-string">&quot;click to reveal details&quot;</span>):
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/mermaid_diagram.html" data-background-interactive></section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/show_plotly.html" data-background-interactive></section>
       </section>
-      <section data-nimib-slide-number="11" >
-      <section data-nimib-slide-number="12" >
+      <section data-nimib-slide-number="7" >
+      <section data-nimib-slide-number="8" >
       <h2>A mathy plant app 🌱</h2>
       <ul>
-      <div class="fragment fade-in" data-fragment-index="17" data-fragment-index-nimib="17"> 
+      <div class="fragment fade-in" data-fragment-index="7" data-fragment-index-nimib="7"> 
   
-      <li class="fragment fade-in-then-semi-out " data-fragment-index="17" data-fragment-index-nimib="17">
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="7" data-fragment-index-nimib="7">
       <p>example of a more complex nbKarax app</p>
       </li>
       </div>
   
-      <div class="fragment fade-in" data-fragment-index="18" data-fragment-index-nimib="18"> 
+      <div class="fragment fade-in" data-fragment-index="8" data-fragment-index-nimib="8"> 
   
-      <li class="fragment fade-in-then-semi-out " data-fragment-index="18" data-fragment-index-nimib="18">
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="8" data-fragment-index-nimib="8">
       <p>based on <a href="https://pietroppeter.github.io/nblog/drafts/plant_js.html">a plot function built with js canvas</a></p>
       </li>
       </div>
   
-      <div class="fragment fade-in" data-fragment-index="19" data-fragment-index-nimib="19"> 
+      <div class="fragment fade-in" data-fragment-index="9" data-fragment-index-nimib="9"> 
   
-      <li class="fragment fade-in-then-semi-out " data-fragment-index="19" data-fragment-index-nimib="19">
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="9" data-fragment-index-nimib="9">
       <p>preliminary api for <a href="https://pietroppeter.github.io/nblog/drafts/karax_widgets_demo.html">karax widgets</a></p>
       </li>
       </div>

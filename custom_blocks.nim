@@ -31,6 +31,7 @@ template addStuff* =
   addNbCodeDontRun
   addNewAnimateCodeBlocks
   addNimibCodeBlocks
+  addNbCodeNoLineNumbers
 
 # nim conf slides
 template nimConfSlide*(body: untyped) =
@@ -115,6 +116,18 @@ template nbCodeDontRun*(body: untyped) = # from hugos_slides
 template addNbCodeDontRun* =
   nb.partials["nbCodeDontRun"] = nb.partials["nbCode"]
   nb.renderPlans["nbCodeDontRun"] = nb.renderPlans["nbCode"]
+
+template nbCodeNoLineNumbers*(body: untyped) =
+  nbCode:
+    body
+  nb.blk.command = "nbCodeNoLineNumbers"
+
+template addNbCodeNoLineNumbers* =
+  nb.partials["nbCodeNoLineNumbers"] =
+    nb.partials["nbCode"].replace("nbCodeSource", "nbCodeSourceNoLineNumbers")
+  nb.renderPlans["nbCodeNoLineNumbers"] = nb.renderPlans["nbCode"]
+  nb.partials["nbCodeSourceNoLineNumbers"] =
+    nb.partials["nbCodeSource"].replace(" data-line-numbers", "")
 
 template nbCodeDontRunAnimateImpl*(body: untyped) =
   discard

@@ -23,13 +23,13 @@ Title: Nimib goes interactive
     - [x] code example
     - [x] record livecoding
     - [x] livecode slide
-  - [ ] 0.3.x changes
+  - [x] 0.3.x changes
     - [x] intro slide for release
       - [x] add lines on 1) how to (custom blocks examples) 2) a js mathy plant app
     - [x] codeAsInSource
       - [x] fix animation of code lines
       - [x] mention CodeFromAst macro
-    - [ ] custom block theory
+    - [x] custom block theory
       - [x] what are blocks
         - [x] add title and animate
       - [x] what is a block: data + render (two columns with examples)
@@ -40,7 +40,7 @@ Title: Nimib goes interactive
       - [x] nimib types (implementation details)
         - [x] animate and review
         - mention that until 0.2 it was an object variant with 3 kinds
-      - [ ] a refresher on mustache
+      - [x] a refresher on mustache
       - [x] render function (implementation details)
         - [x] review and animate
       - [x] how do I create a block
@@ -69,9 +69,8 @@ Title: Nimib goes interactive
       - [x] add minimal intro
       - [x] embed html
       - [x] use nimconf for this part of slides
-    - [ ] use nimconf theme and merge all in slides.nim
-      - refactor by making slides call a proc from pietro_slides?
-    - [ ] record the 0.3.x changes part
+    - [x] refactor to allow easy change to nimconfslides
+  - [ ] record the 0.3.x changes part
   - [x] record description of plant_app as example of js
   - [x] contributing slides draft
   - [x] roadmap draft
