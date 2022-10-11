@@ -27832,9 +27832,9 @@ function to_469762058(node_469762061) {
   return result_469762063[0];
 
 }
-var id_453009572_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-11\"")));
-var currentslidenr_453009573_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("12")));
-var html_453009574_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-11\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
+var id_453009235_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-11\"")));
+var currentslidenr_453009236_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("12")));
+var html_453009237_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-11\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
 
 function nsuStrip(s_872417438, leading_872417439, trailing_872417440, chars_872417441) {
           var Temporary5;
@@ -28026,14 +28026,14 @@ function getSlideNumber_1140850752(el_1140850753) {
 
 function HEX3Aanonymous_469762146(eventHEX60gensym4_469762147) {
     
-function lambda_453009571_469762152(event_453009579_469762153) {
-        var slidenr_453009578_469762154 = getSlideNumber_1140850752(event_453009579_469762153.currentSlide);
-        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453009578_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453009573_469762088));
-        if ((currentslidenr_453009573_469762088 == slidenr_453009578_469762154)) {
-        img_453009575_469762148.style.setProperty("opacity", "100%", []);
+function lambda_453009234_469762152(event_453009242_469762153) {
+        var slidenr_453009241_469762154 = getSlideNumber_1140850752(event_453009242_469762153.currentSlide);
+        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453009241_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453009236_469762088));
+        if ((currentslidenr_453009236_469762088 == slidenr_453009241_469762154)) {
+        img_453009238_469762148.style.setProperty("opacity", "100%", []);
         }
         else {
-        img_453009575_469762148.style.setProperty("opacity", "0%", []);
+        img_453009238_469762148.style.setProperty("opacity", "0%", []);
         }
         
 
@@ -28042,45 +28042,45 @@ function lambda_453009571_469762152(event_453009579_469762153) {
       
 function HEX3Aanonymous_469762155(eventHEX60gensym4_469762156) {
           
-function lambda_453009571_469762161(event_453009579_469762162) {
-              var slidenr_453009578_469762163 = getSlideNumber_1140850752(event_453009579_469762162.currentSlide);
-              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453009578_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453009573_469762088));
-              if ((currentslidenr_453009573_469762088 == slidenr_453009578_469762163)) {
-              img_453009575_469762157.style.setProperty("opacity", "100%", []);
+function lambda_453009234_469762161(event_453009242_469762162) {
+              var slidenr_453009241_469762163 = getSlideNumber_1140850752(event_453009242_469762162.currentSlide);
+              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453009241_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453009236_469762088));
+              if ((currentslidenr_453009236_469762088 == slidenr_453009241_469762163)) {
+              img_453009238_469762157.style.setProperty("opacity", "100%", []);
               }
               else {
-              img_453009575_469762157.style.setProperty("opacity", "0%", []);
+              img_453009238_469762157.style.setProperty("opacity", "0%", []);
               }
               
 
             
           }
 
-          var img_453009575_469762157 = stringToElement_1140850783(html_453009574_469762094);
-          var deck_453009576_469762158 = Reveal.getRevealElement();
-          deck_453009576_469762158.appendChild(img_453009575_469762157);
-          var currentslide_453009577_469762159 = Reveal.getCurrentSlide();
-          var slidenr_453009578_469762160 = getSlideNumber_1140850752(currentslide_453009577_469762159);
-          if ((currentslidenr_453009573_469762088 == slidenr_453009578_469762160)) {
-          img_453009575_469762157.style.setProperty("opacity", "100%", []);
+          var img_453009238_469762157 = stringToElement_1140850783(html_453009237_469762094);
+          var deck_453009239_469762158 = Reveal.getRevealElement();
+          deck_453009239_469762158.appendChild(img_453009238_469762157);
+          var currentslide_453009240_469762159 = Reveal.getCurrentSlide();
+          var slidenr_453009241_469762160 = getSlideNumber_1140850752(currentslide_453009240_469762159);
+          if ((currentslidenr_453009236_469762088 == slidenr_453009241_469762160)) {
+          img_453009238_469762157.style.setProperty("opacity", "100%", []);
           }
           
-          Reveal.on("slidechanged", lambda_453009571_469762161);
+          Reveal.on("slidechanged", lambda_453009234_469762161);
 
         
       }
 
     if (Reveal.isReady()) {
-    var img_453009575_469762148 = stringToElement_1140850783(html_453009574_469762094);
-    var deck_453009576_469762149 = Reveal.getRevealElement();
-    deck_453009576_469762149.appendChild(img_453009575_469762148);
-    var currentslide_453009577_469762150 = Reveal.getCurrentSlide();
-    var slidenr_453009578_469762151 = getSlideNumber_1140850752(currentslide_453009577_469762150);
-    if ((currentslidenr_453009573_469762088 == slidenr_453009578_469762151)) {
-    img_453009575_469762148.style.setProperty("opacity", "100%", []);
+    var img_453009238_469762148 = stringToElement_1140850783(html_453009237_469762094);
+    var deck_453009239_469762149 = Reveal.getRevealElement();
+    deck_453009239_469762149.appendChild(img_453009238_469762148);
+    var currentslide_453009240_469762150 = Reveal.getCurrentSlide();
+    var slidenr_453009241_469762151 = getSlideNumber_1140850752(currentslide_453009240_469762150);
+    if ((currentslidenr_453009236_469762088 == slidenr_453009241_469762151)) {
+    img_453009238_469762148.style.setProperty("opacity", "100%", []);
     }
     
-    Reveal.on("slidechanged", lambda_453009571_469762152);
+    Reveal.on("slidechanged", lambda_453009234_469762152);
     }
     else {
     Reveal.on("ready", HEX3Aanonymous_469762155);
@@ -51553,14 +51553,10 @@ window.addEventListener("load", HEX3Aanonymous_469762146, false);
 
 <span class="hljs-keyword">template</span> newNbSlimBlock*(cmd: <span class="hljs-built_in">string</span>, blockImpl: <span class="hljs-built_in">untyped</span>) =
   <span class="hljs-keyword">discard</span></code></pre>
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="23" data-fragment-index-nimib="23"> 
-  
-      <p><small>(a slim block is a block without body)</small></p>
+      <small><p><small>(a slim block is a block without body)</small></p></small>
       </div>
   
-      </div>
-  
-      <div class="fragment fade-in" data-fragment-index="24" data-fragment-index-nimib="24"> 
+      <div class="fragment fade-in" data-fragment-index="23" data-fragment-index-nimib="23"> 
   
       <h5>creatively</h5>
       </div>
@@ -53630,9 +53626,9 @@ function to_469762058(node_469762061) {
   return result_469762063[0];
 
 }
-var id_453004241_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-22\"")));
-var currentslidenr_453004242_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("23")));
-var html_453004243_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-22\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
+var id_453003916_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-22\"")));
+var currentslidenr_453003917_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("23")));
+var html_453003918_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-22\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
 
 function nsuStrip(s_872417438, leading_872417439, trailing_872417440, chars_872417441) {
           var Temporary5;
@@ -53824,14 +53820,14 @@ function getSlideNumber_1140850752(el_1140850753) {
 
 function HEX3Aanonymous_469762146(eventHEX60gensym4_469762147) {
     
-function lambda_453004240_469762152(event_453004248_469762153) {
-        var slidenr_453004247_469762154 = getSlideNumber_1140850752(event_453004248_469762153.currentSlide);
-        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453004247_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453004242_469762088));
-        if ((currentslidenr_453004242_469762088 == slidenr_453004247_469762154)) {
-        img_453004244_469762148.style.setProperty("opacity", "100%", []);
+function lambda_453003915_469762152(event_453003923_469762153) {
+        var slidenr_453003922_469762154 = getSlideNumber_1140850752(event_453003923_469762153.currentSlide);
+        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453003922_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453003917_469762088));
+        if ((currentslidenr_453003917_469762088 == slidenr_453003922_469762154)) {
+        img_453003919_469762148.style.setProperty("opacity", "100%", []);
         }
         else {
-        img_453004244_469762148.style.setProperty("opacity", "0%", []);
+        img_453003919_469762148.style.setProperty("opacity", "0%", []);
         }
         
 
@@ -53840,45 +53836,45 @@ function lambda_453004240_469762152(event_453004248_469762153) {
       
 function HEX3Aanonymous_469762155(eventHEX60gensym4_469762156) {
           
-function lambda_453004240_469762161(event_453004248_469762162) {
-              var slidenr_453004247_469762163 = getSlideNumber_1140850752(event_453004248_469762162.currentSlide);
-              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453004247_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453004242_469762088));
-              if ((currentslidenr_453004242_469762088 == slidenr_453004247_469762163)) {
-              img_453004244_469762157.style.setProperty("opacity", "100%", []);
+function lambda_453003915_469762161(event_453003923_469762162) {
+              var slidenr_453003922_469762163 = getSlideNumber_1140850752(event_453003923_469762162.currentSlide);
+              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453003922_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453003917_469762088));
+              if ((currentslidenr_453003917_469762088 == slidenr_453003922_469762163)) {
+              img_453003919_469762157.style.setProperty("opacity", "100%", []);
               }
               else {
-              img_453004244_469762157.style.setProperty("opacity", "0%", []);
+              img_453003919_469762157.style.setProperty("opacity", "0%", []);
               }
               
 
             
           }
 
-          var img_453004244_469762157 = stringToElement_1140850783(html_453004243_469762094);
-          var deck_453004245_469762158 = Reveal.getRevealElement();
-          deck_453004245_469762158.appendChild(img_453004244_469762157);
-          var currentslide_453004246_469762159 = Reveal.getCurrentSlide();
-          var slidenr_453004247_469762160 = getSlideNumber_1140850752(currentslide_453004246_469762159);
-          if ((currentslidenr_453004242_469762088 == slidenr_453004247_469762160)) {
-          img_453004244_469762157.style.setProperty("opacity", "100%", []);
+          var img_453003919_469762157 = stringToElement_1140850783(html_453003918_469762094);
+          var deck_453003920_469762158 = Reveal.getRevealElement();
+          deck_453003920_469762158.appendChild(img_453003919_469762157);
+          var currentslide_453003921_469762159 = Reveal.getCurrentSlide();
+          var slidenr_453003922_469762160 = getSlideNumber_1140850752(currentslide_453003921_469762159);
+          if ((currentslidenr_453003917_469762088 == slidenr_453003922_469762160)) {
+          img_453003919_469762157.style.setProperty("opacity", "100%", []);
           }
           
-          Reveal.on("slidechanged", lambda_453004240_469762161);
+          Reveal.on("slidechanged", lambda_453003915_469762161);
 
         
       }
 
     if (Reveal.isReady()) {
-    var img_453004244_469762148 = stringToElement_1140850783(html_453004243_469762094);
-    var deck_453004245_469762149 = Reveal.getRevealElement();
-    deck_453004245_469762149.appendChild(img_453004244_469762148);
-    var currentslide_453004246_469762150 = Reveal.getCurrentSlide();
-    var slidenr_453004247_469762151 = getSlideNumber_1140850752(currentslide_453004246_469762150);
-    if ((currentslidenr_453004242_469762088 == slidenr_453004247_469762151)) {
-    img_453004244_469762148.style.setProperty("opacity", "100%", []);
+    var img_453003919_469762148 = stringToElement_1140850783(html_453003918_469762094);
+    var deck_453003920_469762149 = Reveal.getRevealElement();
+    deck_453003920_469762149.appendChild(img_453003919_469762148);
+    var currentslide_453003921_469762150 = Reveal.getCurrentSlide();
+    var slidenr_453003922_469762151 = getSlideNumber_1140850752(currentslide_453003921_469762150);
+    if ((currentslidenr_453003917_469762088 == slidenr_453003922_469762151)) {
+    img_453003919_469762148.style.setProperty("opacity", "100%", []);
     }
     
-    Reveal.on("slidechanged", lambda_453004240_469762152);
+    Reveal.on("slidechanged", lambda_453003915_469762152);
     }
     else {
     Reveal.on("ready", HEX3Aanonymous_469762155);
@@ -53892,7 +53888,7 @@ window.addEventListener("load", HEX3Aanonymous_469762146, false);
       <h4>How can <strong>you</strong> create blocks?</h4>
       <h5>creatively</h5>
       <p>Copying and customizing blocks</p>
-      <div class="fragment fade-in" data-fragment-index="25" data-fragment-index-nimib="25"> 
+      <div class="fragment fade-in" data-fragment-index="24" data-fragment-index-nimib="24"> 
   
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers="|2-4,|5-6,|8-10"><span class="hljs-keyword">template</span> nbCodeHtmlOutput(body: <span class="hljs-built_in">untyped</span>) =
   nbCode:
@@ -53905,7 +53901,7 @@ nbCodeHtmlOutput:
   <span class="hljs-keyword">for</span> color <span class="hljs-keyword">in</span> [<span class="hljs-string">&quot;blue&quot;</span>, <span class="hljs-string">&quot;green&quot;</span>, <span class="hljs-string">&quot;yellow&quot;</span>]:
     <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;span style=</span><span class="hljs-meta">\&quot;</span><span class="hljs-string">color:&quot;</span> &amp; color &amp; <span class="hljs-string">&quot;</span><span class="hljs-meta">\&quot;</span><span class="hljs-string">&gt;&quot;</span> &amp; color &amp; <span class="hljs-string">&quot;&lt;/span&gt;&quot;</span></code></pre>
 
-      <div class="fragment fade-in" data-fragment-index="26" data-fragment-index-nimib="26"> 
+      <div class="fragment fade-in" data-fragment-index="25" data-fragment-index-nimib="25"> 
   
       <hr/>
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers></code></pre><span style="color:blue">blue</span>
@@ -55980,9 +55976,9 @@ function to_469762058(node_469762061) {
   return result_469762063[0];
 
 }
-var id_453005504_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-23\"")));
-var currentslidenr_453005505_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("24")));
-var html_453005506_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-23\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
+var id_453005179_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-23\"")));
+var currentslidenr_453005180_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("24")));
+var html_453005181_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-23\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
 
 function nsuStrip(s_872417438, leading_872417439, trailing_872417440, chars_872417441) {
           var Temporary5;
@@ -56174,14 +56170,14 @@ function getSlideNumber_1140850752(el_1140850753) {
 
 function HEX3Aanonymous_469762146(eventHEX60gensym4_469762147) {
     
-function lambda_453005503_469762152(event_453005511_469762153) {
-        var slidenr_453005510_469762154 = getSlideNumber_1140850752(event_453005511_469762153.currentSlide);
-        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453005510_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453005505_469762088));
-        if ((currentslidenr_453005505_469762088 == slidenr_453005510_469762154)) {
-        img_453005507_469762148.style.setProperty("opacity", "100%", []);
+function lambda_453005178_469762152(event_453005186_469762153) {
+        var slidenr_453005185_469762154 = getSlideNumber_1140850752(event_453005186_469762153.currentSlide);
+        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453005185_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453005180_469762088));
+        if ((currentslidenr_453005180_469762088 == slidenr_453005185_469762154)) {
+        img_453005182_469762148.style.setProperty("opacity", "100%", []);
         }
         else {
-        img_453005507_469762148.style.setProperty("opacity", "0%", []);
+        img_453005182_469762148.style.setProperty("opacity", "0%", []);
         }
         
 
@@ -56190,45 +56186,45 @@ function lambda_453005503_469762152(event_453005511_469762153) {
       
 function HEX3Aanonymous_469762155(eventHEX60gensym4_469762156) {
           
-function lambda_453005503_469762161(event_453005511_469762162) {
-              var slidenr_453005510_469762163 = getSlideNumber_1140850752(event_453005511_469762162.currentSlide);
-              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453005510_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453005505_469762088));
-              if ((currentslidenr_453005505_469762088 == slidenr_453005510_469762163)) {
-              img_453005507_469762157.style.setProperty("opacity", "100%", []);
+function lambda_453005178_469762161(event_453005186_469762162) {
+              var slidenr_453005185_469762163 = getSlideNumber_1140850752(event_453005186_469762162.currentSlide);
+              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453005185_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453005180_469762088));
+              if ((currentslidenr_453005180_469762088 == slidenr_453005185_469762163)) {
+              img_453005182_469762157.style.setProperty("opacity", "100%", []);
               }
               else {
-              img_453005507_469762157.style.setProperty("opacity", "0%", []);
+              img_453005182_469762157.style.setProperty("opacity", "0%", []);
               }
               
 
             
           }
 
-          var img_453005507_469762157 = stringToElement_1140850783(html_453005506_469762094);
-          var deck_453005508_469762158 = Reveal.getRevealElement();
-          deck_453005508_469762158.appendChild(img_453005507_469762157);
-          var currentslide_453005509_469762159 = Reveal.getCurrentSlide();
-          var slidenr_453005510_469762160 = getSlideNumber_1140850752(currentslide_453005509_469762159);
-          if ((currentslidenr_453005505_469762088 == slidenr_453005510_469762160)) {
-          img_453005507_469762157.style.setProperty("opacity", "100%", []);
+          var img_453005182_469762157 = stringToElement_1140850783(html_453005181_469762094);
+          var deck_453005183_469762158 = Reveal.getRevealElement();
+          deck_453005183_469762158.appendChild(img_453005182_469762157);
+          var currentslide_453005184_469762159 = Reveal.getCurrentSlide();
+          var slidenr_453005185_469762160 = getSlideNumber_1140850752(currentslide_453005184_469762159);
+          if ((currentslidenr_453005180_469762088 == slidenr_453005185_469762160)) {
+          img_453005182_469762157.style.setProperty("opacity", "100%", []);
           }
           
-          Reveal.on("slidechanged", lambda_453005503_469762161);
+          Reveal.on("slidechanged", lambda_453005178_469762161);
 
         
       }
 
     if (Reveal.isReady()) {
-    var img_453005507_469762148 = stringToElement_1140850783(html_453005506_469762094);
-    var deck_453005508_469762149 = Reveal.getRevealElement();
-    deck_453005508_469762149.appendChild(img_453005507_469762148);
-    var currentslide_453005509_469762150 = Reveal.getCurrentSlide();
-    var slidenr_453005510_469762151 = getSlideNumber_1140850752(currentslide_453005509_469762150);
-    if ((currentslidenr_453005505_469762088 == slidenr_453005510_469762151)) {
-    img_453005507_469762148.style.setProperty("opacity", "100%", []);
+    var img_453005182_469762148 = stringToElement_1140850783(html_453005181_469762094);
+    var deck_453005183_469762149 = Reveal.getRevealElement();
+    deck_453005183_469762149.appendChild(img_453005182_469762148);
+    var currentslide_453005184_469762150 = Reveal.getCurrentSlide();
+    var slidenr_453005185_469762151 = getSlideNumber_1140850752(currentslide_453005184_469762150);
+    if ((currentslidenr_453005180_469762088 == slidenr_453005185_469762151)) {
+    img_453005182_469762148.style.setProperty("opacity", "100%", []);
     }
     
-    Reveal.on("slidechanged", lambda_453005503_469762152);
+    Reveal.on("slidechanged", lambda_453005178_469762152);
     }
     else {
     Reveal.on("ready", HEX3Aanonymous_469762155);
@@ -56242,14 +56238,14 @@ window.addEventListener("load", HEX3Aanonymous_469762146, false);
       <h4>How can <strong>you</strong> create blocks?</h4>
       <h5>creatively</h5>
       <p>Composing other blocks</p>
-      <div class="fragment fade-in" data-fragment-index="27" data-fragment-index-nimib="27"> 
+      <div class="fragment fade-in" data-fragment-index="26" data-fragment-index-nimib="26"> 
   
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">template</span> nbTextRepeat(text: <span class="hljs-built_in">string</span>, repeat: <span class="hljs-built_in">int</span>) =
   <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span> .. repeat:
     nbText: text
 
 nbTextRepeat(<span class="hljs-string">&quot;All work and no play makes Jack a dull boy&quot;</span>, <span class="hljs-number">3</span>)</code></pre>
-      <div class="fragment fade-in" data-fragment-index="28" data-fragment-index-nimib="28"> 
+      <div class="fragment fade-in" data-fragment-index="27" data-fragment-index-nimib="27"> 
   
       <hr/>
       <p>All work and no play makes Jack a dull boy</p>
@@ -58324,9 +58320,9 @@ function to_469762058(node_469762061) {
   return result_469762063[0];
 
 }
-var id_453006518_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-24\"")));
-var currentslidenr_453006519_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("25")));
-var html_453006520_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-24\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
+var id_453006193_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-24\"")));
+var currentslidenr_453006194_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("25")));
+var html_453006195_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-24\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
 
 function nsuStrip(s_872417438, leading_872417439, trailing_872417440, chars_872417441) {
           var Temporary5;
@@ -58518,14 +58514,14 @@ function getSlideNumber_1140850752(el_1140850753) {
 
 function HEX3Aanonymous_469762146(eventHEX60gensym4_469762147) {
     
-function lambda_453006517_469762152(event_453006525_469762153) {
-        var slidenr_453006524_469762154 = getSlideNumber_1140850752(event_453006525_469762153.currentSlide);
-        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453006524_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453006519_469762088));
-        if ((currentslidenr_453006519_469762088 == slidenr_453006524_469762154)) {
-        img_453006521_469762148.style.setProperty("opacity", "100%", []);
+function lambda_453006192_469762152(event_453006200_469762153) {
+        var slidenr_453006199_469762154 = getSlideNumber_1140850752(event_453006200_469762153.currentSlide);
+        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453006199_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453006194_469762088));
+        if ((currentslidenr_453006194_469762088 == slidenr_453006199_469762154)) {
+        img_453006196_469762148.style.setProperty("opacity", "100%", []);
         }
         else {
-        img_453006521_469762148.style.setProperty("opacity", "0%", []);
+        img_453006196_469762148.style.setProperty("opacity", "0%", []);
         }
         
 
@@ -58534,45 +58530,45 @@ function lambda_453006517_469762152(event_453006525_469762153) {
       
 function HEX3Aanonymous_469762155(eventHEX60gensym4_469762156) {
           
-function lambda_453006517_469762161(event_453006525_469762162) {
-              var slidenr_453006524_469762163 = getSlideNumber_1140850752(event_453006525_469762162.currentSlide);
-              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453006524_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453006519_469762088));
-              if ((currentslidenr_453006519_469762088 == slidenr_453006524_469762163)) {
-              img_453006521_469762157.style.setProperty("opacity", "100%", []);
+function lambda_453006192_469762161(event_453006200_469762162) {
+              var slidenr_453006199_469762163 = getSlideNumber_1140850752(event_453006200_469762162.currentSlide);
+              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453006199_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453006194_469762088));
+              if ((currentslidenr_453006194_469762088 == slidenr_453006199_469762163)) {
+              img_453006196_469762157.style.setProperty("opacity", "100%", []);
               }
               else {
-              img_453006521_469762157.style.setProperty("opacity", "0%", []);
+              img_453006196_469762157.style.setProperty("opacity", "0%", []);
               }
               
 
             
           }
 
-          var img_453006521_469762157 = stringToElement_1140850783(html_453006520_469762094);
-          var deck_453006522_469762158 = Reveal.getRevealElement();
-          deck_453006522_469762158.appendChild(img_453006521_469762157);
-          var currentslide_453006523_469762159 = Reveal.getCurrentSlide();
-          var slidenr_453006524_469762160 = getSlideNumber_1140850752(currentslide_453006523_469762159);
-          if ((currentslidenr_453006519_469762088 == slidenr_453006524_469762160)) {
-          img_453006521_469762157.style.setProperty("opacity", "100%", []);
+          var img_453006196_469762157 = stringToElement_1140850783(html_453006195_469762094);
+          var deck_453006197_469762158 = Reveal.getRevealElement();
+          deck_453006197_469762158.appendChild(img_453006196_469762157);
+          var currentslide_453006198_469762159 = Reveal.getCurrentSlide();
+          var slidenr_453006199_469762160 = getSlideNumber_1140850752(currentslide_453006198_469762159);
+          if ((currentslidenr_453006194_469762088 == slidenr_453006199_469762160)) {
+          img_453006196_469762157.style.setProperty("opacity", "100%", []);
           }
           
-          Reveal.on("slidechanged", lambda_453006517_469762161);
+          Reveal.on("slidechanged", lambda_453006192_469762161);
 
         
       }
 
     if (Reveal.isReady()) {
-    var img_453006521_469762148 = stringToElement_1140850783(html_453006520_469762094);
-    var deck_453006522_469762149 = Reveal.getRevealElement();
-    deck_453006522_469762149.appendChild(img_453006521_469762148);
-    var currentslide_453006523_469762150 = Reveal.getCurrentSlide();
-    var slidenr_453006524_469762151 = getSlideNumber_1140850752(currentslide_453006523_469762150);
-    if ((currentslidenr_453006519_469762088 == slidenr_453006524_469762151)) {
-    img_453006521_469762148.style.setProperty("opacity", "100%", []);
+    var img_453006196_469762148 = stringToElement_1140850783(html_453006195_469762094);
+    var deck_453006197_469762149 = Reveal.getRevealElement();
+    deck_453006197_469762149.appendChild(img_453006196_469762148);
+    var currentslide_453006198_469762150 = Reveal.getCurrentSlide();
+    var slidenr_453006199_469762151 = getSlideNumber_1140850752(currentslide_453006198_469762150);
+    if ((currentslidenr_453006194_469762088 == slidenr_453006199_469762151)) {
+    img_453006196_469762148.style.setProperty("opacity", "100%", []);
     }
     
-    Reveal.on("slidechanged", lambda_453006517_469762152);
+    Reveal.on("slidechanged", lambda_453006192_469762152);
     }
     else {
     Reveal.on("ready", HEX3Aanonymous_469762155);
@@ -58585,7 +58581,7 @@ window.addEventListener("load", HEX3Aanonymous_469762146, false);
 </script>
       <h4>How can <strong>you</strong> create blocks?</h4>
       <p><code>nbRawHtml</code> is particularly powerful</p>
-      <div class="fragment fade-in" data-fragment-index="29" data-fragment-index-nimib="29"> 
+      <div class="fragment fade-in" data-fragment-index="28" data-fragment-index-nimib="28"> 
   
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers><span class="hljs-keyword">template</span> nbDetails(summary: <span class="hljs-built_in">string</span>, body: <span class="hljs-built_in">untyped</span>) =
   nbRawHtml: <span class="hljs-string">&quot;&lt;small&gt;&lt;details&gt;&lt;summary&gt;&quot;</span> &amp; summary &amp; <span class="hljs-string">&quot;&lt;/summary&gt;&quot;</span>
@@ -58594,7 +58590,7 @@ window.addEventListener("load", HEX3Aanonymous_469762146, false);
 nbDetails(<span class="hljs-string">&quot;click to reveal details&quot;</span>):
   nbTextSmall: <span class="hljs-string">&quot;one block&quot;</span>
   nbCode: <span class="hljs-keyword">discard</span> <span class="hljs-string">&quot;another block&quot;</span></code></pre>
-      <div class="fragment fade-in" data-fragment-index="30" data-fragment-index-nimib="30"> 
+      <div class="fragment fade-in" data-fragment-index="29" data-fragment-index-nimib="29"> 
   
       <hr/>
       <small><details><summary>click to reveal details</summary>
@@ -60670,9 +60666,9 @@ function to_469762058(node_469762061) {
   return result_469762063[0];
 
 }
-var id_453007584_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-25\"")));
-var currentslidenr_453007585_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("26")));
-var html_453007586_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-25\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
+var id_453007259_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-25\"")));
+var currentslidenr_453007260_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("26")));
+var html_453007261_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-25\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
 
 function nsuStrip(s_872417438, leading_872417439, trailing_872417440, chars_872417441) {
           var Temporary5;
@@ -60864,14 +60860,14 @@ function getSlideNumber_1140850752(el_1140850753) {
 
 function HEX3Aanonymous_469762146(eventHEX60gensym4_469762147) {
     
-function lambda_453007583_469762152(event_453007591_469762153) {
-        var slidenr_453007590_469762154 = getSlideNumber_1140850752(event_453007591_469762153.currentSlide);
-        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453007590_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453007585_469762088));
-        if ((currentslidenr_453007585_469762088 == slidenr_453007590_469762154)) {
-        img_453007587_469762148.style.setProperty("opacity", "100%", []);
+function lambda_453007258_469762152(event_453007266_469762153) {
+        var slidenr_453007265_469762154 = getSlideNumber_1140850752(event_453007266_469762153.currentSlide);
+        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453007265_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453007260_469762088));
+        if ((currentslidenr_453007260_469762088 == slidenr_453007265_469762154)) {
+        img_453007262_469762148.style.setProperty("opacity", "100%", []);
         }
         else {
-        img_453007587_469762148.style.setProperty("opacity", "0%", []);
+        img_453007262_469762148.style.setProperty("opacity", "0%", []);
         }
         
 
@@ -60880,45 +60876,45 @@ function lambda_453007583_469762152(event_453007591_469762153) {
       
 function HEX3Aanonymous_469762155(eventHEX60gensym4_469762156) {
           
-function lambda_453007583_469762161(event_453007591_469762162) {
-              var slidenr_453007590_469762163 = getSlideNumber_1140850752(event_453007591_469762162.currentSlide);
-              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453007590_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453007585_469762088));
-              if ((currentslidenr_453007585_469762088 == slidenr_453007590_469762163)) {
-              img_453007587_469762157.style.setProperty("opacity", "100%", []);
+function lambda_453007258_469762161(event_453007266_469762162) {
+              var slidenr_453007265_469762163 = getSlideNumber_1140850752(event_453007266_469762162.currentSlide);
+              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453007265_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453007260_469762088));
+              if ((currentslidenr_453007260_469762088 == slidenr_453007265_469762163)) {
+              img_453007262_469762157.style.setProperty("opacity", "100%", []);
               }
               else {
-              img_453007587_469762157.style.setProperty("opacity", "0%", []);
+              img_453007262_469762157.style.setProperty("opacity", "0%", []);
               }
               
 
             
           }
 
-          var img_453007587_469762157 = stringToElement_1140850783(html_453007586_469762094);
-          var deck_453007588_469762158 = Reveal.getRevealElement();
-          deck_453007588_469762158.appendChild(img_453007587_469762157);
-          var currentslide_453007589_469762159 = Reveal.getCurrentSlide();
-          var slidenr_453007590_469762160 = getSlideNumber_1140850752(currentslide_453007589_469762159);
-          if ((currentslidenr_453007585_469762088 == slidenr_453007590_469762160)) {
-          img_453007587_469762157.style.setProperty("opacity", "100%", []);
+          var img_453007262_469762157 = stringToElement_1140850783(html_453007261_469762094);
+          var deck_453007263_469762158 = Reveal.getRevealElement();
+          deck_453007263_469762158.appendChild(img_453007262_469762157);
+          var currentslide_453007264_469762159 = Reveal.getCurrentSlide();
+          var slidenr_453007265_469762160 = getSlideNumber_1140850752(currentslide_453007264_469762159);
+          if ((currentslidenr_453007260_469762088 == slidenr_453007265_469762160)) {
+          img_453007262_469762157.style.setProperty("opacity", "100%", []);
           }
           
-          Reveal.on("slidechanged", lambda_453007583_469762161);
+          Reveal.on("slidechanged", lambda_453007258_469762161);
 
         
       }
 
     if (Reveal.isReady()) {
-    var img_453007587_469762148 = stringToElement_1140850783(html_453007586_469762094);
-    var deck_453007588_469762149 = Reveal.getRevealElement();
-    deck_453007588_469762149.appendChild(img_453007587_469762148);
-    var currentslide_453007589_469762150 = Reveal.getCurrentSlide();
-    var slidenr_453007590_469762151 = getSlideNumber_1140850752(currentslide_453007589_469762150);
-    if ((currentslidenr_453007585_469762088 == slidenr_453007590_469762151)) {
-    img_453007587_469762148.style.setProperty("opacity", "100%", []);
+    var img_453007262_469762148 = stringToElement_1140850783(html_453007261_469762094);
+    var deck_453007263_469762149 = Reveal.getRevealElement();
+    deck_453007263_469762149.appendChild(img_453007262_469762148);
+    var currentslide_453007264_469762150 = Reveal.getCurrentSlide();
+    var slidenr_453007265_469762151 = getSlideNumber_1140850752(currentslide_453007264_469762150);
+    if ((currentslidenr_453007260_469762088 == slidenr_453007265_469762151)) {
+    img_453007262_469762148.style.setProperty("opacity", "100%", []);
     }
     
-    Reveal.on("slidechanged", lambda_453007583_469762152);
+    Reveal.on("slidechanged", lambda_453007258_469762152);
     }
     else {
     Reveal.on("ready", HEX3Aanonymous_469762155);
@@ -60932,22 +60928,22 @@ window.addEventListener("load", HEX3Aanonymous_469762146, false);
       <h4>How can <strong>you</strong> create blocks?</h4>
       <p><code>nbRawHtml</code> is particularly powerful</p>
       <p>(nimislides uses it for <code>slide</code> template)</p>
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="31" data-fragment-index-nimib="31"> 
+      <div class="fragment fade-in-then-semi-out" data-fragment-index="30" data-fragment-index-nimib="30"> 
   
       <h5>but</h5>
       </div>
   
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="32" data-fragment-index-nimib="32"> 
+      <div class="fragment fade-in-then-semi-out" data-fragment-index="31" data-fragment-index-nimib="31"> 
   
       <p>limited to html backend</p>
       </div>
   
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="33" data-fragment-index-nimib="33"> 
+      <div class="fragment fade-in-then-semi-out" data-fragment-index="32" data-fragment-index-nimib="32"> 
   
       <p>cannot be customized</p>
       </div>
   
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="34" data-fragment-index-nimib="34"> 
+      <div class="fragment fade-in-then-semi-out" data-fragment-index="33" data-fragment-index-nimib="33"> 
   
       <p>a better solution will come with the <a href="https://github.com/pietroppeter/nimib/issues/117">container block!</a></p>
       </div>
@@ -63018,9 +63014,9 @@ function to_469762058(node_469762061) {
   return result_469762063[0];
 
 }
-var id_453012574_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-26\"")));
-var currentslidenr_453012575_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("27")));
-var html_453012576_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-26\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
+var id_453011178_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-26\"")));
+var currentslidenr_453011179_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("27")));
+var html_453011180_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-26\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
 
 function nsuStrip(s_872417438, leading_872417439, trailing_872417440, chars_872417441) {
           var Temporary5;
@@ -63212,14 +63208,14 @@ function getSlideNumber_1140850752(el_1140850753) {
 
 function HEX3Aanonymous_469762146(eventHEX60gensym4_469762147) {
     
-function lambda_453012573_469762152(event_453012581_469762153) {
-        var slidenr_453012580_469762154 = getSlideNumber_1140850752(event_453012581_469762153.currentSlide);
-        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453012580_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453012575_469762088));
-        if ((currentslidenr_453012575_469762088 == slidenr_453012580_469762154)) {
-        img_453012577_469762148.style.setProperty("opacity", "100%", []);
+function lambda_453011177_469762152(event_453011185_469762153) {
+        var slidenr_453011184_469762154 = getSlideNumber_1140850752(event_453011185_469762153.currentSlide);
+        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453011184_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453011179_469762088));
+        if ((currentslidenr_453011179_469762088 == slidenr_453011184_469762154)) {
+        img_453011181_469762148.style.setProperty("opacity", "100%", []);
         }
         else {
-        img_453012577_469762148.style.setProperty("opacity", "0%", []);
+        img_453011181_469762148.style.setProperty("opacity", "0%", []);
         }
         
 
@@ -63228,45 +63224,45 @@ function lambda_453012573_469762152(event_453012581_469762153) {
       
 function HEX3Aanonymous_469762155(eventHEX60gensym4_469762156) {
           
-function lambda_453012573_469762161(event_453012581_469762162) {
-              var slidenr_453012580_469762163 = getSlideNumber_1140850752(event_453012581_469762162.currentSlide);
-              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453012580_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453012575_469762088));
-              if ((currentslidenr_453012575_469762088 == slidenr_453012580_469762163)) {
-              img_453012577_469762157.style.setProperty("opacity", "100%", []);
+function lambda_453011177_469762161(event_453011185_469762162) {
+              var slidenr_453011184_469762163 = getSlideNumber_1140850752(event_453011185_469762162.currentSlide);
+              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453011184_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453011179_469762088));
+              if ((currentslidenr_453011179_469762088 == slidenr_453011184_469762163)) {
+              img_453011181_469762157.style.setProperty("opacity", "100%", []);
               }
               else {
-              img_453012577_469762157.style.setProperty("opacity", "0%", []);
+              img_453011181_469762157.style.setProperty("opacity", "0%", []);
               }
               
 
             
           }
 
-          var img_453012577_469762157 = stringToElement_1140850783(html_453012576_469762094);
-          var deck_453012578_469762158 = Reveal.getRevealElement();
-          deck_453012578_469762158.appendChild(img_453012577_469762157);
-          var currentslide_453012579_469762159 = Reveal.getCurrentSlide();
-          var slidenr_453012580_469762160 = getSlideNumber_1140850752(currentslide_453012579_469762159);
-          if ((currentslidenr_453012575_469762088 == slidenr_453012580_469762160)) {
-          img_453012577_469762157.style.setProperty("opacity", "100%", []);
+          var img_453011181_469762157 = stringToElement_1140850783(html_453011180_469762094);
+          var deck_453011182_469762158 = Reveal.getRevealElement();
+          deck_453011182_469762158.appendChild(img_453011181_469762157);
+          var currentslide_453011183_469762159 = Reveal.getCurrentSlide();
+          var slidenr_453011184_469762160 = getSlideNumber_1140850752(currentslide_453011183_469762159);
+          if ((currentslidenr_453011179_469762088 == slidenr_453011184_469762160)) {
+          img_453011181_469762157.style.setProperty("opacity", "100%", []);
           }
           
-          Reveal.on("slidechanged", lambda_453012573_469762161);
+          Reveal.on("slidechanged", lambda_453011177_469762161);
 
         
       }
 
     if (Reveal.isReady()) {
-    var img_453012577_469762148 = stringToElement_1140850783(html_453012576_469762094);
-    var deck_453012578_469762149 = Reveal.getRevealElement();
-    deck_453012578_469762149.appendChild(img_453012577_469762148);
-    var currentslide_453012579_469762150 = Reveal.getCurrentSlide();
-    var slidenr_453012580_469762151 = getSlideNumber_1140850752(currentslide_453012579_469762150);
-    if ((currentslidenr_453012575_469762088 == slidenr_453012580_469762151)) {
-    img_453012577_469762148.style.setProperty("opacity", "100%", []);
+    var img_453011181_469762148 = stringToElement_1140850783(html_453011180_469762094);
+    var deck_453011182_469762149 = Reveal.getRevealElement();
+    deck_453011182_469762149.appendChild(img_453011181_469762148);
+    var currentslide_453011183_469762150 = Reveal.getCurrentSlide();
+    var slidenr_453011184_469762151 = getSlideNumber_1140850752(currentslide_453011183_469762150);
+    if ((currentslidenr_453011179_469762088 == slidenr_453011184_469762151)) {
+    img_453011181_469762148.style.setProperty("opacity", "100%", []);
     }
     
-    Reveal.on("slidechanged", lambda_453012573_469762152);
+    Reveal.on("slidechanged", lambda_453011177_469762152);
     }
     else {
     Reveal.on("ready", HEX3Aanonymous_469762155);
@@ -65341,9 +65337,9 @@ function to_469762058(node_469762061) {
   return result_469762063[0];
 
 }
-var id_453010867_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-27\"")));
-var currentslidenr_453010868_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("28")));
-var html_453010869_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-27\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
+var id_453010518_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-27\"")));
+var currentslidenr_453010519_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("28")));
+var html_453010520_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-27\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
 
 function nsuStrip(s_872417438, leading_872417439, trailing_872417440, chars_872417441) {
           var Temporary5;
@@ -65535,14 +65531,14 @@ function getSlideNumber_1140850752(el_1140850753) {
 
 function HEX3Aanonymous_469762146(eventHEX60gensym4_469762147) {
     
-function lambda_453010866_469762152(event_453010874_469762153) {
-        var slidenr_453010873_469762154 = getSlideNumber_1140850752(event_453010874_469762153.currentSlide);
-        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453010873_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453010868_469762088));
-        if ((currentslidenr_453010868_469762088 == slidenr_453010873_469762154)) {
-        img_453010870_469762148.style.setProperty("opacity", "100%", []);
+function lambda_453010517_469762152(event_453010525_469762153) {
+        var slidenr_453010524_469762154 = getSlideNumber_1140850752(event_453010525_469762153.currentSlide);
+        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453010524_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453010519_469762088));
+        if ((currentslidenr_453010519_469762088 == slidenr_453010524_469762154)) {
+        img_453010521_469762148.style.setProperty("opacity", "100%", []);
         }
         else {
-        img_453010870_469762148.style.setProperty("opacity", "0%", []);
+        img_453010521_469762148.style.setProperty("opacity", "0%", []);
         }
         
 
@@ -65551,45 +65547,45 @@ function lambda_453010866_469762152(event_453010874_469762153) {
       
 function HEX3Aanonymous_469762155(eventHEX60gensym4_469762156) {
           
-function lambda_453010866_469762161(event_453010874_469762162) {
-              var slidenr_453010873_469762163 = getSlideNumber_1140850752(event_453010874_469762162.currentSlide);
-              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453010873_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453010868_469762088));
-              if ((currentslidenr_453010868_469762088 == slidenr_453010873_469762163)) {
-              img_453010870_469762157.style.setProperty("opacity", "100%", []);
+function lambda_453010517_469762161(event_453010525_469762162) {
+              var slidenr_453010524_469762163 = getSlideNumber_1140850752(event_453010525_469762162.currentSlide);
+              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453010524_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453010519_469762088));
+              if ((currentslidenr_453010519_469762088 == slidenr_453010524_469762163)) {
+              img_453010521_469762157.style.setProperty("opacity", "100%", []);
               }
               else {
-              img_453010870_469762157.style.setProperty("opacity", "0%", []);
+              img_453010521_469762157.style.setProperty("opacity", "0%", []);
               }
               
 
             
           }
 
-          var img_453010870_469762157 = stringToElement_1140850783(html_453010869_469762094);
-          var deck_453010871_469762158 = Reveal.getRevealElement();
-          deck_453010871_469762158.appendChild(img_453010870_469762157);
-          var currentslide_453010872_469762159 = Reveal.getCurrentSlide();
-          var slidenr_453010873_469762160 = getSlideNumber_1140850752(currentslide_453010872_469762159);
-          if ((currentslidenr_453010868_469762088 == slidenr_453010873_469762160)) {
-          img_453010870_469762157.style.setProperty("opacity", "100%", []);
+          var img_453010521_469762157 = stringToElement_1140850783(html_453010520_469762094);
+          var deck_453010522_469762158 = Reveal.getRevealElement();
+          deck_453010522_469762158.appendChild(img_453010521_469762157);
+          var currentslide_453010523_469762159 = Reveal.getCurrentSlide();
+          var slidenr_453010524_469762160 = getSlideNumber_1140850752(currentslide_453010523_469762159);
+          if ((currentslidenr_453010519_469762088 == slidenr_453010524_469762160)) {
+          img_453010521_469762157.style.setProperty("opacity", "100%", []);
           }
           
-          Reveal.on("slidechanged", lambda_453010866_469762161);
+          Reveal.on("slidechanged", lambda_453010517_469762161);
 
         
       }
 
     if (Reveal.isReady()) {
-    var img_453010870_469762148 = stringToElement_1140850783(html_453010869_469762094);
-    var deck_453010871_469762149 = Reveal.getRevealElement();
-    deck_453010871_469762149.appendChild(img_453010870_469762148);
-    var currentslide_453010872_469762150 = Reveal.getCurrentSlide();
-    var slidenr_453010873_469762151 = getSlideNumber_1140850752(currentslide_453010872_469762150);
-    if ((currentslidenr_453010868_469762088 == slidenr_453010873_469762151)) {
-    img_453010870_469762148.style.setProperty("opacity", "100%", []);
+    var img_453010521_469762148 = stringToElement_1140850783(html_453010520_469762094);
+    var deck_453010522_469762149 = Reveal.getRevealElement();
+    deck_453010522_469762149.appendChild(img_453010521_469762148);
+    var currentslide_453010523_469762150 = Reveal.getCurrentSlide();
+    var slidenr_453010524_469762151 = getSlideNumber_1140850752(currentslide_453010523_469762150);
+    if ((currentslidenr_453010519_469762088 == slidenr_453010524_469762151)) {
+    img_453010521_469762148.style.setProperty("opacity", "100%", []);
     }
     
-    Reveal.on("slidechanged", lambda_453010866_469762152);
+    Reveal.on("slidechanged", lambda_453010517_469762152);
     }
     else {
     Reveal.on("ready", HEX3Aanonymous_469762155);
@@ -65601,12 +65597,12 @@ function lambda_453010866_469762161(event_453010874_469762162) {
 window.addEventListener("load", HEX3Aanonymous_469762146, false);
 </script>
       <h2>Fancy blocks 🖼️</h2>
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="35" data-fragment-index-nimib="35"> 
+      <div class="fragment fade-in-then-semi-out" data-fragment-index="34" data-fragment-index-nimib="34"> 
   
       <p>blocks which use <strong>external</strong> javascript functionalities</p>
       </div>
   
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="36" data-fragment-index-nimib="36"> 
+      <div class="fragment fade-in-then-semi-out" data-fragment-index="35" data-fragment-index-nimib="35"> 
   
       <p>all examples taken from <a href="https://pietroppeter.github.io/nblog/">nblog</a></p>
       </div>
@@ -67676,9 +67672,9 @@ function to_469762058(node_469762061) {
   return result_469762063[0];
 
 }
-var id_453012185_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-28\"")));
-var currentslidenr_453012186_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("29")));
-var html_453012187_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-28\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
+var id_453010861_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-28\"")));
+var currentslidenr_453010862_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("29")));
+var html_453010863_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-28\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
 
 function nsuStrip(s_872417438, leading_872417439, trailing_872417440, chars_872417441) {
           var Temporary5;
@@ -67870,14 +67866,14 @@ function getSlideNumber_1140850752(el_1140850753) {
 
 function HEX3Aanonymous_469762146(eventHEX60gensym4_469762147) {
     
-function lambda_453012184_469762152(event_453012192_469762153) {
-        var slidenr_453012191_469762154 = getSlideNumber_1140850752(event_453012192_469762153.currentSlide);
-        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453012191_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453012186_469762088));
-        if ((currentslidenr_453012186_469762088 == slidenr_453012191_469762154)) {
-        img_453012188_469762148.style.setProperty("opacity", "100%", []);
+function lambda_453010860_469762152(event_453010868_469762153) {
+        var slidenr_453010867_469762154 = getSlideNumber_1140850752(event_453010868_469762153.currentSlide);
+        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453010867_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453010862_469762088));
+        if ((currentslidenr_453010862_469762088 == slidenr_453010867_469762154)) {
+        img_453010864_469762148.style.setProperty("opacity", "100%", []);
         }
         else {
-        img_453012188_469762148.style.setProperty("opacity", "0%", []);
+        img_453010864_469762148.style.setProperty("opacity", "0%", []);
         }
         
 
@@ -67886,45 +67882,45 @@ function lambda_453012184_469762152(event_453012192_469762153) {
       
 function HEX3Aanonymous_469762155(eventHEX60gensym4_469762156) {
           
-function lambda_453012184_469762161(event_453012192_469762162) {
-              var slidenr_453012191_469762163 = getSlideNumber_1140850752(event_453012192_469762162.currentSlide);
-              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453012191_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453012186_469762088));
-              if ((currentslidenr_453012186_469762088 == slidenr_453012191_469762163)) {
-              img_453012188_469762157.style.setProperty("opacity", "100%", []);
+function lambda_453010860_469762161(event_453010868_469762162) {
+              var slidenr_453010867_469762163 = getSlideNumber_1140850752(event_453010868_469762162.currentSlide);
+              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453010867_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453010862_469762088));
+              if ((currentslidenr_453010862_469762088 == slidenr_453010867_469762163)) {
+              img_453010864_469762157.style.setProperty("opacity", "100%", []);
               }
               else {
-              img_453012188_469762157.style.setProperty("opacity", "0%", []);
+              img_453010864_469762157.style.setProperty("opacity", "0%", []);
               }
               
 
             
           }
 
-          var img_453012188_469762157 = stringToElement_1140850783(html_453012187_469762094);
-          var deck_453012189_469762158 = Reveal.getRevealElement();
-          deck_453012189_469762158.appendChild(img_453012188_469762157);
-          var currentslide_453012190_469762159 = Reveal.getCurrentSlide();
-          var slidenr_453012191_469762160 = getSlideNumber_1140850752(currentslide_453012190_469762159);
-          if ((currentslidenr_453012186_469762088 == slidenr_453012191_469762160)) {
-          img_453012188_469762157.style.setProperty("opacity", "100%", []);
+          var img_453010864_469762157 = stringToElement_1140850783(html_453010863_469762094);
+          var deck_453010865_469762158 = Reveal.getRevealElement();
+          deck_453010865_469762158.appendChild(img_453010864_469762157);
+          var currentslide_453010866_469762159 = Reveal.getCurrentSlide();
+          var slidenr_453010867_469762160 = getSlideNumber_1140850752(currentslide_453010866_469762159);
+          if ((currentslidenr_453010862_469762088 == slidenr_453010867_469762160)) {
+          img_453010864_469762157.style.setProperty("opacity", "100%", []);
           }
           
-          Reveal.on("slidechanged", lambda_453012184_469762161);
+          Reveal.on("slidechanged", lambda_453010860_469762161);
 
         
       }
 
     if (Reveal.isReady()) {
-    var img_453012188_469762148 = stringToElement_1140850783(html_453012187_469762094);
-    var deck_453012189_469762149 = Reveal.getRevealElement();
-    deck_453012189_469762149.appendChild(img_453012188_469762148);
-    var currentslide_453012190_469762150 = Reveal.getCurrentSlide();
-    var slidenr_453012191_469762151 = getSlideNumber_1140850752(currentslide_453012190_469762150);
-    if ((currentslidenr_453012186_469762088 == slidenr_453012191_469762151)) {
-    img_453012188_469762148.style.setProperty("opacity", "100%", []);
+    var img_453010864_469762148 = stringToElement_1140850783(html_453010863_469762094);
+    var deck_453010865_469762149 = Reveal.getRevealElement();
+    deck_453010865_469762149.appendChild(img_453010864_469762148);
+    var currentslide_453010866_469762150 = Reveal.getCurrentSlide();
+    var slidenr_453010867_469762151 = getSlideNumber_1140850752(currentslide_453010866_469762150);
+    if ((currentslidenr_453010862_469762088 == slidenr_453010867_469762151)) {
+    img_453010864_469762148.style.setProperty("opacity", "100%", []);
     }
     
-    Reveal.on("slidechanged", lambda_453012184_469762152);
+    Reveal.on("slidechanged", lambda_453010860_469762152);
     }
     else {
     Reveal.on("ready", HEX3Aanonymous_469762155);
@@ -67936,21 +67932,9 @@ function lambda_453012184_469762161(event_453012192_469762162) {
 window.addEventListener("load", HEX3Aanonymous_469762146, false);
 </script>
       <h4>How to add a line at the end of <code>&lt;head&gt;</code> section</h4>
-      <div class="fragment fade-in" data-fragment-index="37" data-fragment-index-nimib="37"> 
-  
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers>nb.partials[<span class="hljs-string">&quot;head&quot;</span>] &amp;= <span class="hljs-string">&quot;&lt;style&gt;...&quot;</span></code></pre>
-      </div>
-  
-      <div class="fragment fade-in-then-semi-out" data-fragment-index="38" data-fragment-index-nimib="38"> 
-  
       <h4>How to add a line at the end of <code>&lt;body&gt;</code> section</h4>
-      </div>
-  
-      <div class="fragment fade-in" data-fragment-index="39" data-fragment-index-nimib="39"> 
-  
       <pre style="width: 100%"><code class="nim hljs" data-noescape data-line-numbers>nb.partials[<span class="hljs-string">&quot;main&quot;</span>] &amp;= <span class="hljs-string">&quot;&lt;script&gt;...&quot;</span></code></pre>
-      </div>
-  
       </section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/before_after_image_slider.html" data-background-interactive></section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/mermaid_diagram.html" data-background-interactive></section>
@@ -70020,9 +70004,9 @@ function to_469762058(node_469762061) {
   return result_469762063[0];
 
 }
-var id_453012879_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-29\"")));
-var currentslidenr_453012880_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("30")));
-var html_453012881_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-29\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
+var id_453011447_469762057 = to_469762050(parseJson_603985094(makeNimstrLit("\"cornerImage-29\"")));
+var currentslidenr_453011448_469762088 = to_469762058(parseJson_603985094(makeNimstrLit("30")));
+var html_453011449_469762094 = to_469762050(parseJson_603985094(makeNimstrLit("\"<img src=\\\"https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png\\\" id=\\\"cornerImage-29\\\" style=\\\"opacity: 0%; position: fixed; width: 100px; height: auto; margin: 0px; top: 2%; right: 1%; \\\"/>\"")));
 
 function nsuStrip(s_872417438, leading_872417439, trailing_872417440, chars_872417441) {
           var Temporary5;
@@ -70214,14 +70198,14 @@ function getSlideNumber_1140850752(el_1140850753) {
 
 function HEX3Aanonymous_469762146(eventHEX60gensym4_469762147) {
     
-function lambda_453012878_469762152(event_453012886_469762153) {
-        var slidenr_453012885_469762154 = getSlideNumber_1140850752(event_453012886_469762153.currentSlide);
-        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453012885_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453012880_469762088));
-        if ((currentslidenr_453012880_469762088 == slidenr_453012885_469762154)) {
-        img_453012882_469762148.style.setProperty("opacity", "100%", []);
+function lambda_453011446_469762152(event_453011454_469762153) {
+        var slidenr_453011453_469762154 = getSlideNumber_1140850752(event_453011454_469762153.currentSlide);
+        rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453011453_469762154), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453011448_469762088));
+        if ((currentslidenr_453011448_469762088 == slidenr_453011453_469762154)) {
+        img_453011450_469762148.style.setProperty("opacity", "100%", []);
         }
         else {
-        img_453012882_469762148.style.setProperty("opacity", "0%", []);
+        img_453011450_469762148.style.setProperty("opacity", "0%", []);
         }
         
 
@@ -70230,45 +70214,45 @@ function lambda_453012878_469762152(event_453012886_469762153) {
       
 function HEX3Aanonymous_469762155(eventHEX60gensym4_469762156) {
           
-function lambda_453012878_469762161(event_453012886_469762162) {
-              var slidenr_453012885_469762163 = getSlideNumber_1140850752(event_453012886_469762162.currentSlide);
-              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453012885_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453012880_469762088));
-              if ((currentslidenr_453012880_469762088 == slidenr_453012885_469762163)) {
-              img_453012882_469762157.style.setProperty("opacity", "100%", []);
+function lambda_453011446_469762161(event_453011454_469762162) {
+              var slidenr_453011453_469762163 = getSlideNumber_1140850752(event_453011454_469762162.currentSlide);
+              rawEcho(makeNimstrLit("Slide nr: "), HEX24_318767107(slidenr_453011453_469762163), makeNimstrLit(" "), HEX24_318767107(currentslidenr_453011448_469762088));
+              if ((currentslidenr_453011448_469762088 == slidenr_453011453_469762163)) {
+              img_453011450_469762157.style.setProperty("opacity", "100%", []);
               }
               else {
-              img_453012882_469762157.style.setProperty("opacity", "0%", []);
+              img_453011450_469762157.style.setProperty("opacity", "0%", []);
               }
               
 
             
           }
 
-          var img_453012882_469762157 = stringToElement_1140850783(html_453012881_469762094);
-          var deck_453012883_469762158 = Reveal.getRevealElement();
-          deck_453012883_469762158.appendChild(img_453012882_469762157);
-          var currentslide_453012884_469762159 = Reveal.getCurrentSlide();
-          var slidenr_453012885_469762160 = getSlideNumber_1140850752(currentslide_453012884_469762159);
-          if ((currentslidenr_453012880_469762088 == slidenr_453012885_469762160)) {
-          img_453012882_469762157.style.setProperty("opacity", "100%", []);
+          var img_453011450_469762157 = stringToElement_1140850783(html_453011449_469762094);
+          var deck_453011451_469762158 = Reveal.getRevealElement();
+          deck_453011451_469762158.appendChild(img_453011450_469762157);
+          var currentslide_453011452_469762159 = Reveal.getCurrentSlide();
+          var slidenr_453011453_469762160 = getSlideNumber_1140850752(currentslide_453011452_469762159);
+          if ((currentslidenr_453011448_469762088 == slidenr_453011453_469762160)) {
+          img_453011450_469762157.style.setProperty("opacity", "100%", []);
           }
           
-          Reveal.on("slidechanged", lambda_453012878_469762161);
+          Reveal.on("slidechanged", lambda_453011446_469762161);
 
         
       }
 
     if (Reveal.isReady()) {
-    var img_453012882_469762148 = stringToElement_1140850783(html_453012881_469762094);
-    var deck_453012883_469762149 = Reveal.getRevealElement();
-    deck_453012883_469762149.appendChild(img_453012882_469762148);
-    var currentslide_453012884_469762150 = Reveal.getCurrentSlide();
-    var slidenr_453012885_469762151 = getSlideNumber_1140850752(currentslide_453012884_469762150);
-    if ((currentslidenr_453012880_469762088 == slidenr_453012885_469762151)) {
-    img_453012882_469762148.style.setProperty("opacity", "100%", []);
+    var img_453011450_469762148 = stringToElement_1140850783(html_453011449_469762094);
+    var deck_453011451_469762149 = Reveal.getRevealElement();
+    deck_453011451_469762149.appendChild(img_453011450_469762148);
+    var currentslide_453011452_469762150 = Reveal.getCurrentSlide();
+    var slidenr_453011453_469762151 = getSlideNumber_1140850752(currentslide_453011452_469762150);
+    if ((currentslidenr_453011448_469762088 == slidenr_453011453_469762151)) {
+    img_453011450_469762148.style.setProperty("opacity", "100%", []);
     }
     
-    Reveal.on("slidechanged", lambda_453012878_469762152);
+    Reveal.on("slidechanged", lambda_453011446_469762152);
     }
     else {
     Reveal.on("ready", HEX3Aanonymous_469762155);

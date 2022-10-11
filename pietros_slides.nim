@@ -318,7 +318,7 @@ template slideYouCreateBlocks* =
         template newNbSlimBlock*(cmd: string, blockImpl: untyped) =
           discard
 
-      fadeInText("<small>(a slim block is a block without body)</small>")
+      nbTextSmall("<small>(a slim block is a block without body)</small>")
     fragmentFadeIn:
       nbText: "##### creatively"
   slideAutoAnimate:
@@ -422,13 +422,11 @@ template slidesFancyBlocks* =
 template slideExplainAddJsAndStyle* =
   mySlide:
     nbText: "#### How to add a line at the end of `<head>` section"
-    fragmentFadeIn:
-      nbCodeDontRun:
-        nb.partials["head"] &= "<style>..."
-    fadeInText: "#### How to add a line at the end of `<body>` section"
-    fragmentFadeIn:
-      nbCodeDontRun:
-        nb.partials["main"] &= "<script>..."
+    nbCodeDontRun:
+      nb.partials["head"] &= "<style>..."
+    nbText: "#### How to add a line at the end of `<body>` section"
+    nbCodeDontRun:
+      nb.partials["main"] &= "<script>..."
 
 template slidesPlantApp* =
   # plant app
