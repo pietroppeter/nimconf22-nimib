@@ -22,14 +22,6 @@ template slideBlockMaker* =
 ## ✨Nimib 0.3 - BlockMaker🧱
 - {title_source}
 - {title_block}
-- {title_python}
-- {title_js}
-"""
-    slideAutoAnimate:
-      nbText: fmt"""
-## ✨Nimib 0.3 - BlockMaker🧱
-- {title_source}
-- {title_block}
   - {title_howto}
 - {title_python}
 - {title_js}
