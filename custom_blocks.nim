@@ -4,7 +4,7 @@ import std / [strutils, strformat]
 
 # titles
 let
-  title_source* = "🪞`CodeAsInSource`"
+  title_source* = "📋`CodeAsInSource`"
   title_block* = "make your own `NbBlock`👷"
   title_howto* = "Fancy blocks 🖼️"
   title_python* = "🐍`nbPython`"
@@ -32,6 +32,7 @@ template addStuff* =
   addNewAnimateCodeBlocks
   addNimibCodeBlocks
   addNbCodeNoLineNumbers
+  addNbCodeDontRunNoLineNumbers
 
 # nim conf slides
 template nimConfSlide*(body: untyped) =
@@ -121,6 +122,14 @@ template nbCodeNoLineNumbers*(body: untyped) =
   nbCode:
     body
   nb.blk.command = "nbCodeNoLineNumbers"
+
+template nbCodeDontRunNoLineNumbers*(body: untyped) = # from hugos_slides
+  newNbCodeBlock("nbCodeDontRunNoLineNumbers", body):
+    discard
+
+template addNbCodeDontRunNoLineNumbers* =
+  nb.partials["addNbCodeDontRunNoLineNumbers"] = nb.partials["nbCodeNoLineNumbers"]
+  nb.renderPlans["addNbCodeDontRunNoLineNumbers"] = nb.renderPlans["nbCodeNoLineNumbers"]
 
 template addNbCodeNoLineNumbers* =
   nb.partials["nbCodeNoLineNumbers"] =

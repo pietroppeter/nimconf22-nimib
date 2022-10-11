@@ -160,7 +160,7 @@ template slideCodeNow* =
             s: _ = "HTTP/"
             *header: {headers}
     fragment(fadeLeft):
-      nbText: "This is what you expect!"
+      nbText: "This is what you expect!✨"
     fragment(fadeRight):
       nbText: "Does not compose well ([134](https://github.com/pietroppeter/nimib/issues/134)), there might still be 🐞s"
     speakerNote: """"""
@@ -224,7 +224,7 @@ template slideWhatIsABlock* =
 """
   slideAutoAnimate:
     nbText: "#### What is a block?"
-    nbCodeDontRun: nbCode: echo "hi"
+    nbCodeDontRunNoLineNumbers: nbCode: echo "hi"
     columns:
       column:
         nbText: "##### DATA"
@@ -243,7 +243,7 @@ template slideWhatIsABlock* =
 """
   slideAutoAnimate:
     nbText: "#### What is a block?"
-    nbCodeDontRun: nbText: "hi"
+    nbCodeDontRunNoLineNumbers: nbText: "hi"
     columns:
       column:
         nbText: "##### DATA"
@@ -266,7 +266,7 @@ template slideWhatIsABlock* =
 """
   slideAutoAnimate:
     nbText: "#### What is a block?"
-    nbCodeDontRun: nbImage("hi.png")
+    nbCodeDontRunNoLineNumbers: nbImage("hi.png")
     columns:
       column:
         nbText: "##### DATA"
@@ -427,22 +427,18 @@ template slideYouCreateBlocks* =
         nbTextRepeat("All work and no play makes Jack a dull boy", 3)
   slideAutoAnimate:
     nbText: "#### How can **you** create blocks?"
-    nbText: "##### creatively"
     nbText: "`nbRawHtml` is particularly powerful"
     fragmentFadeIn:
       nimibCode:
         template nbDetails(summary: string, body: untyped) =
-          nbRawHtml: "<details><summary>" & summary & "</summary>"
+          nbRawHtml: "<small><details><summary>" & summary & "</summary>"
           body
-          nbRawHtml: "</details>"
-
+          nbRawHtml: "</details></small>"
         nbDetails("click to reveal details"):
-          nbTextSmall: "some text"
-          nbCode:
-            echo "and code".replace("code", "output")
+          nbTextSmall: "one block"
+          nbCode: discard "another block"
   slideAutoAnimate:
     nbText: "#### How can **you** create blocks?"
-    nbText: "##### creatively"
     nbText: "`nbRawHtml` is particularly powerful"
     nbText: "(nimislides uses it for `slide` template)"
     fadeInText: "##### but"
@@ -472,8 +468,7 @@ template slideExplainMustache* =
 """          
             partials["main"] = """
 {{&html}}
-{{code}}
-"""
+{{code}}"""
       column:
         nbText: " "
       column:
@@ -542,4 +537,5 @@ when isMainModule:
   slidesBlocks
   slidesFancyBlocks
   #slidesPlantApp
+  slideText: "## NbPython"
   nbSave
