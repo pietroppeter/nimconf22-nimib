@@ -98,6 +98,11 @@ Title: Nimib goes interactive
   - [x] roadmap
   - [x] hi, thanks, goodbye
 
+
+cleanup blcok slides before recording again:
+- [x] remove stuff and redo what is a block
+- [ ] add a note that all example will be found in nblog and a link
+
 ## recording
 
 ### recording sessions (October 2 and October 9)

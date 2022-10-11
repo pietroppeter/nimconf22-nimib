@@ -168,7 +168,7 @@ template slideCodeNow* =
 template slideWhatAreBlocks* =
   mySlide:
     nbText: "#### What are blocks?"
-    nbCodeDontRunAnimate([3..3, 4..4, 6..6, 8..8, 10..10, 12..12, 14..14]): # should higlight lines line by one
+    nbCodeDontRunAnimate([3..4, 6..6, 8..8, 10..10, 12..12]):
       import nimib
 
       nbInit # creates a nb: NbDoc object
@@ -180,136 +180,50 @@ template slideWhatAreBlocks* =
 
       nbImage("hi.png") # add new NbBlock to nb.blocks = [⬛, ⬛, 🟩]
 
-      myBlock: discard # add new NbBlock to nb.blocks = [⬛, ⬛, ⬛, 🟩]
-
-      nbSave # renders each block in nb.blocks (+theme stuff +save file)
+      nbSave # process and render each block (+theme stuff +save file)
 
 template slideWhatIsABlock* =
   slideAutoAnimate:
-    nbText: "#### What is a block?"
+    nbText: "## What is a block?"
     columns:
       column:
-        nbText: "##### DATA"
+        fragmentFadeIn:
+          nbText: "### DATA"
+          nbText: "collected when block is created"
       column:
-        nbText: "##### RENDER"
-  slideAutoAnimate:
-    nbText: "#### What is a block?"
-    columns:
-      column:
-        nbText: "##### DATA"
-      column:
-        nbText: "##### RENDER"
-        nbText: "###### html backend\n###### md backend\n<small>other backends</small>"
-  slideAutoAnimate:
-    nbText: "#### What is a block?"
-    nbCodeDontRun: nbCode: echo "hi"
-    columns:
-      column:
-        nbText: "##### DATA"
-        nbTextSmall: """
-- code source: `echo "hi"`
-- code output: `hi`
-"""
-      column:
-        nbText: "##### RENDER"
-        nbText: "###### html backend"
-        nbTextSmall: """
-* preprocess:
-  - highlight code
-* render:
-  - wrap highlighted code source in
-    `<pre><code class="nim">`
-  - wrap code output in
-    `<pre><samp>`
-"""
-  slideAutoAnimate:
-    nbText: "#### What is a block?"
-    nbCodeDontRunNoLineNumbers: nbCode: echo "hi"
-    columns:
-      column:
-        nbText: "##### DATA"
-        nbTextSmall: """
-- code source: `echo "hi"`
-- code output: `hi`
-"""
-      column:
-        nbText: "##### RENDER"
-        nbText: "###### md backend"
-        nbTextSmall: """
-- no preprocess
-- render:
-  - wrap code source in ```` ```nim ... ``` ````
-  - wrap code output in ```` ``` ... ``` ````
-"""
-  slideAutoAnimate:
-    nbText: "#### What is a block?"
-    nbCodeDontRunNoLineNumbers: nbText: "hi"
-    columns:
-      column:
-        nbText: "##### DATA"
-        nbTextSmall: """
-- text: `"hi"`
-"""
-      column:
-        nbText: "##### RENDER"
-        nbText: "###### html backend"
-        nbTextSmall: """
-- convert md to html
-- render:
-  - use directly converted html
-"""
-        nbText: "###### md backend"
-        nbTextSmall: """
-- no preprocess
-- render:
-  - use directly original md text
-"""
-  slideAutoAnimate:
-    nbText: "#### What is a block?"
-    nbCodeDontRunNoLineNumbers: nbImage("hi.png")
-    columns:
-      column:
-        nbText: "##### DATA"
-        nbTextSmall: """
-- image url (or relative local path)
-- (optional) caption
-"""
-      column:
-        nbText: "##### RENDER"
-        nbText: "###### html backend"
-        nbTextSmall: """
-- no preprocess
-- render:
-  - wrap using `<figure>`, `<img>`, `<figcaption>` elements
-"""
-        nbText: "###### md backend"
-        nbTextSmall: """
-- no preprocess
-- render:
-  - `![{{caption}}]({{url}})`
-"""
+        fragmentFadeIn:
+          nbText: "### PROCESS"
+          nbText: "**optional**: process data"
+          nbTextSmall: "(e.g. convert markdown to html)"
+        fragmentFadeIn:
+          nbText: "### RENDER"
+          nbText: "apply _templates_ to data"
+    fadeInText: "there are multiple render **backends** (e.g markdown)"
+    fragmentFadeIn(highlightBlue):
+      nbText: "we will focus on HTML backend"
 
 template slideNimibTypes* =
   mySlide:
     nbText: "#### Yeah, but what is a `NbBlock`?"
-    nbCodeDontRunAnimate([2..10, 11..18, 3..7, 4..4, 5..7, 8..10, 10..10, 12..13, 14..15, 16..18]):
+    nbCodeDontRunAnimate(@[3..6], @[11..15, 19..19], @[7..7, 16..18]):
       type
-        ## DATA 👇
         NbBlock = ref object
-          command*: string ## (NbCode, NbText, ...) used for render
+          ## DATA 👇
           code*: string  ## nbCode source
           output*: string  ## nbCode output / nbText text
           context*: Context ## think of this as a JsonNode           
+          command*: string ## (NbCode, NbText, ...) used for render
         NbDoc* = object
           blocks*: seq[NbBlock]
           blk*: NbBlock  ## current block being processed
-        ## RENDER 👇
-          partials*: Table[string,  string]
-            ## key is command, value is a mustache template                              
+        ## PROCESS 👇
           renderPlans*: Table[string, seq[string]]
             ## key is command, value is a seq of proc names
           renderProcs*: Table[string, NbRenderProc]
             ## key is proc name, value is implementation
+        ## RENDER 👇
+          partials*: Table[string,  string]
+            ## key is command, value is a mustache template                              
         NbRenderProc* = proc (doc: var NbDoc, blk: var NbBlock) {.nimcall.}
     speakerNote("until 0.2 blocks were variant kind with 3 kinds: Code, Text, Image")
 
@@ -328,17 +242,38 @@ template slideBlockRender* =
 
 template slideCreateBlockNative* =
   slideAutoAnimate:
-    nbText: "#### How do I create a block?"
-    nbText: "##### DATA generation"
-    nbCodeDontRun:
-      template nbCode*(body: untyped) =
-        newNbCodeBlock("nbCode", body): # create block and save source
-          captureStdout(nb.blk.output): # run and capture output
-            body
-    nbText: "##### RENDER (HTML)"
+    nbText: "#### `nbText`"
+    fragmentFadeIn:
+      nbText: "##### DATA"
+      nbCodeDontRunAnimate([2..2]):
+        template nbText*(text: string) =
+          newNbSlimBlock("nbText"):
+            nb.blk.output = text
+    fragmentFadeIn:
+      nbText: "##### PROCESS"
+      nbCodeDontRun:
+        nb.renderPlans["nbText"] = @["mdOutputToHtml"]
+        nb.renderProcs["mdOutputToHtml"] =  mdOutputToHtml
+        # mdOutputToHtml adds `outputToHtml` to data
+    fragmentFadein:
+      nbText: "##### RENDER"
+      nbCodeDontRun:
+        nb.partials["nbText"] = "{{&outputToHtml}}"
+  slideAutoAnimate:
+    nbText: "#### `nbCode`"
+    nbText: "##### DATA"
+    nbCodeDontRunAnimate([2..2]):
+        template nbCode*(body: untyped) =
+          newNbCodeBlock("nbCode", body): # create block and save source
+            captureStdout(nb.blk.output): # run and capture output
+              body
+    nbText: "##### PROCESS"
     nbCodeDontRun:
       nb.renderPlans["nbCode"] = @["highlightCode"]
       nb.renderProcs["highlightCode"] =  highlightCode
+      # highlightCode adds `codeHighlighted` to data
+    nbText: "##### RENDER"
+    nbCodeDontRun:
       nb.partials["nbCode"] = """
 {{>nbCodeSource}}
 {{>nbCodeOutput}}"""
@@ -348,26 +283,14 @@ template slideCreateBlockNative* =
 <pre class="nb-output"><samp>{{output}}</samp></pre>
 {{/output}}"""
   slideAutoAnimate:
-    nbText: "#### How do I create a block?"
-    nbText: "##### DATA generation"
-    nbCodeDontRun:
-      template nbText*(text: string) =
-        newNbSlimBlock("nbText"):
-          nb.blk.output = text
-    nbText: "##### RENDER (HTML)"
-    nbCodeDontRun:
-      nb.renderPlans["nbText"] = @["mdOutputToHtml"]
-      nb.renderProcs["mdOutputToHtml"] =  mdOutputToHtml
-      nb.partials["nbText"] = "{{&outputToHtml}}"
-  slideAutoAnimate:
-    nbText: "#### How do I create a block?"
-    nbText: "##### DATA generation"
+    nbText: "#### `nbImage`"
+    nbText: "##### DATA"
     nbCodeDontRun:
       template nbImage*(url: string, caption = "") =
         newNbSlimBlock("nbImage"):
           nb.blk.context["url"] = url # *special handling of relative paths
           nb.blk.context["caption"] = caption
-    nbText: "##### RENDER (HTML)"
+    nbText: "##### RENDER"
     nbCodeDontRun:
       nb.partials["nbImage"] = """<figure>
 <img src="{{url}}" alt="{{caption}}">
@@ -524,16 +447,17 @@ template slidesBlocks* =
     slideWhatIsABlock
     slideNimibTypes
     slideExplainMustache
-    slideBlockRender
     slideCreateBlockNative
+    #slideBlockRender
     slideOtherBlocks
     slideYouCreateBlocks
 
 when isMainModule:
   myInit("pietros_slides.nim")
-  slideLiveCoding
-  slideBlockMaker
-  slidesCodeAsInsource
+  when false:
+    slideLiveCoding
+    slideBlockMaker
+    slidesCodeAsInsource
   slidesBlocks
   slidesFancyBlocks
   #slidesPlantApp
