@@ -412,7 +412,8 @@ template slidesFancyBlocks* =
   mySlide:
     mySlide:
       nbText: fmt"## {title_howto}"
-      fadeInText: "blocks with interactivity given by **external** javascript functionalities"
+      fadeInText: "blocks which use **external** javascript functionalities"
+      fadeInText: "all examples taken from [nblog](https://pietroppeter.github.io/nblog/)"
     slideExplainAddJsAndStyle
     slideIframeFromNblog("before_after_image_slider")
     slideIframeFromNblog("mermaid_diagram") # fix document using main instead of right (as in image slider)
@@ -454,10 +455,9 @@ template slidesBlocks* =
 
 when isMainModule:
   myInit("pietros_slides.nim")
-  when false:
-    slideLiveCoding
-    slideBlockMaker
-    slidesCodeAsInsource
+  slideLiveCoding
+  slideBlockMaker
+  slidesCodeAsInsource
   slidesBlocks
   slidesFancyBlocks
   #slidesPlantApp
