@@ -52,7 +52,7 @@ up for cuts:
 - [ ] prepare slides and repo to be made public on conf day
   - [ ] single index.nim with slides
     - [x] refactor intro
-    - [ ] refactor hugos_slides
+    - [x] refactor hugos_slides
   - [ ] add source(s) of slides (bottom of title page)?
 
 ### meetings:

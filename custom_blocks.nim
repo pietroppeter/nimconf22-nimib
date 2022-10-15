@@ -33,6 +33,8 @@ template addStuff* =
   addNimibCodeBlocks
   addNbCodeNoLineNumbers
   addNbCodeDontRunNoLineNumbers
+  addBigButtons
+  optionalInitPython
 
 # nim conf slides
 template nimConfSlide*(body: untyped) =
@@ -210,6 +212,16 @@ template optionalInitPython* =
       import nimpy/py_lib
       pyInitLibPath("/usr/lib/x86_64-linux-gnu/libpython3.10.so.1.0")
     nbInitPython()
+
+# Add CSS to make buttons bigger
+template addBigButtons* =
+  nb.addStyle: """
+button {
+  font-size: 30px;
+  padding: 10px 24px;
+  border-radius: 4px;
+}
+"""
 
 # used in thank you slide
 template textSwitcher*(texts: seq[string], duration: float = 2) =
