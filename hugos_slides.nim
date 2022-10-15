@@ -6,12 +6,12 @@ import custom_blocks
 template slidesNbPython* =
   when not defined(skipPython):
     slide:
-      nimConfSlide(slideOptions(autoAnimate=true)):
+      mySlide(slideOptions(autoAnimate=true)):
         nbText: hlMd"""
 ## nbPython
 """
 
-      nimConfSlide(slideOptions(autoAnimate=true)):
+      mySlide(slideOptions(autoAnimate=true)):
         nbText: hlMd"""
 ## nbPython
 """
@@ -20,7 +20,7 @@ template slidesNbPython* =
 print("Hello World") 
 """
 
-      nimConfSlide(slideOptions(autoAnimate=true)):
+      mySlide(slideOptions(autoAnimate=true)):
         nbText: hlMd"""
 ## nbPython
 """
@@ -45,13 +45,13 @@ plt.savefig("matplotlib_example.png", dpi=60)
 
 template slidesNimibInteractive* =
   slide:
-    nimConfSlide:
+    mySlide:
       nbText: hlMd"""
 ## Nimib goes interactive!
 Create interactive elements in Nimib using Nim!
 """
 
-    nimConfSlide:
+    mySlide:
       nbText: hlMd"""
 ### Why? 
 """
@@ -60,20 +60,20 @@ Create interactive elements in Nimib using Nim!
       fadeInText: "Runs locally"
       fadeInText: "Fun!"
 
-    nimConfSlide:
+    mySlide:
       nbText: "### How?"
       fadeInText: "Nim → JS"
       fadeInText: "Capture variables"
 
 
-    nimConfSlide:
+    mySlide:
       nbText: hlMd"""
 ### API
 - `nbJsFromCode` - compiles code to JS
 - `nbKaraxCode` - sugar for Karax
 """
 
-    nimConfSlide:
+    mySlide:
       nbText: "nbJsFromCode"
       nimibCodeAnimate(1..2, 4, 5..8, 10, 12, 13, 14):
         nbRawHtml: """<p id="text-id">You have clicked 0 times!</p>
@@ -92,7 +92,7 @@ Create interactive elements in Nimib using Nim!
             paragraph.innerHtml = "You have clicked " & $counter & " times!"
           )
 
-    nimConfSlide:
+    mySlide:
       nbText: "Capture variables"
       speakerNote: "Must capture variables in C-land to use their values in JS-land"
       nimibCodeAnimate(1..2, 3..6, 7, 8..11, 12..15):
@@ -112,7 +112,7 @@ Create interactive elements in Nimib using Nim!
             paragraph.innerHtml = name & "'s favourite food is " & food
           )
 
-    nimConfSlide:
+    mySlide:
       nbText: "nbJsFromCode + Karax"
       nbCodeDontRunAnimate(@[1..2, 4..4, 6..7, 15..15], @[5..5, 8..13]): #nimibCodeAnimate(@[1..2, 4..4, 6..7, 15..15], @[5..5, 8..13]):
         let rootId = "karax-" & $nb.newId()
@@ -131,7 +131,7 @@ Create interactive elements in Nimib using Nim!
 
           setRenderer(createDom, root = rootId.cstring)
 
-    nimConfSlide:
+    mySlide:
       nbText: "nbKaraxCode"
       nimibCodeAnimate(1, 2, 3, 4..5, 6..9):
         nbKaraxCode:
@@ -144,7 +144,7 @@ Create interactive elements in Nimib using Nim!
               proc onClick() =
                 counter += 1
 
-    nimConfSlide:
+    mySlide:
       nbText: "postRender"
       nimibCodeAnimate(1..2, 25..26, 4, 5..7, 8..14, 15..23):
         nbKaraxCode:
@@ -181,13 +181,13 @@ Create interactive elements in Nimib using Nim!
 
 template slidesNimiBoost* =
   slide:
-    nimConfSlide:
+    mySlide:
       nbText: hlMd"""
 ## Nimiboost
 VS Codium/VS Code extension
 """
 
-    nimConfSlide:
+    mySlide:
       nbText: "### Features"
       unorderedList:
         listItem: nbText: "Syntax highlighting"
