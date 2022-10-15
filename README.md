@@ -70,7 +70,7 @@ Title: Nimib goes interactive
       - [x] embed html
       - [x] use nimconf for this part of slides
     - [x] refactor to allow easy change to nimconfslides
-  - [ ] record the 0.3.x changes part
+  - [x] record the 0.3.x changes part
   - [x] record description of plant_app as example of js
   - [x] contributing slides draft
   - [x] roadmap draft
@@ -98,6 +98,11 @@ Title: Nimib goes interactive
   - [x] roadmap
   - [x] hi, thanks, goodbye
 
+
+cleanup blcok slides before recording again:
+- [x] remove stuff and redo what is a block
+- [x] add a note that all example will be found in nblog and a link
+
 ## recording
 
 ### recording sessions (October 2 and October 9)
@@ -105,14 +110,14 @@ Title: Nimib goes interactive
 homework:
   Pietro:
     - [x] livecoding recording
-    - [ ] complete release slides
-    - [ ] record release part
+    - [x] complete release slides
+    - [x] record release part
     - [x] record plant app
     - [x] work on later slides (contribution + roadmap)
   Hugo:
     - [x] nimiboost recording
     - [x] record part 2 of slides (+ details)
-    - [ ] test putting together videos
+    - [ ] put together videos
 
 during sessions:
   - [x] record intro together - Oct 2
@@ -141,7 +146,15 @@ nice to have:
   - roadmap
   - thanks 
 
-5+5+20?+15+5+10 = 1h?
+ 4 intro +
+ 5 livecoding + 
+18 blocks +
+16 js +
+ 5 nimiboost +
+ 5 plant app +
+10 outro
+ =
+1h03'
 
 up for cuts:
 - plant app 5
