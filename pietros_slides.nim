@@ -542,4 +542,5 @@ when isMainModule:
   slidesBlocks
   slidesFancyBlocks
   #slidesPlantApp
+  slideText: fmt" ## {title_python}"
   nbSave
