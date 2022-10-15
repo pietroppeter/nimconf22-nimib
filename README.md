@@ -2,17 +2,80 @@
 
 slides for nimib presentation at nimconf 2022
 
-Title: Nimib goes interactive
+**Title**: Nimib goes interactive
 
-**October 9th - send a video recording of your talk!**
+## summary
 
-## prep
+- [both: 4 mins]
+  - intro (title, who we are, previous presentation, content of presentation)
+- [pietro: 5 mins]
+  - intro to nimib with livecoding (example with QRgen)
+- [pietro: 18 mins]
+  - introduce nimib 0.3 changes
+  - nimibCodeAsInSource is default
+  - make your own block
+  - fancy blocks
+- [hugo: 16 mins]
+  - nbPython
+  - nbJSstuff
+- [pietro 5 mins]
+  - js plant app
+- [hugo: 5 mins]
+  - nimiboost
+- [both 10 mins] outro
+  - roadmap
+  - contributing (back together)
+  - thanks 
 
-- [x] release 0.3.1 nimib
-- [ ] stuff in https://github.com/pietroppeter/nimib/discussions/112
+ 4 intro +
+ 5 livecoding + 
+18 blocks +
+16 js +
+ 5 nimiboost +
+ 5 plant app +
+10 outro
+ =
+1h03'
+
+up for cuts:
+- plant app 5
+- nimiboost 5
 
 ## status
 
+- [x] record and send presentation
+  - [ ] will they ask us to cut it?
+- [ ] add contribute.md to nimib
+- [ ] cleanup roadmap
+  - [ ] cleanup and label issues
+- [ ] prepare slides and repo to be made public on conf day
+  - [ ] single index.nim with slides
+    - [ ] refactor intro
+    - [ ] refactor hugos_slides
+  - [ ] add source(s) of slides (bottom of title page)?
+
+### meetings:
+
+- [x] Sep 10th, Sat 12:00
+- [x] Sep 17-18, Sat 15:00
+- [x] Sep 24-25, Sun 15:00
+- [x] Oct 1 - Sun 10-12 start recording (all individual parts + intro together)
+- [x] Oct 9 - Sun 10-12:30
+- [x] Oct 13 (Thu) **deadline for video**
+- [ ] Oct 15-16 (what else?)
+- [ ] Oct 22, Saturday NIMCONF!!!!
+
+### recording
+
+* video recording: https://obsproject.com
+* video editing: https://www.openshot.org/
+* using a circular mask for the webcam, as in [this video](https://www.youtube.com/watch?v=4i5rTa7m9Uo)
+  - add filter -> image mask -> select `circular_mask_obs.png` here in repo
+* to record both persons at the same time, share second display with zoom video and crop to fit the circle
+
+### preparing slides
+
+- [x] release 0.3.1 nimib
 - together
   - [x] title slide
   - [x] presentation content slide
@@ -98,12 +161,9 @@ Title: Nimib goes interactive
   - [x] roadmap
   - [x] hi, thanks, goodbye
 
-
 cleanup blcok slides before recording again:
 - [x] remove stuff and redo what is a block
 - [x] add a note that all example will be found in nblog and a link
-
-## recording
 
 ### recording sessions (October 2 and October 9)
 
@@ -117,71 +177,15 @@ homework:
   Hugo:
     - [x] nimiboost recording
     - [x] record part 2 of slides (+ details)
-    - [ ] put together videos
+    - [x] put together videos
 
 during sessions:
   - [x] record intro together - Oct 2
   - [x] record outro together - Oct 9
 
-nice to have:
-  - [ ] cornerImage without JS?
-  - [ ] qr code links around
-  - [ ] whale in the qr code
-  - [ ] source of slides (bottom of title slide)
+#### nice to have
 
-## summary
-- [both: 5 mins] intro (title, who we are, previous presentation, content of presentation) - together
-- [pietro: 5 mins] nimib livecoding
-- [pietro: 20mins?] nimib 0.3 changes
-  - nimibCodeAsInSource is default
-  - make your own blok
-    - fancy blocks
-- [hugo: 15 mins]
-  - nbPython (as a curiosity we should mention issues - in particular CI)
-  - nbJSstuff...
-  - [pietro 5 mins] plant app
-- [hugo: 5 mins] nimiboost
-- [both 10 mins] outro
-  - contributing (back together)
-  - roadmap
-  - thanks 
-
- 4 intro +
- 5 livecoding + 
-18 blocks +
-16 js +
- 5 nimiboost +
- 5 plant app +
-10 outro
- =
-1h03'
-
-up for cuts:
-- plant app 5
-- nimiboost 5
-- make sure blocks is under 15
-
-video recording: OBS
-
-video editing: https://www.openshot.org/
-
-meetings:
-- [x] Sep 10th, Sat 12:00
-- [x] Sep 17-18, Sat 15:00
-- [x] Sep 24-25, Sun 15:00
-- [x] Oct 1 - Sun 10-12 start recording (all individual parts + intro together)
-- [x] Oct 9 - Sun 10-12:30
-- [ ] Oct 13 (Thu) **deadline for video**
-- [ ] Oct 15-16 (what else?)
-- [ ] Oct 22, Saturday NIMCONF!!!!
-
-### random notes
-
-- all links (to slides repo, to livecoding video) will have a small qr code in the slides
-- Pietro using a circular mask for the webcam, as in [this video](https://www.youtube.com/watch?v=4i5rTa7m9Uo)
-- very easy, add filter -> image mask -> select `circular_mask_obs.png` here in repo
-- ideas for Thank you slide:
-  - add a gif from here: https://giphy.com/explore/thank-you
-    or here: https://giphy.com/search/thank-you-for-listening
-  - a nim/js app that cycles through "Thanks" in different languages
-    (Grazie, Takk, Arigato - but written in japanese, ...)
+- [ ] cornerImage without JS? or at least without calling JS every time
+- [ ] qr code links around
+- [ ] whale in the qr code
+- [ ] source of slides (bottom of title slide)

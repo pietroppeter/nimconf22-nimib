@@ -10,5 +10,5 @@ srcDir        = "src"
 # Dependencies
 
 requires "nim >= 1.6.6"
-requires "nimib >= 0.3.0"
-requires "nimislides >= 0.1"
+requires "nimib >= 0.3.1"
+requires "nimislides >= 0.2"
