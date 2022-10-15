@@ -1,13 +1,8 @@
 import nimib
 import nimiSlides
-import custom_blocks
+import custom_blocks, intro
 import std / [strformat, strutils]
 
-
-template slideLiveCoding* =
-  mySlide:
-    nbText: "## A livecoding👨‍💻 intro to Nimib🐳"
-    speakerNote: "here I need to add the video" 
 
 template slideBlockMaker* =
   mySlide:

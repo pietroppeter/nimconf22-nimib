@@ -50,7 +50,7 @@ up for cuts:
   - [ ] cleanup and label issues
 - [ ] prepare slides and repo to be made public on conf day
   - [ ] single index.nim with slides
-    - [ ] refactor intro
+    - [x] refactor intro
     - [ ] refactor hugos_slides
   - [ ] add source(s) of slides (bottom of title page)?
 
