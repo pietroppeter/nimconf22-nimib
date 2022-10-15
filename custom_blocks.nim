@@ -26,6 +26,9 @@ template myInit*(sourceFileRel = "") =
       nimConfTheme()
   addStuff
 
+template useSource*(filename: string) =
+  nb.source = read(filename.RelativeFile)
+
 template addStuff* =
   addNbTextSmall
   addNbCodeDontRun
