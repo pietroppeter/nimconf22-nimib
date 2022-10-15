@@ -45,9 +45,10 @@ up for cuts:
 
 - [x] record and send presentation
   - [ ] will they ask us to cut it?
-- [ ] add contribute.md to nimib
-- [ ] cleanup roadmap
-  - [ ] cleanup and label issues
+- [ ] nimib
+  - [ ] add contribute.md
+  - [ ] cleanup roadmap
+    - [ ] cleanup and label issues
 - [ ] prepare slides and repo to be made public on conf day
   - [ ] single index.nim with slides
     - [x] refactor intro
