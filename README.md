@@ -41,6 +41,26 @@ up for cuts:
 - plant app 5
 - nimiboost 5
 
+## source structure
+
+- for better iteration content is splitted into different modules:
+  - `intro.nim`: initial part of presentation
+  - `pietros_slides`: all slides where pietro is only speaker
+  - `hugos_slides`: all slides where hugo is only speaker
+  - `outro.nim`: final part of presentation
+  - `custom_blocks.nim`: module that contains all custom blocks
+  - `index.nim`: the complete set of slide
+    - needs `useSource` to make sure code sources are read correctly
+- a new theme for slides has been created `nimConfSlide`
+  - currently it compiles a js file for every slide
+  - it is activated by compile time switch `-d:useNimConfSlide`
+  - without that compile time switch the theme is moon
+
+commands to build slides:
+- `nim r -d:useNimConf index --nbShow`
+- `nim r index --nbShow --nbFilename:index_moon.html`
+- `nim r -d:noReveal index --nbShow --nbFilename:index_doc.html` (currently broken)
+
 ## status
 
 - [x] record and send presentation
@@ -50,9 +70,14 @@ up for cuts:
   - [ ] cleanup roadmap
     - [ ] cleanup and label issues
 - [ ] prepare slides and repo to be made public on conf day
-  - [ ] single index.nim with slides
+  - [x] single index.nim with slides
     - [x] refactor intro
     - [x] refactor hugos_slides
+  - [ ] add videos to slides
+    - [ ] livecoding
+    - [ ] plant app
+    - [ ] nimiboost
+  - [ ] add authors and link to repo in title slide
   - [ ] add source(s) of slides (bottom of title page)?
 
 ### meetings:

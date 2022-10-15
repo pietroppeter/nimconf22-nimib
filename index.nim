@@ -24,10 +24,10 @@ when isMainModule:
   slidesNimibInteractive
   # pietro - plant app
   useSource("pietros_slides.nim")
-  slidesPlantApp
+  slidesPlantApp # add video
   # hugo - nimiboost
   useSource("hugos_slides.nim")
-  slidesNimiBoost
+  slidesNimiBoost # add video
   # both - outro
   useSource("outro.nim")
   roadmapSlides
