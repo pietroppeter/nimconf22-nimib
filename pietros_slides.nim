@@ -418,12 +418,15 @@ template slideExplainAddJsAndStyle* =
 template slidesPlantApp* =
   # plant app
   mySlide:
-    mySlide:
+    slideAutoAnimate:
       nbText: hlMdF"## {title_plant}"
       unorderedList:
         listItem: nbText: "example of a more complex nbKarax app"
         listItem: nbText: "based on [a plot function built with js canvas](https://pietroppeter.github.io/nblog/drafts/plant_js.html)"
         listItem: nbText: "preliminary api for [karax widgets](https://pietroppeter.github.io/nblog/drafts/karax_widgets_demo.html)"
+    slideAutoAnimate:
+      nbText: hlMdF"## {title_plant}"
+      nbRawHtml: """<iframe width="560" height="315" src="https://www.youtube.com/embed/QpNSxGu_rQs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>"""
     slideIframeFromNblog("plant_app")
 
 template slidesBlocks* =
@@ -445,6 +448,6 @@ when isMainModule:
   slidesCodeAsInsource
   slidesBlocks
   slidesFancyBlocks
-  #slidesPlantApp
   slideText: "## NbPython"
+  slidesPlantApp
   nbSave

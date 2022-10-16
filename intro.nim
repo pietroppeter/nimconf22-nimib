@@ -48,7 +48,7 @@ template contentSlide* =
 template slideLiveCoding* =
   mySlide:
     nbText: "## A livecoding👨‍💻 intro to Nimib🐳"
-    speakerNote: "here I need to add the video" 
+    nbRawHtml: """<iframe width="560" height="315" src="https://www.youtube.com/embed/6jTZWkof4Cs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>"""
 
 when isMainModule:
   myInit("intro.nim")
