@@ -3,10 +3,32 @@
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/reveal.min.css" integrity="sha512-vFD6wFRj2whK8/X/dMgxJHinKfGlwMYtN+yRCxvxvmOgIiMIlgrFb5iOuCoqwCID+Qcq2/gY8DpmNHcAjfHWxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/theme/moon.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/theme/black.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/plugin/highlight/monokai.min.css" integrity="sha512-z8wQkuDRFwCBfoj7KOiu1MECaRVoXx6rZQWL21x0BsVVH7JkqCp1Otf39qve6CrCycOOL5o9vgfII5Smds23rg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
     
+:root {
+  --r-background-color: #181922;
+  --r-heading-color: #FFE953;
+  --r-link-color: #FFE953;
+  --r-selection-color: #FFE953;
+  --r-link-color-dark: darken(#FFE953 , 15%)
+}
+
+.reveal ul, .reveal ol {
+  display: block;
+  text-align: left;
+}
+
+li::marker {
+  color: #FFE953;
+  content: "»";
+}
+
+li {
+  padding-left: 12px;
+}
+
 button {
   font-size: 30px;
   padding: 10px 24px;
@@ -18,8 +40,14 @@ button {
   <body>
   <div class="reveal">
     <div class="slides">
+      <img src="https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png" style="position: absolute;
+                        top: -20px;
+                        right: -170px;
+                        width: 90px;
+                        height: 70px;"></img>
       <section data-nimib-slide-number="1" >
       <h1>NIMIB🐳 GOES INTERACTIVE🤯</h1>
+      <small><p><a href="https://github.com/pietroppeter/nimconf22-nimib">github.com/pietroppeter/nimconf22-nimib</a></p></small>
       </section>
       <section data-nimib-slide-number="2" >
       <h3>👨‍👩‍👧 Pietro</h3>

@@ -2,9 +2,9 @@ import nimib, nimiSlides
 import custom_blocks
 
 template titleSlide* =
-  slideText: "# NIMIB🐳 GOES INTERACTIVE🤯"
-  # add authors
-  # add link/url to slide
+  mySlide:
+    nbText: "# NIMIB🐳 GOES INTERACTIVE🤯"
+    nbTextSmall: "[github.com/pietroppeter/nimconf22-nimib](https://github.com/pietroppeter/nimconf22-nimib)"
 
 template whoIsPietroSlide* =
   mySlide:

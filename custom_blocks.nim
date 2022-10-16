@@ -24,6 +24,8 @@ template myInit*(sourceFileRel = "") =
       setSlidesTheme(Moon)
     else:
       nimConfTheme()
+    when not defined(skipNimLogo):
+      addNimLogo
   addStuff
 
 template useSource*(filename: string) =
@@ -39,15 +41,32 @@ template addStuff* =
   addBigButtons
   optionalInitPython
 
+# nim logo static
+template addNimLogo* =
+  ## use outside of slides
+  # adapted from https://stackoverflow.com/questions/22033474/place-background-image-in-bottom-corner-of-every-slide-of-reveal-js
+  # background did not work on our conf theme (maybe because of some other settings?)
+  # trick was to use img (and src) instead of div (and background)
+  # had to manually adjust pixels to have it almost the same as corner image, probably because they refer to some other box (not great)
+  nbRawHtml: """
+<img src="https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png" style="position: absolute;
+                        top: -20px;
+                        right: -170px;
+                        width: 90px;
+                        height: 70px;"></img>
+"""
+
 # nim conf slides
 template nimConfSlide*(body: untyped) =
   slide:
-    cornerImage("https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png", UpperRight, size=100, animate=false)
+    when defined(useCornerImage):
+      cornerImage("https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png", UpperRight, size=100, animate=false)
     body
 
 template nimConfSlide*(options: SlideOptions, body: untyped) =
   slide(options):
-    cornerImage("https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png", UpperRight, size=100, animate=false)
+    when defined(useCornerImage):
+      cornerImage("https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png", UpperRight, size=100, animate=false)
     body
 
 # nimconf theme

@@ -16,10 +16,16 @@ button {
     </style>
   </head>
   <body>
-  <div class="reveal">
-    <div class="slides">
-      <section data-nimib-slide-number="1" >
+<div class="reveal">
+  <div class="slides">
+    <img src="https://github.com/nim-lang/assets/raw/master/Art/logo-crown.png" style="position: absolute;
+    top: -20px;
+    right: -170px;
+    width: 90px;
+    height: 70px;"></img>
+        <section data-nimib-slide-number="1" >
       <h1>NIMIB🐳 GOES INTERACTIVE🤯</h1>
+      <small><p><a href="https://github.com/pietroppeter/nimconf22-nimib">github.com/pietroppeter/nimconf22-nimib</a></p></small>
       </section>
       <section data-nimib-slide-number="2" >
       <h3>👨‍👩‍👧 Pietro</h3>
@@ -133,10 +139,7 @@ button {
       </section>
       <section data-nimib-slide-number="6" >
       <h2>A livecoding👨‍💻 intro to Nimib🐳</h2>
-      <aside class="notes">
-  <p>here I need to add the video</p>
-
-</aside>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/6jTZWkof4Cs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </section>
       <section data-nimib-slide-number="7" >
       <section data-nimib-slide-number="8" data-auto-animate >
@@ -913,16 +916,16 @@ function newSeq_33556826(len_33556828) {
 
 }
 
-function lambda_453013324_469762053(event_453013346_469762054) {
-    counter_453013345_469762052[0] += 1;
-    paragraph_453013344_469762051.innerHTML = toJSStr((makeNimstrLit("You have clicked ") || []).concat(HEX24_318767107(counter_453013345_469762052[0]) || [],makeNimstrLit(" times!") || []));
+function lambda_453013372_469762053(event_453013394_469762054) {
+    counter_453013393_469762052[0] += 1;
+    paragraph_453013392_469762051.innerHTML = toJSStr((makeNimstrLit("You have clicked ") || []).concat(HEX24_318767107(counter_453013393_469762052[0]) || [],makeNimstrLit(" times!") || []));
 
   
 }
-var btn_453013343_469762050 = document.getElementById("btn-id");
-var paragraph_453013344_469762051 = document.getElementById("text-id");
-var counter_453013345_469762052 = [0];
-btn_453013343_469762050.addEventListener("click", lambda_453013324_469762053, false);
+var btn_453013391_469762050 = document.getElementById("btn-id");
+var paragraph_453013392_469762051 = document.getElementById("text-id");
+var counter_453013393_469762052 = [0];
+btn_453013391_469762050.addEventListener("click", lambda_453013372_469762053, false);
 </script>
       </div>
   
@@ -2971,17 +2974,17 @@ function parseJson_603985092(buffer_603985093) {
   return result_603985094;
 
 }
-var name_453013964_469762057 = to_469762050(parseJson_603985092(makeNimstrLit("\"Hugo\"")));
-var food_453013965_469762063 = to_469762050(parseJson_603985092(makeNimstrLit("\"hot dogs\"")));
+var name_453014012_469762057 = to_469762050(parseJson_603985092(makeNimstrLit("\"Hugo\"")));
+var food_453014013_469762063 = to_469762050(parseJson_603985092(makeNimstrLit("\"hot dogs\"")));
 
-function lambda_453013963_469762114(event_453013968_469762115) {
-    paragraph_453013967_469762113.innerHTML = toJSStr((name_453013964_469762057 || []).concat(makeNimstrLit("\'s favourite food is ") || [],food_453013965_469762063 || []));
+function lambda_453014011_469762114(event_453014016_469762115) {
+    paragraph_453014015_469762113.innerHTML = toJSStr((name_453014012_469762057 || []).concat(makeNimstrLit("\'s favourite food is ") || [],food_453014013_469762063 || []));
 
   
 }
-var btn_453013966_469762112 = document.getElementById("btn2-id");
-var paragraph_453013967_469762113 = document.getElementById("text2-id");
-btn_453013966_469762112.addEventListener("click", lambda_453013963_469762114, false);
+var btn_453014014_469762112 = document.getElementById("btn2-id");
+var paragraph_453014015_469762113 = document.getElementById("text2-id");
+btn_453014014_469762112.addEventListener("click", lambda_453014011_469762114, false);
 </script>
       </div>
   
@@ -5974,11 +5977,11 @@ function parseJson_603985092(buffer_603985093) {
   return result_603985094;
 
 }
-var rootid_453014745_469762057 = to_469762050(parseJson_603985092(makeNimstrLit("\"karax-0\"")));
+var rootid_453014793_469762057 = to_469762050(parseJson_603985092(makeNimstrLit("\"karax-0\"")));
 var gid_1174405727 = [0];
 var vcomponents_1207959565 = [{}];
 var kxi__nimib_kxi_19 = null;
-var postrendercallback_453014746_469762113 = [null];
+var postrendercallback_453014794_469762113 = [null];
 
 function newSeq_1140851702(len_1140851704) {
   var result_1140851705 = [];
@@ -7328,10 +7331,10 @@ function wrapper_1140851859(ev_1140851860, n_1140851861) {
   
 }
 
-function createdom_453014744_469762119() {
+function createdom_453014792_469762119() {
     
 function HEX3Aanonymous_469762159() {
-        counter_453014748_469762118[0] += 1;
+        counter_453014796_469762118[0] += 1;
 
       
     }
@@ -7340,7 +7343,7 @@ function HEX3Aanonymous_469762159() {
 
     var tmp_469762151 = tree_1174405894(44, []);
     var tmp_469762152 = tree_1174405894(32, []);
-    add_1174405831(tmp_469762152, text_1174405946((makeNimstrLit("You have clicked ") || []).concat(HEX24_318767107(counter_453014748_469762118[0]) || [],makeNimstrLit(" times!") || [])));
+    add_1174405831(tmp_469762152, text_1174405946((makeNimstrLit("You have clicked ") || []).concat(HEX24_318767107(counter_453014796_469762118[0]) || [],makeNimstrLit(" times!") || [])));
     add_1174405831(tmp_469762151, tmp_469762152);
     var tmp_469762157 = tree_1174405894(195, []);
     add_1174405831(tmp_469762157, text_1174405946(makeNimstrLit("Click me!")));
@@ -7351,8 +7354,8 @@ function HEX3Aanonymous_469762159() {
   return result_469762120;
 
 }
-var counter_453014748_469762118 = [0];
-setRenderer_1140851796(createdom_453014744_469762119, toJSStr(rootid_453014745_469762057), postrendercallback_453014746_469762113[0]);
+var counter_453014796_469762118 = [0];
+setRenderer_1140851796(createdom_453014792_469762119, toJSStr(rootid_453014793_469762057), postrendercallback_453014794_469762113[0]);
 </script>
       </div>
   
@@ -10347,11 +10350,11 @@ function parseJson_603985092(buffer_603985093) {
   return result_603985094;
 
 }
-var rootid_453015346_469762057 = to_469762050(parseJson_603985092(makeNimstrLit("\"karax-1\"")));
+var rootid_453015394_469762057 = to_469762050(parseJson_603985092(makeNimstrLit("\"karax-1\"")));
 var gid_1174405727 = [0];
 var vcomponents_1207959565 = [{}];
 var kxi__nimib_kxi_21 = null;
-var postrendercallback_453015347_469762113 = [null];
+var postrendercallback_453015395_469762113 = [null];
 var state_1342177293 = [{a0: 1773455756, a1: 4275166512}];
 if (globalThis.utcInstance_1358955873 === undefined) {
   globalThis.utcInstance_1358955873 = [null];
@@ -10485,21 +10488,21 @@ function HEX2EHEX2E_956302161(a_956302164, b_956302165) {
 
 }
 
-function tempproc_453015344_469762123() {
-    var c_453015349_469762124 = document.getElementById("canvas-id");
-    c_453015349_469762124.width = 500;
-    c_453015349_469762124.height = 100;
-    var ctx_453015350_469762125 = c_453015349_469762124.getContext('2d');
-    ctx_453015350_469762125.fillStyle = toJSStr(HEX24_1325400360(0));
-    ctx_453015350_469762125.fillRect(0, 0, c_453015349_469762124.width, c_453015349_469762124.height);
-    var x_453015351_469762177 = rand_469762145(HEX2EHEX2E_956302161(0, c_453015349_469762124.width));
-    var y_453015352_469762190 = rand_469762145(HEX2EHEX2E_956302161(0, c_453015349_469762124.height));
-    var ballradius_453015353_469762191 = 10;
-    ctx_453015350_469762125.beginPath();
-    ctx_453015350_469762125.arc(x_453015351_469762177, y_453015352_469762190, ballradius_453015353_469762191, 0.0, 6.283185307179586, false);
-    ctx_453015350_469762125.fillStyle = toJSStr(HEX24_1325400360(255));
-    ctx_453015350_469762125.fill("nonzero");
-    ctx_453015350_469762125.closePath();
+function tempproc_453015392_469762123() {
+    var c_453015397_469762124 = document.getElementById("canvas-id");
+    c_453015397_469762124.width = 500;
+    c_453015397_469762124.height = 100;
+    var ctx_453015398_469762125 = c_453015397_469762124.getContext('2d');
+    ctx_453015398_469762125.fillStyle = toJSStr(HEX24_1325400360(0));
+    ctx_453015398_469762125.fillRect(0, 0, c_453015397_469762124.width, c_453015397_469762124.height);
+    var x_453015399_469762177 = rand_469762145(HEX2EHEX2E_956302161(0, c_453015397_469762124.width));
+    var y_453015400_469762190 = rand_469762145(HEX2EHEX2E_956302161(0, c_453015397_469762124.height));
+    var ballradius_453015401_469762191 = 10;
+    ctx_453015398_469762125.beginPath();
+    ctx_453015398_469762125.arc(x_453015399_469762177, y_453015400_469762190, ballradius_453015401_469762191, 0.0, 6.283185307179586, false);
+    ctx_453015398_469762125.fillStyle = toJSStr(HEX24_1325400360(255));
+    ctx_453015398_469762125.fill("nonzero");
+    ctx_453015398_469762125.closePath();
 
   
 }
@@ -11820,7 +11823,7 @@ function tree_1174405894(kind_1174405895, kids_1174405896) {
 
 }
 
-function createdom_453015345_469762221() {
+function createdom_453015393_469762221() {
   var result_469762222 = null;
 
     var tmp_469762253 = tree_1174405894(44, []);
@@ -11832,15 +11835,15 @@ function createdom_453015345_469762221() {
   return result_469762222;
 
 }
-postrendercallback_453015347_469762113[0] = tempproc_453015344_469762123;
-setRenderer_1140851796(createdom_453015345_469762221, toJSStr(rootid_453015346_469762057), postrendercallback_453015347_469762113[0]);
+postrendercallback_453015395_469762113[0] = tempproc_453015392_469762123;
+setRenderer_1140851796(createdom_453015393_469762221, toJSStr(rootid_453015394_469762057), postrendercallback_453015395_469762113[0]);
 </script>
       </div>
   
       </section>
       </section>
       <section data-nimib-slide-number="44" >
-      <section data-nimib-slide-number="45" >
+      <section data-nimib-slide-number="45" data-auto-animate >
       <h2>A mathy plant app 🌱</h2>
       <ul>
       <div class="fragment fade-in" data-fragment-index="57" data-fragment-index-nimib="57"> 
@@ -11866,14 +11869,18 @@ setRenderer_1140851796(createdom_453015345_469762221, toJSStr(rootid_453015346_4
   
       </ul>
       </section>
+      <section data-nimib-slide-number="46" data-auto-animate >
+      <h2>A mathy plant app 🌱</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/QpNSxGu_rQs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </section>
       <section data-background-iframe="https://pietroppeter.github.io/nblog/drafts/plant_app.html" data-background-interactive></section>
       </section>
-      <section data-nimib-slide-number="46" >
       <section data-nimib-slide-number="47" >
+      <section data-nimib-slide-number="48" >
       <h2>Nimiboost</h2>
 <p>VS Codium/VS Code extension</p>
       </section>
-      <section data-nimib-slide-number="48" >
+      <section data-nimib-slide-number="49" >
       <h3>Features</h3>
       <ul>
       <div class="fragment fade-in" data-fragment-index="60" data-fragment-index-nimib="60"> 
@@ -11898,11 +11905,11 @@ setRenderer_1140851796(createdom_453015345_469762221, toJSStr(rootid_453015346_4
   
       </section>
       </section>
-      <section data-nimib-slide-number="49" >
       <section data-nimib-slide-number="50" >
+      <section data-nimib-slide-number="51" >
       <h2>Roadmap🗺️</h2>
       </section>
-      <section data-nimib-slide-number="51" >
+      <section data-nimib-slide-number="52" >
       <h3>priorities</h3>
       <ul>
       <div class="fragment fade-in" data-fragment-index="63" data-fragment-index-nimib="63"> 
@@ -11953,7 +11960,7 @@ setRenderer_1140851796(createdom_453015345_469762221, toJSStr(rootid_453015346_4
       </ul>
       </ul>
       </section>
-      <section data-nimib-slide-number="52" >
+      <section data-nimib-slide-number="53" >
       <h3>0.3.x</h3>
       <ul>
       <div class="fragment fade-in" data-fragment-index="69" data-fragment-index-nimib="69"> 
@@ -12007,7 +12014,7 @@ setRenderer_1140851796(createdom_453015345_469762221, toJSStr(rootid_453015346_4
   
       </ul>
       </section>
-      <section data-nimib-slide-number="53" >
+      <section data-nimib-slide-number="54" >
       <h3>further down the road</h3>
       <ul>
       <div class="fragment fade-in" data-fragment-index="76" data-fragment-index-nimib="76"> 
@@ -12048,11 +12055,11 @@ setRenderer_1140851796(createdom_453015345_469762221, toJSStr(rootid_453015346_4
       </ul>
       </section>
       </section>
-      <section data-nimib-slide-number="54" >
       <section data-nimib-slide-number="55" >
+      <section data-nimib-slide-number="56" >
       <h2>Contributing🤲</h2>
       </section>
-      <section data-nimib-slide-number="56" data-auto-animate >
+      <section data-nimib-slide-number="57" data-auto-animate >
       <h3>👩‍💻Improved Dev Experience</h3>
       <ul>
       <div class="fragment fade-in" data-fragment-index="81" data-fragment-index-nimib="81"> 
@@ -12092,7 +12099,7 @@ setRenderer_1140851796(createdom_453015345_469762221, toJSStr(rootid_453015346_4
   
       </ul>
       </section>
-      <section data-nimib-slide-number="57" data-auto-animate >
+      <section data-nimib-slide-number="58" data-auto-animate >
       <h3>👩‍💻Improved Dev Experience</h3>
       <h4>Deploy preview</h4>
       <figure>
@@ -12100,7 +12107,7 @@ setRenderer_1140851796(createdom_453015345_469762221, toJSStr(rootid_453015346_4
 <figcaption></figcaption>
 </figure>
       </section>
-      <section data-nimib-slide-number="58" >
+      <section data-nimib-slide-number="59" >
       <h3>🎪Nimib Speaking Hours!</h3>
       <ul>
       <div class="fragment fade-in" data-fragment-index="86" data-fragment-index-nimib="86"> 
@@ -12139,7 +12146,7 @@ setRenderer_1140851796(createdom_453015345_469762221, toJSStr(rootid_453015346_4
   
       </section>
       </section>
-      <section data-nimib-slide-number="59" >
+      <section data-nimib-slide-number="60" >
       <h5>Thank you for listening!</h5>
       <div id="textSwitcher-2" style="position: absolute; width: 100%; opacity: 0; text-align: center;">Tack</div>
       <div id="textSwitcher-3" style="position: absolute; width: 100%; opacity: 0; text-align: center;">谢谢</div>

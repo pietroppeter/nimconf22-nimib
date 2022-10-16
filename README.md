@@ -61,6 +61,13 @@ commands to build slides:
 - `nim r index --nbShow --nbFilename:index_moon.html`
 - `nim r -d:noReveal index --nbShow --nbFilename:index_doc.html` (currently broken)
 
+### corner image
+
+- we are adding a corner image with nim logo
+- we used to do this with a js that ran for every slide (`-d:useCornerImage` and `-d:skipNimLogo`)
+- now we do it with a static image tag
+- it does not work in nimiboost (compare e.g. intro with nimiboost and intro from command line), not sure why
+
 ## status
 
 - [x] record and send presentation
@@ -77,7 +84,7 @@ commands to build slides:
     - [x] livecoding
     - [x] plant app
     - [ ] nimiboost
-  - [ ] add authors and link to repo in title slide
+  - [x] add ~~authors and~~ link to repo in title slide
   - [ ] add source(s) of slides (bottom of title page)?
   - [ ] build index.nim with python
 
