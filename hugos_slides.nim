@@ -194,6 +194,8 @@ VS Codium/VS Code extension
         listItem: nbText: "Preview"
       fadeInText: "Let's head over to VSCodium!"
 
+    mySlide(slideOptions(iframeBackground="https://www.youtube.com/embed/JMlwHJOO_LU")): discard
+
 when isMainModule:
   myInit("hugos_slides.nim")
   slidesNbPython

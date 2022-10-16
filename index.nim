@@ -1,4 +1,4 @@
-import nimib, nimislides
+import nimib, nimiSlides
 import custom_blocks
 import intro, outro, pietros_slides, hugos_slides
 
