@@ -82,7 +82,6 @@ commands to build slides:
     - [x] refactor hugos_slides
   - [ ] add videos to slides
     - [x] livecoding
-    - [x] plant app
     - [ ] nimiboost
   - [x] add ~~authors and~~ link to repo in title slide
   - [ ] add source(s) of slides (bottom of title page)?
